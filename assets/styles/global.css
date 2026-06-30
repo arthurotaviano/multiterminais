@@ -922,7 +922,7 @@ i {
 
 @media (max-width: 809px) {
   .globalheader-nav-link {
-    font-size: 12px;
+    font-size: 13px;
   }
 }
 
@@ -1004,23 +1004,6 @@ i {
     border-radius: 0;
     width: 100%;
     background-color: transparent;
-  }
-}
-
-.globalheader-nav-submenu::before {
-  content: '';
-  position: absolute;
-  bottom: 100%;
-  left: 24px;
-  display: block;
-  border-width: 0 8px 8px 8px;
-  border-style: solid;
-  border-color: transparent transparent var(--color-background-dark) transparent;
-}
-
-@media (max-width: 767px) {
-  .globalheader-nav-submenu::before {
-    display: none;
   }
 }
 
