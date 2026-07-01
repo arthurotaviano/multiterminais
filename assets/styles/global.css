@@ -302,8 +302,9 @@ a {
   --color-background-secondary: #f5f5f7;
   --color-background-dark: #1c2229;
   --color-foreground: #1d1d1f;
-  --color-foreground-secondary: #6e6e73;
   --color-foreground-dark: #fff;
+  --color-foreground-secondary: #6e6e73;
+  --color-foreground-secondary-dark: #b3b3b8;
   --color-accent: #e10026;
   --color-accent-hover: #c5001f;
   --color-accent-active: #a00019;
@@ -1036,6 +1037,35 @@ i {
     display: block;
     width: 100%;
     height: 20px;
+  }
+}
+
+.globalheader-nav-submenu-list-with-sublist {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (max-width: 767px) {
+  .globalheader-nav-submenu-list-with-sublist {
+    gap: 20px;
+  }
+}
+
+.globalheader-nav-submenu-label {
+  display: block;
+  padding: 6px;
+  color: var(--color-foreground-secondary-dark);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+  .globalheader-nav-submenu-label {
+    padding-inline: 10px;
+    color: var(--color-foreground-secondary);
   }
 }
 
