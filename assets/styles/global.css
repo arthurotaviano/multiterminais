@@ -1037,7 +1037,7 @@ i {
     content: '';
     display: block;
     width: 100%;
-    height: 20px;
+    height: 0;
   }
 }
 
