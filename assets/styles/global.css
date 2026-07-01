@@ -402,8 +402,13 @@ i {
   background-color: var(--color-background);
 }
 
+html.no-js .globalheader {
+  height: 134px;
+}
+
 @media (max-width: 767px) {
-  .globalheader {
+  .globalheader,
+  html.no-js .globalheader {
     height: 124px;
   }
 }
@@ -587,12 +592,16 @@ i {
   inset-inline-end: 20px;
   z-index: 2;
   display: block;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   border: 1px solid var(--color-border);
   border-radius: 8px;
   padding-inline: 6px;
   background-color: var(--color-background);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   font-size: 14px;
+}
+
+html.no-js .globalheader-head-dropdown {
+  display: none;
 }
 
 @media (max-width: 767px) {
@@ -693,6 +702,10 @@ i {
   .globalheader-head-menutrigger {
     display: block;
   }
+
+  html.no-js .globalheader-head-menutrigger {
+    display: none;
+  }
 }
 
 .globalheader-head-menutrigger-button {
@@ -743,6 +756,57 @@ i {
   transition:
     bottom 250ms ease,
     transform 250ms ease 250ms;
+}
+
+.globalheader-head-directoryanchor {
+  display: none;
+  align-items: center;
+  gap: 2px;
+  white-space: nowrap;
+  border-radius: 9999px;
+  border: 1px solid var(--color-accent);
+  padding-block: 6px;
+  padding-inline: 12px;
+  background-color: var(--color-background);
+  color: var(--color-accent);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+html.no-js .globalheader-head-directoryanchor {
+  display: inline-flex;
+}
+
+@media (max-width: 767px) {
+  .globalheader-head-directoryanchor {
+    padding-block: 4px;
+    padding-inline: 10px;
+    font-size: 12px;
+  }
+}
+
+.globalheader-head-directoryanchor:hover {
+  border-color: var(--color-accent-hover);
+  background-color: var(--color-accent-hover);
+  color: var(--color-foreground-dark);
+}
+
+.globalheader-head-directoryanchor:active {
+  border-color: var(--color-accent-active);
+  background-color: var(--color-accent-active);
+  color: var(--color-foreground-dark);
+}
+
+.globalheader-head-directoryanchor-icon {
+  margin-block-start: 2px;
+  pointer-events: none;
+}
+
+.globalheader-head-directoryanchor-icon svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
 }
 
 /* Global Header - Navigation
@@ -801,6 +865,10 @@ i {
   .globalheader-nav::after {
     display: none;
   }
+}
+
+html.no-js .globalheader-nav {
+  display: none;
 }
 
 @media (max-width: 767px) {
@@ -1115,8 +1183,13 @@ i {
   height: 178px;
 }
 
+html.no-js .globalheader-placeholder {
+  height: 134px;
+}
+
 @media (max-width: 767px) {
-  .globalheader-placeholder {
+  .globalheader-placeholder,
+  html.no-js .globalheader-placeholder {
     height: 124px;
   }
 }
