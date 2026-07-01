@@ -708,6 +708,7 @@ i {
   position: absolute;
   left: 16px;
   display: block;
+  border-radius: 2px;
   width: 16px;
   height: 2px;
   background-color: var(--color-foreground);
