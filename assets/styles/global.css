@@ -936,6 +936,20 @@ i {
   }
 }
 
+@media (min-width: 768px) and (max-width: 1023px) {
+  .globalheader-nav-link-label-hide {
+    position: absolute;
+    white-space: nowrap;
+    overflow: hidden;
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    clip-path: inset(50%);
+  }
+}
+
 .globalheader-nav-link-icon {
   margin-block-start: 2px;
   pointer-events: none;
@@ -995,7 +1009,7 @@ i {
   position: relative;
   display: block;
   border-radius: 12px;
-  width: 280px;
+  width: 300px;
   background-color: var(--color-background-dark);
 }
 
