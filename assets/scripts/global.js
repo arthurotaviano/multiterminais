@@ -147,12 +147,12 @@ class GlobalHeaderSubmenuHover {
   }
 
   handleMouseOver() {
-    this.container.setAttribute('data-globalheader-nav-submenu-open', '')
+    this.container.classList.add('globalheader-nav-item-expanded')
     this.trigger.setAttribute('aria-expanded', 'true')
   }
 
   handleMouseLeave() {
-    this.container.removeAttribute('data-globalheader-nav-submenu-open')
+    this.container.classList.remove('globalheader-nav-item-expanded')
     this.trigger.setAttribute('aria-expanded', 'false')
   }
 
@@ -164,7 +164,7 @@ class GlobalHeaderSubmenuHover {
   destroy() {
     this.container.removeEventListener('mouseover', this.handleMouseOver)
     this.container.removeEventListener('mouseleave', this.handleMouseLeave)
-    this.container.removeAttribute('data-globalheader-nav-submenu-open')
+    this.container.classList.remove('globalheader-nav-item-expanded')
     this.trigger.setAttribute('aria-expanded', 'false')
   }
 }
@@ -204,7 +204,7 @@ class GlobalHeaderSubmenuClick {
     ghCloseOtherSubmenus(this.container)
 
     this.trigger.setAttribute('aria-expanded', String(!isExpanded))
-    this.container.toggleAttribute('data-globalheader-nav-submenu-open', !isExpanded)
+    this.container.classList.toggle('globalheader-nav-item-expanded', !isExpanded)
   }
 
   handleFocusout(event) {
@@ -219,7 +219,7 @@ const ghSubmenuContainers = document.querySelectorAll('[data-globalheader-nav-su
 const ghHoverCapable = window.matchMedia('(min-width: 768px) and (hover: hover) and (pointer: fine)')
 
 const ghCloseSubmenu = container => {
-  container.removeAttribute('data-globalheader-nav-submenu-open')
+  container.classList.remove('globalheader-nav-item-expanded')
   container.querySelector('.globalheader-nav-link').setAttribute('aria-expanded', 'false')
 }
 
