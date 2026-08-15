@@ -1091,22 +1091,14 @@ html.no-js .globalheader-nav {
 
 @media (max-width: 767px) {
   .globalheader-nav-submenu-container {
-    position: absolute;
-    top: 100%;
-    inset-inline-start: 0;
-    z-index: -1;
-    transform: translateY(-100px);
-    overflow: hidden;
-    visibility: hidden;
+    display: grid;
+    grid-template-rows: 0fr;
     width: 100%;
+    transition: grid-template-rows 250ms ease;
   }
 
   .globalheader-nav-item.globalheader-nav-item-expanded .globalheader-nav-submenu-container {
-    position: static;
-    z-index: 1;
-    transform: none;
-    visibility: visible;
-    transition: transform 250ms ease;
+    grid-template-rows: 1fr;
   }
 }
 
@@ -1120,9 +1112,19 @@ html.no-js .globalheader-nav {
 
 @media (max-width: 767px) {
   .globalheader-nav-submenu {
+    align-self: start;
+    visibility: hidden;
+    overflow: hidden;
     border-radius: 0;
+    min-height: 0;
     width: 100%;
     background-color: transparent;
+    transition: visibility 0s linear 250ms;
+  }
+
+  .globalheader-nav-item.globalheader-nav-item-expanded .globalheader-nav-submenu {
+    visibility: visible;
+    transition: visibility 0s linear 0s;
   }
 }
 
@@ -1360,6 +1362,16 @@ html.no-js .globalheader-placeholder {
     gap: 0;
   }
 
+  html.js .globalfooter-directory-section {
+    display: grid;
+    grid-template-rows: min-content 0fr;
+    transition: grid-template-rows 250ms ease;
+  }
+
+  html.js .globalfooter-directory-section.globalfooter-directory-section-expanded {
+    grid-template-rows: min-content 1fr;
+  }
+
   .globalfooter-directory-section::after {
     content: '';
     position: absolute;
@@ -1469,24 +1481,22 @@ html.no-js .globalheader-placeholder {
   }
 
   html.js .globalfooter-directory-section > .globalfooter-directory-section-list {
-    position: absolute;
-    top: 100%;
-    inset-inline-start: 0;
-    z-index: -1;
-    overflow: hidden;
+    align-self: start;
     visibility: hidden;
-    transform: translateY(-100px);
-    will-change: transform;
-    margin-block-end: 24px;
+    overflow: hidden;
+    margin-block-end: 0;
+    min-height: 0;
     width: 100%;
+    transition: visibility 0s linear 250ms;
+  }
+
+  html.js .globalfooter-directory-section > .globalfooter-directory-section-list > .globalfooter-directory-section-item:last-child {
+    padding-block-end: 24px;
   }
 
   html.js .globalfooter-directory-section.globalfooter-directory-section-expanded > .globalfooter-directory-section-list {
-    position: static;
-    z-index: 1;
     visibility: visible;
-    transform: none;
-    transition: transform 250ms ease;
+    transition: visibility 0s linear 0s;
   }
 }
 
