@@ -2,30 +2,22 @@
  * Hero
  * ================================================== */
 
+.section-hero {
+  padding-block: 0;
+}
+
 .section-hero .hero-carousel {
   position: relative;
-  overflow: hidden;
   display: flex;
   flex-direction: column-reverse;
-  border-radius: 18px;
   margin-inline: auto;
   width: 100%;
-}
-
-html.no-js .section-hero .hero-carousel {
-  border-radius: 0;
-}
-
-@media (max-width: 767px) {
-  .section-hero .hero-carousel {
-    border-radius: 0;
-  }
 }
 
 .section-hero .hero-carousel-tabs-container {
   position: relative;
   z-index: 2;
-  background-color: var(--color-background-dark);
+  background-color: var(--color-background-blue);
 }
 
 html.no-js .section-hero .hero-carousel-tabs-container {
@@ -45,6 +37,7 @@ html.no-js .section-hero .hero-carousel-tabs-container {
   display: flex;
   align-items: stretch;
   margin-inline: auto;
+  padding-inline: 20px;
   width: 100%;
   max-width: 1240px;
 }
@@ -52,6 +45,7 @@ html.no-js .section-hero .hero-carousel-tabs-container {
 @media (max-width: 767px) {
   .section-hero .hero-carousel-tabs-content {
     align-items: center;
+    padding-inline: 16px;
     min-height: 24px;
   }
 }
@@ -86,14 +80,14 @@ html.no-js .section-hero .hero-carousel-tabs-container {
 
 .section-hero .hero-carousel-tab:hover,
 .section-hero .hero-carousel-tab.is-active {
-  background-color: var(--color-background-secondary-dark);
+  background-color: var(--color-background-secondary-blue);
 }
 
-.section-hero .hero-carousel-tab.is-active::before {
+.section-hero .hero-carousel-tab.is-active::after {
   content: '';
   position: absolute;
-  top: 0;
   right: 0;
+  bottom: 0;
   left: 0;
   z-index: 1;
   width: 100%;
@@ -121,7 +115,7 @@ html.no-js .section-hero .hero-carousel-tabs-container {
     background-color: var(--color-accent-active);
   }
 
-  .section-hero .hero-carousel-tab.is-active::before {
+  .section-hero .hero-carousel-tab.is-active::after {
     display: none;
   }
 }
@@ -153,8 +147,8 @@ html.no-js .section-hero .hero-carousel-tabs-container {
 
 .section-hero .hero-carousel-autoplay {
   position: absolute;
-  right: 64px;
-  bottom: calc(100% + 64px);
+  right: 34px;
+  bottom: calc(100% + 60px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -190,11 +184,17 @@ html.no-js .section-hero .hero-carousel-tabs-container {
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .section-hero .hero-carousel-autoplay {
+    display: none;
+  }
+}
+
 .section-hero .hero-carousel-autoplay-icon,
 .section-hero .hero-carousel-autoplay-icon svg {
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
 }
 
 @media (max-width: 767px) {
@@ -221,7 +221,6 @@ html.no-js .section-hero .hero-carousel-tabs-container {
 .section-hero .hero-carousel-slides {
   position: relative;
   z-index: 1;
-  overflow: hidden;
 }
 
 html.no-js .section-hero .hero-carousel-slides {
@@ -230,48 +229,14 @@ html.no-js .section-hero .hero-carousel-slides {
   gap: 24px;
 }
 
-@media (max-width: 767px) {
-  .section-hero .hero-carousel-slides {
-    border-radius: 12px;
-  }
-
-  html.no-js .section-hero .hero-carousel-slides {
-    border-radius: 0;
-  }
-}
-
 .section-hero .hero-carousel-slide {
   position: relative;
   display: none;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 48px;
-  align-items: center;
-  margin-inline: auto;
-  padding: 48px;
-  width: 100%;
-  max-width: 1240px;
 }
 
 .section-hero .hero-carousel-slide.is-active,
 html.no-js .section-hero .hero-carousel-slide {
-  display: grid;
-}
-
-html.no-js .section-hero .hero-carousel-slide {
-  overflow: hidden;
-  border-radius: 18px;
-}
-
-@media (max-width: 767px) {
-  .section-hero .hero-carousel-slide {
-    grid-template-columns: auto;
-    gap: 24px;
-    padding: 24px;
-  }
-
-  html.no-js .section-hero .hero-carousel-slide {
-    border-radius: 12px;
-  }
+  display: block;
 }
 
 .section-hero .hero-carousel-slide-background {
@@ -296,14 +261,38 @@ html.no-js .section-hero .hero-carousel-slide {
   backdrop-filter: blur(10px);
 }
 
+.section-hero .hero-carousel-slide-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+  align-items: center;
+  margin-inline: auto;
+  padding-block: 48px;
+  padding-inline: 20px;
+  max-width: 1240px;
+}
+
+@media (max-width: 1024px) {
+  .section-hero .hero-carousel-slide-content {
+    gap: 32px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-hero .hero-carousel-slide-content {
+    grid-template-columns: auto;
+    gap: 24px;
+    padding-block: 36px;
+    padding-inline: 16px;
+  }
+}
+
 .section-hero .hero-carousel-slide-text,
 .section-hero .hero-carousel-slide-image {
   position: relative;
   z-index: 3;
 }
 
-/* Replays on every slide change: the outgoing slide goes back to
- * `display: none`, which restarts the animation on the incoming one. */
 @keyframes hero-carousel-slide-fade-up {
   from {
     opacity: 0;
@@ -325,6 +314,13 @@ html.no-js .section-hero .hero-carousel-slide {
   animation-delay: 125ms;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .section-hero .hero-carousel-slide.is-active .hero-carousel-slide-text,
+  .section-hero .hero-carousel-slide.is-active .hero-carousel-slide-image {
+    animation: none;
+  }
+}
+
 .section-hero .hero-carousel-slide-text {
   display: flex;
   flex-direction: column;
@@ -335,9 +331,33 @@ html.no-js .section-hero .hero-carousel-slide {
 
 .section-hero .hero-carousel-slide-title {
   font-family: 'DIN', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 32px;
-  font-weight: 700;
+  font-size: 52px;
+  line-height: 1.1;
+  font-weight: 400;
   text-transform: uppercase;
+}
+
+@media (max-width: 1024px) {
+  .section-hero .hero-carousel-slide-title {
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-hero .hero-carousel-slide-title {
+    font-size: 32px;
+  }
+}
+
+.section-hero .hero-carousel-slide-title .highlight {
+  display: block;
+  font-weight: 700;
+}
+
+@media (max-width: 767px) {
+  .section-hero .hero-carousel-slide-title .highlight {
+    display: inline-block;
+  }
 }
 
 .section-hero .hero-carousel-slide-paragraph {

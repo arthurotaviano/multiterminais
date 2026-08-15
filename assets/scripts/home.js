@@ -58,12 +58,12 @@
   // Hero - Autoplay
   // ==================================================
 
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+
   let intervalId = null
 
   const isPlaying = () => autoplayBtn.classList.contains('is-playing')
 
-  // The outgoing slide is hidden, so focus inside it would be lost: carry it
-  // over to the same spot on the incoming slide.
   function advance() {
     const active = document.activeElement
     const fromSlide = slides[current].contains(active)
@@ -79,7 +79,7 @@
   }
 
   function play() {
-    if (isPlaying()) return
+    if (reducedMotion.matches || isPlaying()) return
     autoplayBtn.classList.add('is-playing')
     autoplayBtn.setAttribute('aria-label', 'Pausar apresentação automática')
     slidesEl.setAttribute('aria-live', 'off')
@@ -127,10 +127,13 @@
         return
     }
     e.preventDefault()
+    pause()
     goTo(next, true)
   })
 
   slidesEl.setAttribute('aria-live', 'polite')
 
-  if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) play()
+  reducedMotion.addEventListener('change', () => (reducedMotion.matches ? pause() : play()))
+
+  play()
 })()

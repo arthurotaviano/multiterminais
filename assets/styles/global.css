@@ -214,10 +214,8 @@
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
   }
 }
 
@@ -300,9 +298,11 @@ a {
   --color-border: #eaeaed;
   --color-border-dark: #2f343a;
   --color-background: #fff;
-  --color-background-secondary: #f5f5f7;
   --color-background-dark: #1c2229;
+  --color-background-blue: #002f61;
+  --color-background-secondary: #f5f5f7;
   --color-background-secondary-dark: #15191e;
+  --color-background-secondary-blue: #002654;
   --color-foreground: #1d1d1f;
   --color-foreground-dark: #fff;
   --color-foreground-secondary: #6e6e73;
@@ -1229,15 +1229,6 @@ html.no-js .globalheader-placeholder {
 
 .main {
   position: relative;
-  margin-inline: auto;
-  padding-inline: 20px;
-  max-width: 1240px;
-}
-
-@media (max-width: 767px) {
-  .main {
-    padding-inline: 16px;
-  }
 }
 
 /* Main - Section
@@ -1250,6 +1241,18 @@ html.no-js .globalheader-placeholder {
 @media (max-width: 767px) {
   .section {
     padding-block: 24px;
+  }
+}
+
+.section-content {
+  margin-inline: auto;
+  padding-inline: 20px;
+  max-width: 1240px;
+}
+
+@media (max-width: 767px) {
+  .section-content {
+    padding-inline: 16px;
   }
 }
 
