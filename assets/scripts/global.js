@@ -9,17 +9,11 @@
   document.documentElement.classList.add('js')
 
   // ==================================================
-  // Shared
+  // No Transitions on Window Resize
   // ==================================================
 
-  let ghCloseAllSubmenus = () => {}
-
-  // ==================================================
-  // Global Header
-  // ==================================================
-
-  function initGlobalHeader() {
-    const el = document.getElementById('globalheader')
+  function initNoTransitions() {
+    const el = document.documentElement
     if (!el) return
 
     let timeoutId = null
@@ -30,6 +24,12 @@
       timeoutId = setTimeout(() => el.classList.remove('no-transitions'), 250)
     })
   }
+
+  // ==================================================
+  // Global Header
+  // ==================================================
+
+  let ghCloseAllSubmenus = () => {}
 
   // Global Header - Dropdown
   // ==================================================
@@ -302,7 +302,7 @@
   // Init
   // ==================================================
 
-  initGlobalHeader()
+  initNoTransitions()
   initGlobalHeaderDropdown()
   initGlobalHeaderNav()
   initGlobalHeaderSubmenus()
