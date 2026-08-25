@@ -677,3 +677,108 @@ html.no-js .section-hero .hero-carousel-slide {
     justify-content: center;
   }
 }
+
+/* ==================================================
+ * Environment
+ * ================================================== */
+
+.section-environment {
+  padding-block-start: 0;
+}
+
+.section-environment .environment-card {
+  --color-environment-card-background: #f6f6ee;
+  --color-environment-card-accent: #00a63e;
+  --color-environment-card-accent-hover: #009938;
+  --color-environment-card-accent-active: #008a32;
+}
+
+.section-environment .environment-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border-radius: 12px;
+  padding: 24px;
+  background-color: var(--color-environment-card-background);
+}
+
+@media (max-width: 767px) {
+  .section-environment .environment-card {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+
+.section-environment .environment-card-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-color: var(--color-background);
+}
+
+@media (max-width: 767px) {
+  .section-environment .environment-card-icon-container {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.section-environment .environment-card-icon-container svg {
+  display: block;
+  width: 60px;
+  height: 60px;
+  fill: var(--color-environment-card-accent);
+}
+
+@media (max-width: 767px) {
+  .section-environment .environment-card-icon-container svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.section-environment .environment-card-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+@media (max-width: 767px) {
+  .section-environment .environment-card-text {
+    align-items: center;
+    margin-inline: auto;
+    width: 100%;
+    max-width: 334px;
+  }
+}
+
+.section-environment .environment-card-title {
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 1023px) {
+  .section-environment .environment-card-title {
+    font-size: 20px;
+  }
+}
+
+.section-environment a.button.environment-card-button {
+  outline-color: var(--color-environment-card-accent);
+  background-color: var(--color-environment-card-accent);
+}
+
+.section-environment a.button.environment-card-button:hover {
+  background-color: var(--color-environment-card-accent-hover);
+}
+
+.section-environment a.button.environment-card-button:active {
+  background-color: var(--color-environment-card-accent-active);
+}
