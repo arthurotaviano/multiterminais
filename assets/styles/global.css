@@ -310,8 +310,6 @@ a {
   --color-accent: #e10026;
   --color-accent-hover: #c5001f;
   --color-accent-active: #a00019;
-  --color-button-secondary-background: #e8e8ed;
-  --color-button-secondary-background-hover: #d2d2d7;
   --font-display: 'DIN', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -1631,6 +1629,11 @@ html.no-js .globalheader-placeholder {
 /* ==================================================
  * Button
  * ================================================== */
+
+.button {
+  --color-button-secondary-background: #e8e8ed;
+  --color-button-secondary-background-hover: #d2d2d7;
+}
 
 .button {
   display: inline-block;
