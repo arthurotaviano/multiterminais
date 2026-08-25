@@ -423,7 +423,7 @@ html.no-js .section-hero .hero-carousel-slide {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border-radius: 24px;
+  border-radius: 12px;
   width: 100%;
   height: 100%;
   background-color: var(--color-background);
@@ -490,6 +490,28 @@ html.no-js .section-hero .hero-carousel-slide {
 
 @media (max-width: 767px) {
   .section-latest-news .button-container {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* ==================================================
+ * Ship Schedule
+ * ================================================== */
+
+@media (max-width: 767px) {
+  .section-ship-schedule .section-head .button {
+    display: none;
+  }
+}
+
+.section-ship-schedule .button-container {
+  display: none;
+  margin-block-start: 24px;
+}
+
+@media (max-width: 767px) {
+  .section-ship-schedule .button-container {
     display: flex;
     justify-content: center;
   }
