@@ -310,6 +310,9 @@ a {
   --color-accent: #e10026;
   --color-accent-hover: #c5001f;
   --color-accent-active: #a00019;
+  --color-button-secondary-background: #e8e8ed;
+  --color-button-secondary-background-hover: #d2d2d7;
+  --font-display: 'DIN', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 html.noscroll {
@@ -1237,12 +1240,12 @@ html.no-js .globalheader-placeholder {
 * ================================================== */
 
 .section {
-  padding-block: 48px;
+  padding-block: 64px;
 }
 
 @media (max-width: 767px) {
   .section {
-    padding-block: 24px;
+    padding-block: 48px;
   }
 }
 
@@ -1255,6 +1258,42 @@ html.no-js .globalheader-placeholder {
 @media (max-width: 767px) {
   .section-content {
     padding-inline: 16px;
+  }
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+@media (max-width: 767px) {
+  .section-head {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1023px) {
+  .section-title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-title {
+    font-size: 24px;
   }
 }
 
@@ -1617,4 +1656,14 @@ html.no-js .globalheader-placeholder {
   .button {
     font-size: 14px;
   }
+}
+
+.button.button-secondary {
+  background-color: var(--color-button-secondary-background);
+  color: var(--color-foreground);
+}
+
+.button.button-secondary:hover,
+.button.button-secondary:active {
+  background-color: var(--color-button-secondary-background-hover);
 }
