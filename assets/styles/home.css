@@ -282,7 +282,7 @@ html.no-js .section-hero .hero-carousel-slide {
   .section-hero .hero-carousel-slide-content {
     grid-template-columns: auto;
     gap: 24px;
-    padding-block: 36px;
+    padding-block: 32px;
     padding-inline: 16px;
   }
 }
@@ -314,19 +314,18 @@ html.no-js .section-hero .hero-carousel-slide {
   animation-delay: 125ms;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .section-hero .hero-carousel-slide.is-active .hero-carousel-slide-text,
-  .section-hero .hero-carousel-slide.is-active .hero-carousel-slide-image {
-    animation: none;
-  }
-}
-
 .section-hero .hero-carousel-slide-text {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
   color: var(--color-foreground-dark);
+}
+
+@media (max-width: 767px) {
+  .section-hero .hero-carousel-slide-text {
+    gap: 12px;
+  }
 }
 
 .section-hero .hero-carousel-slide-title {
