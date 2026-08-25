@@ -500,9 +500,170 @@ html.no-js .section-hero .hero-carousel-slide {
  * ================================================== */
 
 @media (max-width: 767px) {
+  .section-ship-schedule .section-content {
+    max-width: 366px;
+  }
+}
+
+@media (max-width: 767px) {
   .section-ship-schedule .section-head .button {
     display: none;
   }
+}
+
+.section-ship-schedule .ship-schedule-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-block-start: 32px;
+}
+
+@media (max-width: 767px) {
+  .section-ship-schedule .ship-schedule-board {
+    grid-template-columns: auto;
+    margin-block-start: 24px;
+  }
+}
+
+.section-ship-schedule .ship-schedule-board .board-item {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  height: 100%;
+}
+
+.section-ship-schedule .ship-schedule-board .board-card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border-radius: 12px;
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+  background-color: var(--color-background-dark);
+  color: var(--color-foreground-secondary-dark);
+  font-size: 12px;
+}
+
+.section-ship-schedule .ship-schedule-board .board-card a {
+  color: var(--color-foreground-secondary-dark);
+}
+
+.section-ship-schedule .ship-schedule-board .board-card a:hover {
+  color: var(--color-foreground-dark);
+  text-decoration: underline;
+}
+
+.section-ship-schedule .ship-schedule-board .board-card-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.section-ship-schedule .ship-schedule-board .board-card-head-icon svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.section-ship-schedule .ship-schedule-board .board-card-head-title {
+  color: var(--color-foreground-dark);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.section-ship-schedule .ship-schedule-board .board-card-list {
+  margin-block-start: -6px;
+  font-size: 12px;
+}
+
+.section-ship-schedule .ship-schedule-board .board-card-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  border-bottom: 1px dotted var(--color-border-dark);
+  padding: 6px;
+}
+
+.section-ship-schedule .ship-schedule-board .board-card-item-timestamp-highlight {
+  color: var(--color-foreground-dark);
+}
+
+.section-ship-schedule .ship-schedule-board .board-card-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section-ship-schedule .ship-schedule-board .board-card-form-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.section-ship-schedule .ship-schedule-board .board-card-form-input {
+  border-radius: 6px;
+  padding-block: 8px;
+  padding-inline: 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-foreground-dark);
+}
+
+.section-ship-schedule .ship-schedule-board a.board-card-form-button {
+  display: inline-block;
+  white-space: nowrap;
+  border-radius: 9999px;
+  padding-block: 4px;
+  padding-inline: 10px;
+  background-color: var(--color-accent);
+  color: var(--color-foreground-dark);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.section-ship-schedule .ship-schedule-board a.board-card-form-button:hover {
+  background-color: var(--color-accent-hover);
+  text-decoration: none;
+}
+
+.section-ship-schedule .ship-schedule-board a.board-card-form-button:active {
+  background-color: var(--color-accent-active);
+}
+
+.section-ship-schedule .ship-schedule-board .board-card-status-copy a {
+  text-decoration: underline;
+}
+
+.section-ship-schedule .ship-schedule-board .board-card-status-copy a:hover {
+  text-decoration: underline;
+}
+
+.section-ship-schedule .ship-schedule-board .board-card-link-container {
+  display: flex;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.section-ship-schedule .ship-schedule-board .board-card-link {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 12px;
+}
+
+.section-ship-schedule .ship-schedule-board .board-card-link-icon {
+  margin-top: 1px;
+}
+
+.section-ship-schedule .ship-schedule-board .board-card-link-icon svg {
+  display: block;
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
 }
 
 .section-ship-schedule .button-container {
