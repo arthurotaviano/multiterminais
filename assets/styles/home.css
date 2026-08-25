@@ -454,6 +454,12 @@ html.no-js .section-hero .hero-carousel-slide {
   transform: scale(1.03);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .section-latest-news .latest-news-gallery .gallery-item-link:hover .gallery-item-image img {
+    transform: none;
+  }
+}
+
 .section-latest-news .latest-news-gallery .gallery-item-text {
   display: flex;
   flex-direction: column;
