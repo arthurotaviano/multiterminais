@@ -589,6 +589,10 @@ html.no-js .section-hero .hero-carousel-slide {
   padding: 6px;
 }
 
+.section-ship-schedule .ship-schedule-board .board-card-item-timestamp {
+  text-align: right;
+}
+
 .section-ship-schedule .ship-schedule-board .board-card-item-timestamp-highlight {
   color: var(--color-foreground-dark);
 }
