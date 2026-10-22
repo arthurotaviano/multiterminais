@@ -9,302 +9,286 @@
   document.documentElement.classList.add('js')
 
   // ==================================================
-  // No Transitions on Window Resize
+  // Global Header
   // ==================================================
 
-  function initNoTransitions() {
-    const el = document.documentElement
-    if (!el) return
+  const globalheader = document.getElementById('globalheader')
+  const globalheaderSmallViewport = window.matchMedia('(max-width: 767px)')
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+
+  function initGlobalHeaderNoTransitions() {
+    if (!globalheader) return
 
     let timeoutId = null
 
     window.addEventListener('resize', () => {
-      el.classList.add('no-transitions')
+      globalheader.classList.add('no-transitions')
       clearTimeout(timeoutId)
-      timeoutId = setTimeout(() => el.classList.remove('no-transitions'), 250)
+      timeoutId = setTimeout(() => globalheader.classList.remove('no-transitions'), 250)
     })
   }
 
-  // ==================================================
-  // Global Header
-  // ==================================================
-
-  let ghCloseAllSubmenus = () => {}
-
-  // Global Header - Dropdown
+  // Global Header - Menu
   // ==================================================
 
-  function initGlobalHeaderDropdown() {
-    const el = document.getElementById('globalheader-head-dropdown')
-    const trigger = document.getElementById('globalheader-head-dropdown-trigger')
-    if (!el || !trigger) return
+  const globalheaderFocusable = 'a[href], area[href], button, input, select, textarea, summary, iframe, object, embed, audio[controls], video[controls], [contenteditable], [tabindex]'
 
-    let controller = null
+  let globalheaderNav = null
+  let globalheaderMenuTrigger = null
+  let globalheaderMenuScrollPosition = 0
+  let globalheaderInertElements = []
 
-    const closeList = () => {
-      trigger.setAttribute('aria-expanded', 'false')
-      controller?.abort()
-      controller = null
+  function isGlobalHeaderMenuOpen() {
+    return globalheader.classList.contains('globalheader-with-menu-open')
+  }
+
+  function inertOutsideGlobalHeaderNav() {
+    let el = globalheaderNav
+
+    while (el && el !== document.body) {
+      Array.from(el.parentElement.children).forEach(sibling => {
+        if (sibling === el || sibling.inert) return
+
+        sibling.inert = true
+        globalheaderInertElements.push(sibling)
+      })
+
+      el = el.parentElement
     }
+  }
 
-    const openList = () => {
-      trigger.setAttribute('aria-expanded', 'true')
+  function uninertOutsideGlobalHeaderNav() {
+    globalheaderInertElements.forEach(el => (el.inert = false))
+    globalheaderInertElements = []
+  }
 
-      controller = new AbortController()
-      const { signal } = controller
+  function getGlobalHeaderNavFocusable() {
+    return Array.from(globalheaderNav.querySelectorAll(globalheaderFocusable)).filter(el => {
+      if (el.disabled || el.tabIndex < 0 || el.closest('[inert]')) return false
 
-      document.addEventListener(
-        'click',
-        event => {
-          if (!el.contains(event.target)) closeList()
-        },
-        { signal }
-      )
-
-      el.addEventListener(
-        'keydown',
-        event => {
-          if (event.key === 'Escape') {
-            closeList()
-            trigger.focus()
-          }
-        },
-        { signal }
-      )
-
-      el.addEventListener(
-        'focusout',
-        event => {
-          if (!el.contains(event.relatedTarget)) closeList()
-        },
-        { signal }
-      )
-    }
-
-    trigger.addEventListener('click', event => {
-      event.stopPropagation()
-      const isExpanded = trigger.getAttribute('aria-expanded') === 'true'
-      if (isExpanded) {
-        closeList()
-      } else {
-        openList()
-      }
+      return el.getClientRects().length > 0 && window.getComputedStyle(el).visibility !== 'hidden'
     })
   }
 
-  // Global Header - Navigation
-  // ==================================================
+  function trapGlobalHeaderMenuFocus(event) {
+    if (event.key !== 'Tab' || !isGlobalHeaderMenuOpen()) return
 
-  function initGlobalHeaderNav() {
-    const globalheader = document.getElementById('globalheader')
-    const menutriggerBtn = document.getElementById('globalheader-head-menutrigger-button')
-    if (!globalheader || !menutriggerBtn) return
+    const focusable = getGlobalHeaderNavFocusable()
+    if (!focusable.length) return
 
-    const bodyChildren = document.querySelectorAll('body > *:not(.globalheader), .globalheader-user, .globalheader-placeholder')
-    const desktop = window.matchMedia('(min-width: 768px)')
+    const first = focusable[0]
+    const last = focusable[focusable.length - 1]
+    const active = document.activeElement
 
-    const isOpen = () => globalheader.classList.contains('globalheader-with-menu-open')
-
-    const animateMenu = () => {
-      globalheader.classList.add('globalheader-menu-animating')
-      setTimeout(() => globalheader.classList.remove('globalheader-menu-animating'), 250)
+    if (!globalheaderNav.contains(active)) {
+      event.preventDefault()
+      ;(event.shiftKey ? last : first).focus()
+      return
     }
 
-    const openMenu = () => {
-      document.documentElement.classList.add('noscroll')
-      globalheader.classList.add('globalheader-with-menu-open')
-      animateMenu()
-      bodyChildren.forEach(el => (el.inert = true))
-      menutriggerBtn.setAttribute('aria-label', 'Fechar Menu')
+    if (!event.shiftKey && active === last) {
+      event.preventDefault()
+      first.focus()
+      return
     }
 
-    const closeMenu = ({ restoreFocus = true } = {}) => {
-      document.documentElement.classList.remove('noscroll')
-      globalheader.classList.remove('globalheader-with-menu-open')
-      animateMenu()
-      bodyChildren.forEach(el => (el.inert = false))
-      menutriggerBtn.setAttribute('aria-label', 'Abrir Menu')
-      if (restoreFocus) menutriggerBtn.focus()
-      ghCloseAllSubmenus()
+    if (event.shiftKey && active === first) {
+      event.preventDefault()
+      last.focus()
+    }
+  }
+
+  function closeGlobalHeaderMenu() {
+    if (!globalheader || !isGlobalHeaderMenuOpen()) return
+
+    closeGlobalHeaderDropdowns(dropdown => dropdown.dataset.component === 'globalheader-nav-menu-dropdown')
+
+    globalheader.classList.remove('globalheader-with-menu-open')
+    globalheaderMenuTrigger.setAttribute('aria-expanded', false)
+    globalheaderMenuTrigger.setAttribute('aria-label', 'Abrir menu')
+
+    uninertOutsideGlobalHeaderNav()
+
+    document.documentElement.classList.remove('noscroll')
+    document.body.style.insetBlockStart = ''
+    window.scrollTo(0, globalheaderMenuScrollPosition)
+  }
+
+  function openGlobalHeaderMenu() {
+    globalheaderMenuScrollPosition = window.scrollY
+
+    document.documentElement.classList.add('noscroll')
+    document.body.style.insetBlockStart = `-${globalheaderMenuScrollPosition}px`
+
+    globalheader.classList.add('globalheader-with-menu-open')
+    globalheaderMenuTrigger.setAttribute('aria-expanded', true)
+    globalheaderMenuTrigger.setAttribute('aria-label', 'Fechar menu')
+
+    inertOutsideGlobalHeaderNav()
+  }
+
+  function toggleGlobalHeaderMenu() {
+    if (isGlobalHeaderMenuOpen()) {
+      closeGlobalHeaderMenu()
+      return
     }
 
-    menutriggerBtn.addEventListener('click', () => (isOpen() ? closeMenu() : openMenu()))
+    openGlobalHeaderMenu()
+  }
+
+  function initGlobalHeaderMenu() {
+    if (!globalheader) return
+
+    globalheaderNav = globalheader.querySelector('.globalheader-nav')
+    globalheaderMenuTrigger = globalheader.querySelector('.globalheader-nav-menu-trigger')
+    globalheaderMenuTrigger.addEventListener('click', toggleGlobalHeaderMenu)
+
+    document.addEventListener('keydown', trapGlobalHeaderMenuFocus)
 
     document.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && isOpen()) closeMenu()
+      if (event.key !== 'Escape' || !isGlobalHeaderMenuOpen()) return
+
+      closeGlobalHeaderMenu()
+      globalheaderMenuTrigger.focus({ preventScroll: true })
     })
 
-    desktop.addEventListener('change', event => {
-      if (event.matches && isOpen()) closeMenu({ restoreFocus: false })
+    globalheaderSmallViewport.addEventListener('change', closeGlobalHeaderMenu)
+  }
+
+  // Global Header - Dropdowns
+  // ==================================================
+
+  const openGlobalHeaderDropdowns = new Set()
+
+  function isGlobalHeaderDropdownAccordion(dropdown) {
+    return globalheaderSmallViewport.matches && dropdown.dataset.component === 'globalheader-nav-menu-dropdown'
+  }
+
+  function collapseGlobalHeaderDropdownList(dropdown) {
+    const list = dropdown.querySelector('[data-part=list]')
+
+    if (!isGlobalHeaderDropdownAccordion(dropdown)) {
+      list.style.height = ''
+      return
+    }
+
+    list.style.height = `${list.scrollHeight}px`
+    void list.offsetHeight
+    list.style.height = ''
+  }
+
+  function expandGlobalHeaderDropdownList(dropdown) {
+    if (!isGlobalHeaderDropdownAccordion(dropdown)) return
+
+    const list = dropdown.querySelector('[data-part=list]')
+
+    if (reducedMotion.matches) {
+      list.style.height = 'auto'
+      return
+    }
+
+    const onTransitionEnd = event => {
+      if (event.propertyName !== 'height') return
+
+      list.removeEventListener('transitionend', onTransitionEnd)
+
+      if (openGlobalHeaderDropdowns.has(dropdown)) list.style.height = 'auto'
+    }
+
+    list.addEventListener('transitionend', onTransitionEnd)
+    list.style.height = `${list.scrollHeight}px`
+  }
+
+  function closeGlobalHeaderDropdown(dropdown) {
+    if (!openGlobalHeaderDropdowns.has(dropdown)) return
+
+    collapseGlobalHeaderDropdownList(dropdown)
+
+    dropdown.classList.remove('globalheader-with-dropdown-open')
+    dropdown.querySelector('[data-part=trigger]').setAttribute('aria-expanded', false)
+    openGlobalHeaderDropdowns.delete(dropdown)
+  }
+
+  function closeGlobalHeaderDropdowns(match) {
+    openGlobalHeaderDropdowns.forEach(dropdown => {
+      if (match && !match(dropdown)) return
+
+      closeGlobalHeaderDropdown(dropdown)
     })
   }
 
-  // Global Header - Submenus
-  // ==================================================
+  function openGlobalHeaderDropdown(dropdown) {
+    closeGlobalHeaderDropdowns(other => other !== dropdown && !isGlobalHeaderDropdownAccordion(other))
 
-  function createSubmenuHover(container, trigger, closeOthers) {
-    const handleMouseOver = () => {
-      closeOthers(container)
-      container.classList.add('globalheader-nav-item-expanded')
-      trigger.setAttribute('aria-expanded', 'true')
-    }
+    dropdown.classList.add('globalheader-with-dropdown-open')
+    dropdown.querySelector('[data-part=trigger]').setAttribute('aria-expanded', true)
+    openGlobalHeaderDropdowns.add(dropdown)
 
-    const handleMouseLeave = () => {
-      container.classList.remove('globalheader-nav-item-expanded')
-      trigger.setAttribute('aria-expanded', 'false')
-    }
-
-    let controller = null
-
-    const init = () => {
-      controller = new AbortController()
-      const { signal } = controller
-      container.addEventListener('mouseover', handleMouseOver, { signal })
-      container.addEventListener('mouseleave', handleMouseLeave, { signal })
-    }
-
-    const destroy = () => {
-      controller?.abort()
-      controller = null
-      container.classList.remove('globalheader-nav-item-expanded')
-      trigger.setAttribute('aria-expanded', 'false')
-    }
-
-    return { init, destroy }
+    expandGlobalHeaderDropdownList(dropdown)
   }
 
-  function initSubmenuClick(container, trigger, hoverCapable, closeOne, closeOthers) {
-    let lastPointerType = null
+  function toggleGlobalHeaderDropdown(dropdown) {
+    if (openGlobalHeaderDropdowns.has(dropdown)) {
+      closeGlobalHeaderDropdown(dropdown)
+      return
+    }
 
-    container.addEventListener('pointerdown', event => {
-      lastPointerType = event.pointerType
-    })
+    openGlobalHeaderDropdown(dropdown)
+  }
 
-    trigger.addEventListener('click', event => {
-      event.preventDefault()
+  function initGlobalHeaderDropdowns(variant) {
+    if (!globalheader) return
 
-      const isKeyboard = event.detail === 0
-      const isMouse = lastPointerType === 'mouse'
-      lastPointerType = null
+    const component = `globalheader-${variant}-dropdown`
+    const dropdowns = globalheader.querySelectorAll(`[data-component=${component}]`)
 
-      if (isMouse && !isKeyboard) return
+    dropdowns.forEach(dropdown => {
+      const id = `${component}-${dropdown.dataset.componentId}`
 
-      const isExpanded = trigger.getAttribute('aria-expanded') === 'true'
+      const list = dropdown.querySelector('[data-part=list]')
+      list.setAttribute('id', id)
 
-      closeOthers(container)
+      const trigger = dropdown.querySelector('[data-part=trigger]')
+      trigger.setAttribute('aria-controls', id)
 
-      trigger.setAttribute('aria-expanded', String(!isExpanded))
-      container.classList.toggle('globalheader-nav-item-expanded', !isExpanded)
-    })
+      const triggerIcon = document.createElement('span')
+      triggerIcon.classList.add(`${component}-trigger-icon`)
+      triggerIcon.setAttribute('aria-hidden', true)
+      triggerIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M297.4 438.6C309.9 451.1 330.2 451.1 342.7 438.6L502.7 278.6C515.2 266.1 515.2 245.8 502.7 233.3C490.2 220.8 469.9 220.8 457.4 233.3L320 370.7L182.6 233.4C170.1 220.9 149.8 220.9 137.3 233.4C124.8 245.9 124.8 266.2 137.3 278.7L297.3 438.7z" /></svg>'
+      trigger.appendChild(triggerIcon)
 
-    container.addEventListener('focusout', event => {
-      if (!hoverCapable.matches) return
-      if (!container.contains(event.relatedTarget)) closeOne(container)
+      trigger.addEventListener('click', () => toggleGlobalHeaderDropdown(dropdown))
     })
   }
 
-  function initGlobalHeaderSubmenus() {
-    const hoverCapable = window.matchMedia('(min-width: 768px) and (hover: hover) and (pointer: fine)')
+  function initGlobalHeaderDropdownsDismiss() {
+    document.addEventListener('click', event => {
+      closeGlobalHeaderDropdowns(dropdown => !isGlobalHeaderDropdownAccordion(dropdown) && !dropdown.contains(event.target))
+    })
 
-    const submenus = Array.from(document.querySelectorAll('[data-globalheader-nav-submenu-container]'), container => ({ container, trigger: container.querySelector('.globalheader-nav-link') })).filter(submenu => submenu.trigger)
+    document.addEventListener('keydown', event => {
+      if (event.key !== 'Escape') return
 
-    if (!submenus.length) return
+      openGlobalHeaderDropdowns.forEach(dropdown => {
+        if (isGlobalHeaderDropdownAccordion(dropdown)) return
 
-    const closeOne = container => {
-      const submenu = submenus.find(item => item.container === container)
-      if (!submenu) return
-      container.classList.remove('globalheader-nav-item-expanded')
-      submenu.trigger.setAttribute('aria-expanded', 'false')
-    }
+        const trigger = dropdown.querySelector('[data-part=trigger]')
 
-    const closeOthers = except => {
-      submenus.forEach(({ container }) => {
-        if (container !== except) closeOne(container)
-      })
-    }
-
-    ghCloseAllSubmenus = () => submenus.forEach(({ container }) => closeOne(container))
-
-    submenus.forEach(({ container, trigger }) => initSubmenuClick(container, trigger, hoverCapable, closeOne, closeOthers))
-
-    const hoverInstances = submenus.map(({ container, trigger }) => createSubmenuHover(container, trigger, closeOthers))
-
-    let hoverActive = false
-
-    const syncHover = () => {
-      if (hoverCapable.matches && !hoverActive) {
-        hoverInstances.forEach(submenu => submenu.init())
-        hoverActive = true
-      } else if (!hoverCapable.matches && hoverActive) {
-        hoverInstances.forEach(submenu => submenu.destroy())
-        hoverActive = false
-      }
-    }
-
-    syncHover()
-    hoverCapable.addEventListener('change', syncHover)
-  }
-
-  // ==================================================
-  // Global Footer
-  // ==================================================
-
-  // Global Footer - Directory
-  // ==================================================
-
-  function initGlobalFooterDirectory() {
-    const directory = document.getElementById('globalfooter-directory')
-    if (!directory) return
-
-    const buttons = directory.querySelectorAll('.globalfooter-directory-section-title-button')
-    if (!buttons.length) return
-
-    const mobile = window.matchMedia('(max-width: 767px)')
-
-    const getSection = btn => btn.closest('.globalfooter-directory-section')
-
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        if (btn.disabled) return
-
-        const section = getSection(btn)
-        if (!section) return
-
-        const isExpanded = btn.getAttribute('aria-expanded') === 'true'
-        btn.setAttribute('aria-expanded', String(!isExpanded))
-        section.classList.toggle('globalfooter-directory-section-expanded', !isExpanded)
+        closeGlobalHeaderDropdown(dropdown)
+        trigger.focus()
       })
     })
 
-    const syncViewport = event => {
-      buttons.forEach(btn => {
-        const section = getSection(btn)
-        const panel = btn.parentElement?.nextElementSibling
-
-        if (event.matches) {
-          btn.removeAttribute('disabled')
-          btn.setAttribute('aria-expanded', 'false')
-          if (panel?.id) btn.setAttribute('aria-controls', panel.id)
-        } else {
-          btn.setAttribute('disabled', '')
-          btn.removeAttribute('aria-expanded')
-          btn.removeAttribute('aria-controls')
-          section?.classList.remove('globalfooter-directory-section-expanded')
-        }
-      })
-    }
-
-    syncViewport(mobile)
-    mobile.addEventListener('change', syncViewport)
+    globalheaderSmallViewport.addEventListener('change', () => closeGlobalHeaderDropdowns())
   }
 
   // ==================================================
   // Init
   // ==================================================
 
-  initNoTransitions()
-  initGlobalHeaderDropdown()
-  initGlobalHeaderNav()
-  initGlobalHeaderSubmenus()
-  initGlobalFooterDirectory()
+  initGlobalHeaderNoTransitions()
+  initGlobalHeaderMenu()
+  initGlobalHeaderDropdowns('nav-menu')
+  initGlobalHeaderDropdowns('ribbon')
+  initGlobalHeaderDropdownsDismiss()
 })()
