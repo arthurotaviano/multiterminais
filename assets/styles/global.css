@@ -1401,6 +1401,10 @@ html.no-js .globalheader-ribbon-item-nojslang {
   font-style: normal;
 }
 
+.globalfooter-address .globalfooter-institutional-list-item:first-of-type {
+  align-items: flex-start;
+}
+
 /* Global Footer - Site Map
  * ================================================== */
 
