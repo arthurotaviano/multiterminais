@@ -982,6 +982,10 @@ html.no-js .globalheader-ribbon {
   display: none;
 }
 
+.globalheader-ribbon :focus-visible {
+  outline-color: var(--color-accent-dark);
+}
+
 .globalheader-ribbon-items {
   display: flex;
   justify-content: end;
