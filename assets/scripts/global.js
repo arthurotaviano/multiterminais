@@ -105,7 +105,6 @@
 
     globalheader.classList.remove('globalheader-with-menu-open')
     globalheaderMenuTrigger.setAttribute('aria-expanded', false)
-    globalheaderMenuTrigger.setAttribute('aria-label', 'Abrir menu')
 
     uninertOutsideGlobalHeaderNav()
 
@@ -122,7 +121,6 @@
 
     globalheader.classList.add('globalheader-with-menu-open')
     globalheaderMenuTrigger.setAttribute('aria-expanded', true)
-    globalheaderMenuTrigger.setAttribute('aria-label', 'Fechar menu')
 
     inertOutsideGlobalHeaderNav()
   }
