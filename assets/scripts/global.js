@@ -1,5 +1,5 @@
 ;(() => {
-  'use strict'
+  ;('use strict')
 
   // ==================================================
   // JavaScript Detection
@@ -282,6 +282,105 @@
   }
 
   // ==================================================
+  // Global Footer
+  // ==================================================
+
+  const globalfooter = document.querySelector('.globalfooter')
+  const globalfooterSmallViewport = window.matchMedia('(max-width: 767px)')
+
+  // Global Footer - Site Map
+  // ==================================================
+
+  const openGlobalFooterSitemapSections = new Set()
+
+  function collapseGlobalFooterSitemapList(section) {
+    const list = section.querySelector('[data-part=list]')
+
+    if (!globalfooterSmallViewport.matches) {
+      list.style.height = ''
+      return
+    }
+
+    list.style.height = `${list.scrollHeight}px`
+    void list.offsetHeight
+    list.style.height = ''
+  }
+
+  function expandGlobalFooterSitemapList(section) {
+    if (!globalfooterSmallViewport.matches) return
+
+    const list = section.querySelector('[data-part=list]')
+
+    if (reducedMotion.matches) {
+      list.style.height = 'auto'
+      return
+    }
+
+    const onTransitionEnd = event => {
+      if (event.propertyName !== 'height') return
+
+      list.removeEventListener('transitionend', onTransitionEnd)
+
+      if (openGlobalFooterSitemapSections.has(section)) list.style.height = 'auto'
+    }
+
+    list.addEventListener('transitionend', onTransitionEnd)
+    list.style.height = `${list.scrollHeight}px`
+  }
+
+  function closeGlobalFooterSitemapSection(section) {
+    if (!openGlobalFooterSitemapSections.has(section)) return
+
+    collapseGlobalFooterSitemapList(section)
+
+    section.classList.remove('is-expanded')
+    section.querySelector('[data-part=toggler]').setAttribute('aria-expanded', false)
+    openGlobalFooterSitemapSections.delete(section)
+  }
+
+  function closeGlobalFooterSitemapSections() {
+    openGlobalFooterSitemapSections.forEach(section => closeGlobalFooterSitemapSection(section))
+  }
+
+  function openGlobalFooterSitemapSection(section) {
+    section.classList.add('is-expanded')
+    section.querySelector('[data-part=toggler]').setAttribute('aria-expanded', true)
+    openGlobalFooterSitemapSections.add(section)
+
+    expandGlobalFooterSitemapList(section)
+  }
+
+  function toggleGlobalFooterSitemapSection(section) {
+    if (openGlobalFooterSitemapSections.has(section)) {
+      closeGlobalFooterSitemapSection(section)
+      return
+    }
+
+    openGlobalFooterSitemapSection(section)
+  }
+
+  function initGlobalFooterSitemap() {
+    if (!globalfooter) return
+
+    const component = 'globalfooter-sitemap-section'
+    const sections = globalfooter.querySelectorAll(`[data-component=${component}]`)
+
+    sections.forEach(section => {
+      const id = `${component}-${section.dataset.id}`
+
+      const list = section.querySelector('[data-part=list]')
+      list.setAttribute('id', id)
+
+      const toggler = section.querySelector('[data-part=toggler]')
+      toggler.setAttribute('aria-controls', id)
+
+      toggler.addEventListener('click', () => toggleGlobalFooterSitemapSection(section))
+    })
+
+    globalfooterSmallViewport.addEventListener('change', closeGlobalFooterSitemapSections)
+  }
+
+  // ==================================================
   // Init
   // ==================================================
 
@@ -290,4 +389,5 @@
   initGlobalHeaderDropdowns('nav-menu')
   initGlobalHeaderDropdowns('ribbon')
   initGlobalHeaderDropdownsDismiss()
+  initGlobalFooterSitemap()
 })()
