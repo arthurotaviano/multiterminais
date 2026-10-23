@@ -273,10 +273,10 @@
       openGlobalHeaderDropdowns.forEach(dropdown => {
         if (isGlobalHeaderDropdownAccordion(dropdown)) return
 
-        const trigger = dropdown.querySelector('[data-part=trigger]')
-
+        const hadFocus = dropdown.contains(document.activeElement)
         closeGlobalHeaderDropdown(dropdown)
-        trigger.focus()
+
+        if (hadFocus) dropdown.querySelector('[data-part=trigger]').focus()
       })
     })
 
