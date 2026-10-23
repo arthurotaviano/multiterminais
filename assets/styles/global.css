@@ -412,17 +412,9 @@ i {
   background-color: var(--color-background);
 }
 
-html.no-js .globalheader {
-  height: 90px;
-}
-
 @media (max-width: 1023px) {
   .globalheader {
     height: 125px;
-  }
-
-  html.no-js .globalheader {
-    height: 85px;
   }
 }
 
@@ -485,10 +477,6 @@ html.no-js .globalheader {
   height: 90px;
   background-color: var(--color-background);
   transition: top 250ms ease;
-}
-
-html.no-js .globalheader-nav {
-  top: 0;
 }
 
 @media (max-width: 1023px) {
@@ -978,10 +966,6 @@ html.no-js .globalheader-nav-mapanchor {
   }
 }
 
-html.no-js .globalheader-ribbon {
-  display: none;
-}
-
 .globalheader-ribbon :focus-visible {
   outline-color: var(--color-accent-dark);
 }
@@ -996,6 +980,10 @@ html.no-js .globalheader-ribbon {
 
 .globalheader-ribbon-item {
   position: relative;
+}
+
+html.no-js .globalheader-ribbon-item[data-component] {
+  display: none;
 }
 
 .globalheader-ribbon-dropdown-trigger {
@@ -1118,6 +1106,39 @@ html.no-js .globalheader-ribbon {
   color: var(--color-foreground-secondary-dark);
 }
 
+.globalheader-ribbon-item-nojslang {
+  display: none;
+}
+
+html.no-js .globalheader-ribbon-item-nojslang {
+  display: block;
+}
+
+.globalheader-ribbon-nojslang,
+.globalheader-ribbon-nojslang-link {
+  display: flex;
+  align-items: center;
+}
+
+.globalheader-ribbon-nojslang {
+  gap: 20px;
+}
+
+.globalheader-ribbon-nojslang-link {
+  gap: 4px;
+}
+
+.globalheader-ribbon-nojslang-link-flag {
+  flex-shrink: 0;
+}
+
+.globalheader-ribbon-nojslang-link-flag svg {
+  display: block;
+  margin-block-end: -1px;
+  width: 16px;
+  height: 16px;
+}
+
 /* Global Header - Placeholder
 * ================================================== */
 
@@ -1125,16 +1146,8 @@ html.no-js .globalheader-ribbon {
   height: 130px;
 }
 
-html.no-js .globalheader-placeholder {
-  height: 90px;
-}
-
 @media (max-width: 1023px) {
   .globalheader-placeholder {
     height: 125px;
-  }
-
-  html.no-js .globalheader-placeholder {
-    height: 85px;
   }
 }
