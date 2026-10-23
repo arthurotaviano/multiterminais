@@ -252,6 +252,13 @@
       trigger.setAttribute('aria-controls', id)
 
       trigger.addEventListener('click', () => toggleGlobalHeaderDropdown(dropdown))
+
+      dropdown.addEventListener('focusout', event => {
+        if (isGlobalHeaderDropdownAccordion(dropdown)) return
+        if (!event.relatedTarget || dropdown.contains(event.relatedTarget)) return
+
+        closeGlobalHeaderDropdown(dropdown)
+      })
     })
   }
 
