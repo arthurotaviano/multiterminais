@@ -1,5 +1,5 @@
 /* ==================================================
- * Hero
+ * Section Hero
  * ================================================== */
 
 .section-hero {
@@ -380,4 +380,33 @@ html.no-js .section-hero .hero-carousel-slide-text {
   .section-hero .hero-carousel-slide-title .highlight {
     display: inline-block;
   }
+}
+
+/* ==================================================
+ * Section Brand Headline
+ * ================================================== */
+
+.section-brand-headline {
+  text-align: center;
+}
+
+.section-brand-headline .brand-headline {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+@media (max-width: 767px) {
+  .section-brand-headline .brand-headline {
+    font-size: 20px;
+  }
+}
+
+.section-brand-headline .brand-headline::after {
+  content: '';
+  display: block;
+  margin-block-start: 16px;
+  margin-inline: auto;
+  width: 72px;
+  height: 3px;
+  background-color: var(--color-accent);
 }
