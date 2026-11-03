@@ -306,6 +306,7 @@ a {
 
   --color-border-dark: rgba(255, 255, 255, 0.1);
   --color-background-dark: #082640;
+  --color-background-darker: #051b2e;
   --color-foreground-dark: rgba(255, 255, 255, 0.75);
   --color-foreground-secondary-dark: #fff;
   --color-accent-dark: #4cb3eb;
@@ -1236,6 +1237,27 @@ html.no-js .globalheader-ribbon-item-nojslang {
 @media (max-width: 1023px) {
   .globalheader-placeholder {
     height: 125px;
+  }
+}
+
+/* ==================================================
+ * Main
+ * ================================================== */
+
+.main {
+  position: relative;
+}
+
+/* Main - Section
+* ================================================== */
+
+.section {
+  padding-block: 64px;
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding-block: 48px;
   }
 }
 

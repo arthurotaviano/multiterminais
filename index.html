@@ -10,6 +10,7 @@
   </head>
   <body>
     <div hidden>
+      <!-- Global Icons -->
       <svg xmlns="http://www.w3.org/2000/svg">
         <symbol id="icon-chevron-down" viewBox="0 0 640 640">
           <path d="M297.4 438.6C309.9 451.1 330.2 451.1 342.7 438.6L502.7 278.6C515.2 266.1 515.2 245.8 502.7 233.3C490.2 220.8 469.9 220.8 457.4 233.3L320 370.7L182.6 233.4C170.1 220.9 149.8 220.9 137.3 233.4C124.8 245.9 124.8 266.2 137.3 278.7L297.3 438.7z" />
@@ -111,6 +112,17 @@
       <svg xmlns="http://www.w3.org/2000/svg">
         <symbol id="icon-box-open" viewBox="0 0 640 640">
           <path d="M560.3 301.2C570.7 313 588.6 315.6 602.1 306.7C616.8 296.9 620.8 277 611 262.3L563 190.3C560.2 186.1 556.4 182.6 551.9 180.1L351.4 68.7C332.1 58 308.6 58 289.2 68.7L88.8 180C83.4 183 79.1 187.4 76.2 192.8L27.7 282.7C15.1 306.1 23.9 335.2 47.3 347.8L80.3 365.5L80.3 418.8C80.3 441.8 92.7 463.1 112.7 474.5L288.7 574.2C308.3 585.3 332.2 585.3 351.8 574.2L527.8 474.5C547.9 463.1 560.2 441.9 560.2 418.8L560.2 301.3zM320.3 291.4L170.2 208L320.3 124.6L470.4 208L320.3 291.4zM278.8 341.6L257.5 387.8L91.7 299L117.1 251.8L278.8 341.6z" />
+        </symbol>
+      </svg>
+      <!-- Local Icons -->
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-play" viewBox="0 0 640 640">
+          <path d="M187.2 100.9C174.8 94.1 159.8 94.4 147.6 101.6C135.4 108.8 128 121.9 128 136L128 504C128 518.1 135.5 531.2 147.6 538.4C159.7 545.6 174.8 545.9 187.2 539.1L523.2 355.1C536 348.1 544 334.6 544 320C544 305.4 536 291.9 523.2 284.9L187.2 100.9z" />
+        </symbol>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-pause" viewBox="0 0 640 640">
+          <path d="M176 96C149.5 96 128 117.5 128 144L128 496C128 522.5 149.5 544 176 544L240 544C266.5 544 288 522.5 288 496L288 144C288 117.5 266.5 96 240 96L176 96zM400 96C373.5 96 352 117.5 352 144L352 496C352 522.5 373.5 544 400 544L464 544C490.5 544 512 522.5 512 496L512 144C512 117.5 490.5 96 464 96L400 96z" />
         </symbol>
       </svg>
     </div>
@@ -393,6 +405,97 @@
       </nav>
     </header>
     <div class="globalheader-placeholder"></div>
+
+    <main class="main">
+      <section class="section section-hero">
+        <div class="hero-carousel" id="hero-carousel">
+          <div class="viewport-content hero-carousel-controls">
+            <button class="hero-carousel-autoplay" id="hero-carousel-autoplay" aria-label="Iniciar apresentação automática">
+              <span class="hero-carousel-autoplay-icon hero-carousel-autoplay-icon-play" aria-hidden="true">
+                <svg><use href="#icon-play" /></svg>
+              </span>
+              <span class="hero-carousel-autoplay-icon hero-carousel-autoplay-icon-pause" aria-hidden="true">
+                <svg><use href="#icon-pause" /></svg>
+              </span>
+            </button>
+            <div class="hero-carousel-tabs" id="hero-carousel-tabs">
+              <button class="hero-carousel-tab">
+                <span class="hero-carousel-tab-eyebrow">Portos</span>
+                <span class="hero-carousel-tab-highlight">Marítimos</span>
+              </button>
+              <button class="hero-carousel-tab">
+                <span class="hero-carousel-tab-eyebrow">Portos</span>
+                <span class="hero-carousel-tab-highlight">Secos</span>
+              </button>
+              <button class="hero-carousel-tab">
+                <span class="hero-carousel-tab-eyebrow">Term. Intermodal</span>
+                <span class="hero-carousel-tab-highlight">PortoVale</span>
+              </button>
+              <button class="hero-carousel-tab">
+                <span class="hero-carousel-tab-eyebrow">Logística</span>
+                <span class="hero-carousel-tab-highlight">Integrada</span>
+              </button>
+              <button class="hero-carousel-tab">
+                <span class="hero-carousel-tab-eyebrow">Expansão dos</span>
+                <span class="hero-carousel-tab-highlight">Terminais</span>
+              </button>
+            </div>
+          </div>
+          <div class="hero-carousel-slides" id="hero-carousel-slides">
+            <div class="hero-carousel-slide theme-dark">
+              <div class="hero-carousel-slide-background" aria-hidden="true" style="background-image: url('assets/images/home/hero-portos-maritimos.jpg')"></div>
+              <div class="viewport-content hero-carousel-slide-content">
+                <div class="hero-carousel-slide-text">
+                  <h2 class="hero-carousel-slide-title">Portos <span class="highlight">Marítimos</span></h2>
+                  <p class="balance">Conheça o Terminal de Contêineres MultiRio e o Terminal de Veículos MultiCar no Porto do Rio de Janeiro.</p>
+                  <a class="button button-dark" href="#" aria-label="Saiba mais sobre Portos Marítimos">Saiba mais</a>
+                </div>
+              </div>
+            </div>
+            <div class="hero-carousel-slide theme-dark">
+              <div class="hero-carousel-slide-background" aria-hidden="true" style="background-image: url('assets/images/home/hero-portos-secos.jpg')"></div>
+              <div class="viewport-content hero-carousel-slide-content">
+                <div class="hero-carousel-slide-text">
+                  <h2 class="hero-carousel-slide-title">Portos <span class="highlight">Secos</span></h2>
+                  <p class="balance">Conheça nosso Centro Logístico Industrial Aduaneiro (C.L.I.A.) no Rio de Janeiro (RJ) e Portos Secos em Resende (RJ) e Juiz de Fora (MG).</p>
+                  <a class="button button-dark" href="#" aria-label="Saiba mais sobre Portos Secos">Saiba mais</a>
+                </div>
+              </div>
+            </div>
+            <div class="hero-carousel-slide theme-dark">
+              <div class="hero-carousel-slide-background" aria-hidden="true" style="background-image: url('assets/images/home/hero-portovale.jpg')"></div>
+              <div class="viewport-content hero-carousel-slide-content">
+                <div class="hero-carousel-slide-text">
+                  <h2 class="hero-carousel-slide-title">Terminal Intermodal <span class="highlight">PortoVale</span></h2>
+                  <p class="balance">Conheça o Terminal Intermodal PortoVale em Itatiaia (RJ).</p>
+                  <a class="button button-dark" href="#" aria-label="Saiba mais sobre Terminal Intermodal PortoVale">Saiba mais</a>
+                </div>
+              </div>
+            </div>
+            <div class="hero-carousel-slide theme-dark">
+              <div class="hero-carousel-slide-background" aria-hidden="true" style="background-image: url('assets/images/home/hero-logistica-integrada.jpg')"></div>
+              <div class="viewport-content hero-carousel-slide-content">
+                <div class="hero-carousel-slide-text">
+                  <h2 class="hero-carousel-slide-title">Logística <span class="highlight">Integrada</span></h2>
+                  <p class="balance">Conheça alguns projetos de Logística Integrada como: <span class="nowrap">door-to-door,</span> <span class="nowrap">just-in-time,</span> PDI e Logística 360 Graus, entre outros.</p>
+                  <a class="button button-dark" href="#" aria-label="Saiba mais sobre Logística Integrada">Saiba mais</a>
+                </div>
+              </div>
+            </div>
+            <div class="hero-carousel-slide theme-dark">
+              <div class="hero-carousel-slide-background" aria-hidden="true" style="background-image: url('assets/images/home/hero-expansao-terminais.jpg')"></div>
+              <div class="viewport-content hero-carousel-slide-content">
+                <div class="hero-carousel-slide-text">
+                  <h2 class="hero-carousel-slide-title">Expansão dos <span class="highlight">Terminais</span></h2>
+                  <p class="balance">Veja como ficaram os Terminais MultiRio e MultiCar após as obras de expansão.</p>
+                  <a class="button button-dark" href="#" aria-label="Saiba mais sobre Expansão dos Terminais">Saiba mais</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <footer class="globalfooter theme-dark">
       <section class="globalfooter-institutional" aria-label="Contato">
@@ -742,5 +845,6 @@
     </footer>
 
     <script src="assets/scripts/global.js"></script>
+    <script src="assets/scripts/home.js"></script>
   </body>
 </html>
