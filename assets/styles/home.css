@@ -32,16 +32,23 @@
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  box-shadow: 0 0 24px 6px rgba(0, 0, 0, 0.4);
   width: 36px;
   height: 36px;
-  background-color: rgba(28, 34, 41, 0.6);
-  backdrop-filter: blur(10px);
-  color: var(--color-foreground-dark);
-  transition: background-color 250ms ease;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(6px);
+  color: var(--color-foreground-secondary);
+  transition:
+    background-color 250ms ease,
+    transform 250ms ease;
 }
 
 .section-hero .hero-carousel-autoplay:hover {
-  background-color: rgba(28, 34, 41, 0.85);
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.section-hero .hero-carousel-autoplay:active {
+  transform: scale(0.9);
 }
 
 @media (prefers-reduced-motion: reduce) {
