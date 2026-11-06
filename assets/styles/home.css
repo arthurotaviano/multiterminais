@@ -939,6 +939,10 @@ html.no-js .section-ship-schedule .tabnav-panel-label {
  * Section Shortcuts
  * ================================================== */
 
+.section-shortcuts {
+  margin-block-end: 0;
+}
+
 .section-shortcuts .cards-gallery {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -996,4 +1000,103 @@ html.no-js .section-ship-schedule .tabnav-panel-label {
   position: absolute;
   inset: 0;
   border-radius: inherit;
+}
+
+/* ==================================================
+ * Section Promos
+ * ================================================== */
+
+.section-promos {
+  margin-block-start: 20px;
+}
+
+.section-promos .promos-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: 20px;
+}
+
+.section-promos .promo {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 6px;
+  overflow: clip;
+}
+
+.section-promos .promo-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 38%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+  mask-image: linear-gradient(to right, #000 55%, transparent);
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (max-width: 600px) {
+  .section-promos .promo-image {
+    width: 100%;
+    opacity: 0.2;
+    mask-image: none;
+  }
+}
+
+.section-promos .promo-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: safe center;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  max-width: 62%;
+}
+
+@media (max-width: 600px) {
+  .section-promos .promo-content {
+    max-width: 100%;
+  }
+}
+
+.section-promos .promo-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.section-promos .promo-copy p {
+  font-size: 0.875rem;
+}
+
+.section-promos .promo-auction {
+  background-color: #eee2d8;
+  color: var(--color-background-dark);
+}
+
+.section-promos .promo-auction .promo-title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.section-promos .promo-sustainability {
+  background-color: #1a281e;
+  color: var(--color-foreground-secondary-dark);
+}
+
+.section-promos .promo-sustainability .promo-copy {
+  gap: 8px;
+}
+
+.section-promos .promo-sustainability .promo-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.2;
 }
