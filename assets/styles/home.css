@@ -165,6 +165,16 @@ html.no-js .section-hero .hero-gallery-controls {
   }
 }
 
+.section-hero .tabnav-tab + .tabnav-tab {
+  box-shadow: inset 1px 0 0 var(--color-border-dark);
+}
+
+@media (max-width: 767px) {
+  .section-hero .tabnav-tab + .tabnav-tab {
+    box-shadow: none;
+  }
+}
+
 @media (max-width: 767px) {
   .section-hero .tabnav-tab-icon {
     display: none;
@@ -766,6 +776,10 @@ html.no-js .section-ship-schedule .tabnav-tabs {
 .section-ship-schedule .tabnav-tab.is-active {
   border-block-end-color: var(--color-accent-dark);
   background-color: rgba(255, 255, 255, 0.05);
+}
+
+.section-ship-schedule .tabnav-tab + .tabnav-tab {
+  box-shadow: inset 1px 0 0 var(--color-border-dark);
 }
 
 .section-ship-schedule .tabnav-panels {
