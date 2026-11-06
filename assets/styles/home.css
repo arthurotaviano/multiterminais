@@ -3,7 +3,7 @@
  * ================================================== */
 
 .section-hero {
-  padding-block: 0;
+  margin-block: 0;
 }
 
 .section-hero .hero-carousel {
@@ -431,4 +431,512 @@ html.no-js .section-hero .hero-carousel-slide-text {
   width: 72px;
   height: 3px;
   background-color: var(--color-accent);
+}
+
+/* ==================================================
+ * Sections Latest News, Ship Schedule & Status
+ * ================================================== */
+
+.section-nss {
+  background-color: var(--color-background-secondary);
+}
+
+.section-nss .section-content {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 20px;
+}
+
+@media (max-width: 767px) {
+  .section-nss .section-content {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 48px;
+  }
+}
+
+.section-nss .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+@media (max-width: 767px) {
+  .section-nss .section-header {
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+/* Section Latest News
+ * ================================================== */
+
+.section-latest-news {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section-latest-news .section-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.section-latest-news .news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.section-latest-news .card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 80px 152px 1fr;
+  grid-template-areas: 'date image body';
+  border-radius: 6px;
+  background-color: var(--color-background);
+}
+
+@media (max-width: 1023px) {
+  .section-latest-news .card {
+    grid-template-columns: 78px 128px 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-latest-news .card {
+    grid-template-columns: 180px minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'image date'
+      'image body';
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 479px) {
+  .section-latest-news .card {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      'image'
+      'date'
+      'body';
+  }
+}
+
+.section-latest-news .card-body {
+  grid-area: body;
+  padding: 12px;
+}
+
+@media (max-width: 767px) {
+  .section-latest-news .card-body {
+    padding-block-start: 6px;
+  }
+}
+
+.section-latest-news .card:has(.card-link:focus-visible) {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.section-latest-news .card-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.section-latest-news .card:hover .card-title {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.section-latest-news .card-excerpt {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  margin-block-start: 6px;
+  font-size: 14px;
+}
+
+@media (max-width: 767px) {
+  .section-latest-news .card-title,
+  .section-latest-news .card-excerpt {
+    display: block;
+    -webkit-line-clamp: unset;
+    line-clamp: none;
+    overflow: visible;
+  }
+}
+
+.section-latest-news .card-date-container {
+  grid-area: date;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .section-latest-news .card-date-container {
+    place-items: start;
+    padding-block-start: 12px;
+    text-align: start;
+  }
+}
+
+.section-latest-news .card-date {
+  display: flex;
+  flex-direction: column;
+  padding-inline: 12px;
+  white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  .section-latest-news .card-date {
+    flex-direction: row;
+    color: var(--color-foreground-secondary);
+    font-size: 14px;
+  }
+}
+
+.section-latest-news .card-day {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .section-latest-news .card-day {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-latest-news .card-day {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  .section-latest-news .card-day::after {
+    content: '/';
+  }
+}
+
+@media (max-width: 1023px) {
+  .section-latest-news .card-month {
+    font-size: 14px;
+  }
+}
+
+.section-latest-news .card-image {
+  grid-area: image;
+  overflow: hidden;
+}
+
+.section-latest-news .card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .section-latest-news .card-image img {
+    transition: transform 250ms ease;
+  }
+
+  .section-latest-news .card:hover .card-image img {
+    transform: scale(1.05);
+  }
+}
+
+@media (max-width: 479px) {
+  .section-latest-news .card-image img {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+.section-latest-news .card-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.section-latest-news .card-link:focus-visible {
+  outline: none;
+}
+
+/* Section Ship Schedule
+ * ================================================== */
+
+.nss-aside {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border-radius: 6px;
+  background-color: var(--color-background-dark);
+  overflow: hidden;
+}
+
+@media (max-width: 1023px) {
+  .nss-aside .section-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+.nss-aside .section-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nss-aside .section-icon svg {
+  display: block;
+  width: 48px;
+  height: 48px;
+  fill: var(--color-accent-dark);
+}
+
+.nss-aside .section-title {
+  color: var(--color-foreground-secondary-dark);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+}
+
+.nss-aside .section-title .highlight {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.section-ship-schedule {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.section-ship-schedule .ship-panel {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 20px;
+  padding: 16px;
+  min-height: 0;
+}
+
+.section-ship-schedule .tabnav-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-radius: 6px;
+  border: 1px solid var(--color-border-dark);
+  overflow: hidden;
+  background-color: var(--color-background-darker);
+}
+
+html.no-js .section-ship-schedule .tabnav-tabs {
+  display: none;
+}
+
+.section-ship-schedule .tabnav-tab {
+  flex: 1;
+  border-block-end: 2px solid transparent;
+  padding: 14px 12px 12px;
+  color: var(--color-foreground-secondary-dark);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.section-ship-schedule .tabnav-tab:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.section-ship-schedule .tabnav-tab:focus-visible {
+  outline-offset: -2px;
+}
+
+.section-ship-schedule .tabnav-tab[aria-selected='true'] {
+  border-block-end-color: var(--color-accent-dark);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.section-ship-schedule .tabnav-panels {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  min-height: 180px;
+}
+
+html.no-js .section-ship-schedule .tabnav-panels {
+  gap: 20px;
+  overflow-y: auto;
+}
+
+@media (max-width: 767px) {
+  .section-ship-schedule .tabnav-panels,
+  html.no-js .section-ship-schedule .tabnav-panels {
+    flex: none;
+    min-height: 0;
+    overflow: visible;
+  }
+}
+
+.section-ship-schedule .tabnav-panel {
+  position: relative;
+  flex: 1 1 0;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+@media (max-width: 767px) {
+  .section-ship-schedule .tabnav-panel {
+    flex: none;
+    overflow: visible;
+  }
+}
+
+html.no-js .section-ship-schedule .tabnav-panel {
+  flex: none;
+  overflow: visible;
+}
+
+.section-ship-schedule .tabnav-panel-label {
+  display: none;
+}
+
+html.no-js .section-ship-schedule .tabnav-panel-label {
+  display: block;
+  margin-block-end: 6px;
+  color: var(--color-foreground-secondary-dark);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.section-ship-schedule table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.section-ship-schedule thead th {
+  padding: 0;
+}
+
+.section-ship-schedule tbody th,
+.section-ship-schedule td {
+  border-block-end: 1px solid var(--color-border-dark);
+  padding: 8px 16px;
+  white-space: nowrap;
+}
+
+.section-ship-schedule tbody th {
+  width: 100%;
+  font-weight: 400;
+  text-align: start;
+  text-transform: uppercase;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.section-ship-schedule tbody tr:last-child th,
+.section-ship-schedule tbody tr:last-child td {
+  border-block-end: 0;
+}
+
+@media (max-width: 767px) {
+  .section-ship-schedule tbody th,
+  .section-ship-schedule td {
+    padding-inline: 8px;
+  }
+}
+
+@media (forced-colors: active) {
+  .section-ship-schedule .tabnav-tab[aria-selected='true'] {
+    forced-color-adjust: none;
+    border-block-end-color: Highlight;
+    background-color: Highlight;
+    color: HighlightText;
+  }
+}
+
+/* Section Status
+ * ================================================== */
+
+.section-status {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 16px;
+  background-color: var(--color-background-darker);
+}
+
+.section-status .status-form {
+  display: flex;
+  width: 100%;
+}
+
+.section-status .status-form-input {
+  flex: 1;
+  min-width: 0;
+  border-radius: 6px 0 0 6px;
+  padding-block: 12px;
+  padding-inline: 16px;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+
+.section-status .status-form-input::placeholder {
+  color: var(--color-foreground-secondary);
+  font-size: 14px;
+  opacity: 1;
+}
+
+.section-status .status-form-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  border-radius: 0 6px 6px 0;
+  width: 52px;
+  background-color: var(--color-accent-dark);
+  color: var(--color-background-dark);
+}
+
+.section-status .status-form-submit:hover {
+  background-color: var(--color-accent-hover-dark);
+}
+
+.section-status .status-form-submit:active {
+  background-color: var(--color-accent-active-dark);
+}
+
+.section-status .status-form-submit svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
 }
