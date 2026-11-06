@@ -163,10 +163,6 @@ html.no-js .section-hero .hero-gallery-controls {
   .section-hero .tabnav-tab.is-active {
     background-color: var(--color-accent);
   }
-
-  .section-hero .tabnav-tab.is-active::after {
-    display: none;
-  }
 }
 
 @media (max-width: 767px) {
@@ -767,7 +763,7 @@ html.no-js .section-ship-schedule .tabnav-tabs {
   outline-offset: -2px;
 }
 
-.section-ship-schedule .tabnav-tab[aria-selected='true'] {
+.section-ship-schedule .tabnav-tab.is-active {
   border-block-end-color: var(--color-accent-dark);
   background-color: rgba(255, 255, 255, 0.05);
 }
@@ -777,6 +773,12 @@ html.no-js .section-ship-schedule .tabnav-tabs {
   flex: 1 1 0;
   flex-direction: column;
   min-height: 180px;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .section-ship-schedule .tabnav-panels {
+    min-height: 120px;
+  }
 }
 
 html.no-js .section-ship-schedule .tabnav-panels {
@@ -804,6 +806,16 @@ html.no-js .section-ship-schedule .tabnav-panels {
   .section-ship-schedule .tabnav-panel {
     flex: none;
     overflow: visible;
+  }
+}
+
+html.js .section-ship-schedule .tabnav-panel {
+  transition: opacity 250ms ease;
+}
+
+@starting-style {
+  html.js .section-ship-schedule .tabnav-panel {
+    opacity: 0;
   }
 }
 
@@ -842,6 +854,13 @@ html.no-js .section-ship-schedule .tabnav-panel-label {
   white-space: nowrap;
 }
 
+@media (max-width: 1023px) {
+  .section-ship-schedule tbody th,
+  .section-ship-schedule td {
+    padding-inline: 8px;
+  }
+}
+
 .section-ship-schedule tbody th {
   width: 100%;
   font-weight: 400;
@@ -854,22 +873,6 @@ html.no-js .section-ship-schedule .tabnav-panel-label {
 .section-ship-schedule tbody tr:last-child th,
 .section-ship-schedule tbody tr:last-child td {
   border-block-end: 0;
-}
-
-@media (max-width: 767px) {
-  .section-ship-schedule tbody th,
-  .section-ship-schedule td {
-    padding-inline: 8px;
-  }
-}
-
-@media (forced-colors: active) {
-  .section-ship-schedule .tabnav-tab[aria-selected='true'] {
-    forced-color-adjust: none;
-    border-block-end-color: Highlight;
-    background-color: Highlight;
-    color: HighlightText;
-  }
 }
 
 /* Section Status

@@ -1,12 +1,5 @@
 ;(() => {
-  ;('use strict')
-
-  // ==================================================
-  // JavaScript Detection
-  // ==================================================
-
-  document.documentElement.classList.remove('no-js')
-  document.documentElement.classList.add('js')
+  'use strict'
 
   // ==================================================
   // Global Header

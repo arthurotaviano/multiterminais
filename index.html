@@ -7,6 +7,10 @@
 
     <link rel="stylesheet" href="assets/styles/global.css" />
     <link rel="stylesheet" href="assets/styles/home.css" />
+
+    <script>
+      document.documentElement.classList.replace('no-js', 'js')
+    </script>
   </head>
   <body>
     <div hidden>
@@ -653,7 +657,7 @@
                   <button class="tabnav-tab" type="button" data-part="tab">Próximos <span class="visually-hidden">navios</span></button>
                   <button class="tabnav-tab" type="button" data-part="tab"><span class="visually-hidden">Navios</span> atracados</button>
                 </div>
-                <div class="tabnav-panels" data-part="panels" role="region" aria-label="Programação de navios" tabindex="0">
+                <div class="tabnav-panels" data-part="panels" role="region" aria-label="Lista de navios" tabindex="0">
                   <div class="tabnav-panel" data-part="panel">
                     <h3 class="tabnav-panel-label">Próximos navios</h3>
                     <table>
@@ -746,7 +750,7 @@
               </div>
               <form class="status-form">
                 <label class="visually-hidden" for="status-form-number">Número do conhecimento</label>
-                <input class="status-form-input" id="status-form-number" name="status-form-number" type="text" placeholder="Informe o número do seu conhecimento" autocomplete="off" required />
+                <input class="status-form-input" id="status-form-number" name="status-form-number" type="text" placeholder="Nº do conhecimento" autocomplete="off" required />
                 <button class="status-form-submit" type="submit" aria-label="Consultar status da carga">
                   <span aria-hidden="true">
                     <svg><use href="#icon-magnifying-glass" /></svg>
