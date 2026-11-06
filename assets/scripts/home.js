@@ -7,33 +7,21 @@
 
   const AUTOPLAY_DELAY = 5000
 
-  const hero = document.querySelector('.section-hero')
-  const gallery = hero.querySelector('[data-component=tabnav]')
-  const galleryItems = gallery.querySelector('[data-part=panels]')
+  const gallery = document.querySelector('.section-hero [data-component=tabnav]')
+  const galleryItems = gallery?.querySelector('[data-part=panels]')
   const autoplayBtn = document.getElementById('hero-gallery-autoplay')
-  if (!gallery || !gallery.tabnav || !galleryItems || !autoplayBtn) return
+  if (!gallery?.tabnav || !galleryItems || !autoplayBtn) return
 
-  const { tabs, panels, goTo } = gallery.tabnav
+  const { panels, goTo } = gallery.tabnav
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
 
   let intervalId = null
+  let lastWidth = window.innerWidth
 
   const isPlaying = () => autoplayBtn.classList.contains('is-playing')
 
   function advance() {
-    const current = gallery.tabnav.current
-    const active = document.activeElement
-    const fromSlide = panels[current].contains(active)
-    const fromTab = tabs[current] === active
-    const next = (current + 1) % panels.length
-
-    goTo(next)
-
-    if (fromSlide) {
-      panels[next].querySelector('.button')?.focus()
-    } else if (fromTab) {
-      tabs[next].focus()
-    }
+    goTo((gallery.tabnav.current + 1) % panels.length)
   }
 
   function play() {
@@ -55,7 +43,17 @@
 
   autoplayBtn.addEventListener('click', () => (isPlaying() ? pause() : play()))
   gallery.addEventListener('tabnav:userchange', pause)
-  window.addEventListener('resize', pause)
+
+  gallery.addEventListener('focusin', e => {
+    if (e.target !== autoplayBtn && e.target.matches(':focus-visible')) pause()
+  })
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth === lastWidth) return
+    lastWidth = window.innerWidth
+    pause()
+  })
+
   reducedMotion.addEventListener('change', () => (reducedMotion.matches ? pause() : play()))
 
   galleryItems.setAttribute('aria-live', 'polite')
