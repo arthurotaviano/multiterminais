@@ -373,8 +373,8 @@ i {
   display: inline-block;
   width: 1em;
   height: 1em;
-  margin-left: 0.25em;
-  vertical-align: -0.125em;
+  margin-inline-start: 3px;
+  vertical-align: -2px;
   background-color: currentColor;
   -webkit-mask: var(--icon-arrow-right) center / contain no-repeat;
   mask: var(--icon-arrow-right) center / contain no-repeat;

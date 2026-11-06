@@ -6,25 +6,29 @@
   margin-block: 0;
 }
 
-.section-hero .hero-carousel {
+.section-hero .hero-gallery {
   position: relative;
   display: flex;
   flex-direction: column-reverse;
 }
 
-.section-hero .hero-carousel-controls {
+.section-hero .hero-gallery-controls {
   position: relative;
   z-index: 2;
   margin-block-start: -24px;
 }
 
 @media (max-width: 767px) {
-  .section-hero .hero-carousel-controls {
+  .section-hero .hero-gallery-controls {
     margin-block-start: 0;
   }
 }
 
-.section-hero .hero-carousel-autoplay {
+html.no-js .section-hero .hero-gallery-controls {
+  display: none;
+}
+
+.section-hero .hero-gallery-autoplay {
   position: absolute;
   right: 20px;
   bottom: calc(100% + 20px);
@@ -43,52 +47,48 @@
     transform 250ms ease;
 }
 
-.section-hero .hero-carousel-autoplay:hover {
+.section-hero .hero-gallery-autoplay:hover {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
-.section-hero .hero-carousel-autoplay:active {
+.section-hero .hero-gallery-autoplay:active {
   transform: scale(0.9);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .section-hero .hero-carousel-autoplay {
+  .section-hero .hero-gallery-autoplay {
     display: none;
   }
 }
 
-html.no-js .section-hero .hero-carousel-autoplay {
-  display: none;
-}
-
 @media (max-width: 767px) {
-  .section-hero .hero-carousel-autoplay {
+  .section-hero .hero-gallery-autoplay {
     right: 16px;
     bottom: calc(100% + 16px);
   }
 }
 
-.section-hero .hero-carousel-autoplay .hero-carousel-autoplay-icon-pause,
-.section-hero .hero-carousel-autoplay.is-playing .hero-carousel-autoplay-icon-play {
+.section-hero .hero-gallery-autoplay .hero-gallery-autoplay-icon-pause,
+.section-hero .hero-gallery-autoplay.is-playing .hero-gallery-autoplay-icon-play {
   display: none;
 }
 
-.hero-carousel-autoplay-icon-play {
+.hero-gallery-autoplay-icon-play {
   margin-inline-end: -1px;
 }
 
-.section-hero .hero-carousel-autoplay.is-playing .hero-carousel-autoplay-icon-pause {
+.section-hero .hero-gallery-autoplay.is-playing .hero-gallery-autoplay-icon-pause {
   display: block;
 }
 
-.section-hero .hero-carousel-autoplay-icon svg {
+.section-hero .hero-gallery-autoplay-icon svg {
   display: block;
   width: 18px;
   height: 18px;
   fill: currentColor;
 }
 
-.section-hero .hero-carousel-tabs {
+.section-hero .tabnav-tabs {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   overflow: hidden;
@@ -98,11 +98,12 @@ html.no-js .section-hero .hero-carousel-autoplay {
 }
 
 @media (max-width: 767px) {
-  .section-hero .hero-carousel-tabs {
+  .section-hero .tabnav-tabs {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 12px;
+    overflow: visible;
     border-radius: 0;
     border: none;
     margin-block: 12px;
@@ -111,16 +112,13 @@ html.no-js .section-hero .hero-carousel-autoplay {
   }
 }
 
-html.no-js .section-hero .hero-carousel-tabs {
-  display: none;
-}
-
-.section-hero .hero-carousel-tab {
+.section-hero .tabnav-tab {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 6px;
+  border-block-end: 3px solid transparent;
   padding-block: 20px;
   padding-inline: 20px;
   color: var(--color-foreground-secondary-dark);
@@ -128,88 +126,81 @@ html.no-js .section-hero .hero-carousel-tabs {
   text-transform: uppercase;
 }
 
-.section-hero .hero-carousel-tab:focus-visible {
+.section-hero .tabnav-tab:focus-visible {
   outline-offset: -2px;
   outline-color: var(--color-accent-dark);
 }
 
-.section-hero .hero-carousel-tab:hover,
-.section-hero .hero-carousel-tab.is-active {
+.section-hero .tabnav-tab:hover,
+.section-hero .tabnav-tab.is-active {
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-.section-hero .hero-carousel-tab.is-active::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  width: 100%;
-  height: 3px;
-  background-color: var(--color-accent-dark);
+.section-hero .tabnav-tab.is-active {
+  border-color: var(--color-accent-dark);
 }
 
 @media (max-width: 767px) {
-  .section-hero .hero-carousel-tab {
+  .section-hero .tabnav-tab {
     display: block;
     border-radius: 50%;
+    border-block-end: none;
     padding: 0;
     width: 8px;
     height: 8px;
-    background-color: var(--color-accent);
+    background-color: var(--color-foreground-secondary);
   }
 
-  .section-hero .hero-carousel-tab:focus-visible {
+  .section-hero .tabnav-tab:focus-visible {
     outline-offset: 2px;
     outline-color: var(--color-accent);
   }
 
-  .section-hero .hero-carousel-tab:hover {
-    background-color: var(--color-accent-hover);
+  .section-hero .tabnav-tab:hover {
+    background-color: var(--color-foreground);
   }
 
-  .section-hero .hero-carousel-tab.is-active {
-    background-color: var(--color-accent-active);
+  .section-hero .tabnav-tab.is-active {
+    background-color: var(--color-accent);
   }
 
-  .section-hero .hero-carousel-tab.is-active::after {
+  .section-hero .tabnav-tab.is-active::after {
     display: none;
   }
 }
 
 @media (max-width: 767px) {
-  .section-hero .hero-carousel-tab-icon {
+  .section-hero .tabnav-tab-icon {
     display: none;
   }
 }
 
-.section-hero .hero-carousel-tab-icon svg {
+.section-hero .tabnav-tab-icon svg {
   display: block;
   width: 24px;
   height: 24px;
   fill: var(--color-accent-dark);
 }
 
-.section-hero .hero-carousel-tab-label {
+.section-hero .tabnav-tab-label {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.section-hero .hero-carousel-tab-eyebrow {
+.section-hero .tabnav-tab-eyebrow {
   font-size: 11px;
   font-weight: 500;
 }
 
-.section-hero .hero-carousel-tab-highlight {
+.section-hero .tabnav-tab-highlight {
   font-size: 14px;
   font-weight: 700;
 }
 
 @media (max-width: 767px) {
-  .section-hero .hero-carousel-tab-eyebrow,
-  .section-hero .hero-carousel-tab-highlight {
+  .section-hero .tabnav-tab-eyebrow,
+  .section-hero .tabnav-tab-highlight {
     position: absolute;
     white-space: nowrap;
     overflow: hidden;
@@ -222,19 +213,19 @@ html.no-js .section-hero .hero-carousel-tabs {
   }
 }
 
-.section-hero .hero-carousel-slides {
+.section-hero .tabnav-panels {
   position: relative;
   z-index: 1;
   display: grid;
 }
 
-html.no-js .section-hero .hero-carousel-slides {
+html.no-js .section-hero .tabnav-panels {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.section-hero .hero-carousel-slide {
+.section-hero .tabnav-panel {
   position: relative;
   grid-area: 1 / 1;
   display: flex;
@@ -250,25 +241,25 @@ html.no-js .section-hero .hero-carousel-slides {
 }
 
 @media (max-width: 767px) {
-  .section-hero .hero-carousel-slide {
+  .section-hero .tabnav-panel {
     justify-content: flex-start;
     padding-block-end: 40px;
   }
 }
 
-html.no-js .section-hero .hero-carousel-slide {
+html.no-js .section-hero .tabnav-panel {
   visibility: visible;
   padding-block-end: 40px;
   transition: none;
 }
 
-.section-hero .hero-carousel-slide.is-active {
+.section-hero .tabnav-panel.is-active {
   visibility: visible;
   pointer-events: auto;
   transition-delay: 0s;
 }
 
-.section-hero .hero-carousel-slide-background {
+.section-hero .tabnav-panel-background {
   position: absolute;
   top: 0;
   right: 0;
@@ -283,7 +274,7 @@ html.no-js .section-hero .hero-carousel-slide {
   transition: opacity 300ms ease;
 }
 
-.section-hero .hero-carousel-slide-background::after {
+.section-hero .tabnav-panel-background::after {
   content: '';
   position: absolute;
   top: 0;
@@ -295,25 +286,25 @@ html.no-js .section-hero .hero-carousel-slide {
   background: linear-gradient(to right, var(--color-background-dark), rgba(8, 38, 64, 0.2));
 }
 
-.section-hero .hero-carousel-slide.is-active .hero-carousel-slide-background {
+.section-hero .tabnav-panel.is-active .tabnav-panel-background {
   opacity: 1;
   transition-duration: 600ms;
 }
 
-html.no-js .section-hero .hero-carousel-slide-background {
+html.no-js .section-hero .tabnav-panel-background {
   opacity: 1;
   transition: none;
 }
 
 @media (max-width: 767px) {
-  .section-hero .hero-carousel-slide-background {
+  .section-hero .tabnav-panel-background {
     top: unset;
     left: 0;
     width: 100%;
     height: 60%;
   }
 
-  .section-hero .hero-carousel-slide-background::after {
+  .section-hero .tabnav-panel-background::after {
     content: '';
     position: absolute;
     top: 0;
@@ -326,14 +317,14 @@ html.no-js .section-hero .hero-carousel-slide-background {
   }
 }
 
-.section-hero .hero-carousel-slide-content {
+.section-hero .tabnav-panel-content {
   position: relative;
   z-index: 2;
   display: flex;
   align-items: center;
 }
 
-.section-hero .hero-carousel-slide-text {
+.section-hero .tabnav-panel-text {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -346,25 +337,25 @@ html.no-js .section-hero .hero-carousel-slide-background {
     opacity 300ms ease;
 }
 
-html.no-js .section-hero .hero-carousel-slide-text {
+html.no-js .section-hero .tabnav-panel-text {
   transform: none;
   opacity: 1;
   transition: none;
 }
 
 @media (max-width: 767px) {
-  .section-hero .hero-carousel-slide-text {
+  .section-hero .tabnav-panel-text {
     transform: translateY(-24px);
     gap: 12px;
     width: 100%;
   }
 
-  html.no-js .section-hero .hero-carousel-slide-text {
+  html.no-js .section-hero .tabnav-panel-text {
     transform: none;
   }
 }
 
-.section-hero .hero-carousel-slide.is-active .hero-carousel-slide-text {
+.section-hero .tabnav-panel.is-active .tabnav-panel-text {
   transform: none;
   opacity: 1;
   transition:
@@ -372,7 +363,7 @@ html.no-js .section-hero .hero-carousel-slide-text {
     opacity 500ms ease 150ms;
 }
 
-.section-hero .hero-carousel-slide-title {
+.section-hero .tabnav-panel-title {
   color: var(--color-foreground-secondary-dark);
   font-family: var(--font-display);
   font-size: 52px;
@@ -382,24 +373,24 @@ html.no-js .section-hero .hero-carousel-slide-text {
 }
 
 @media (max-width: 1023px) {
-  .section-hero .hero-carousel-slide-title {
+  .section-hero .tabnav-panel-title {
     font-size: 44px;
   }
 }
 
 @media (max-width: 767px) {
-  .section-hero .hero-carousel-slide-title {
+  .section-hero .tabnav-panel-title {
     font-size: 32px;
   }
 }
 
-.section-hero .hero-carousel-slide-title .highlight {
+.section-hero .tabnav-panel-title .highlight {
   display: block;
   font-weight: 700;
 }
 
 @media (max-width: 767px) {
-  .section-hero .hero-carousel-slide-title .highlight {
+  .section-hero .tabnav-panel-title .highlight {
     display: inline-block;
   }
 }
