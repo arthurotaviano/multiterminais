@@ -5,259 +5,444 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Multiterminais</title>
 
+    <script>
+      document.documentElement.classList.replace('no-js', 'js')
+    </script>
+
     <link rel="stylesheet" href="assets/styles/global.css" />
     <link rel="stylesheet" href="assets/styles/home.css" />
   </head>
   <body>
+    <div hidden>
+      <!-- Global Icons -->
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-chevron-down" viewBox="0 0 640 640">
+          <path d="M297.4 438.6C309.9 451.1 330.2 451.1 342.7 438.6L502.7 278.6C515.2 266.1 515.2 245.8 502.7 233.3C490.2 220.8 469.9 220.8 457.4 233.3L320 370.7L182.6 233.4C170.1 220.9 149.8 220.9 137.3 233.4C124.8 245.9 124.8 266.2 137.3 278.7L297.3 438.7z" />
+        </symbol>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-circle-user" viewBox="0 0 640 640">
+          <path d="M463 448.2C440.9 409.8 399.4 384 352 384L288 384C240.6 384 199.1 409.8 177 448.2C212.2 487.4 263.2 512 320 512C376.8 512 427.8 487.3 463 448.2zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320zM320 336C359.8 336 392 303.8 392 264C392 224.2 359.8 192 320 192C280.2 192 248 224.2 248 264C248 303.8 280.2 336 320 336z" />
+        </symbol>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-list-ul" viewBox="0 0 640 640">
+          <path d="M112 208C138.5 208 160 186.5 160 160C160 133.5 138.5 112 112 112C85.5 112 64 133.5 64 160C64 186.5 85.5 208 112 208zM256 128C238.3 128 224 142.3 224 160C224 177.7 238.3 192 256 192L544 192C561.7 192 576 177.7 576 160C576 142.3 561.7 128 544 128L256 128zM256 288C238.3 288 224 302.3 224 320C224 337.7 238.3 352 256 352L544 352C561.7 352 576 337.7 576 320C576 302.3 561.7 288 544 288L256 288zM256 448C238.3 448 224 462.3 224 480C224 497.7 238.3 512 256 512L544 512C561.7 512 576 497.7 576 480C576 462.3 561.7 448 544 448L256 448zM112 528C138.5 528 160 506.5 160 480C160 453.5 138.5 432 112 432C85.5 432 64 453.5 64 480C64 506.5 85.5 528 112 528zM160 320C160 293.5 138.5 272 112 272C85.5 272 64 293.5 64 320C64 346.5 85.5 368 112 368C138.5 368 160 346.5 160 320z" />
+        </symbol>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="flag-br" viewBox="0 0 32 32">
+          <rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#459a45"></rect>
+          <path d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z" opacity=".15"></path>
+          <path d="M3.472,16l12.528,8,12.528-8-12.528-8L3.472,16Z" fill="#fedf00"></path>
+          <circle cx="16" cy="16" r="5" fill="#0a2172"></circle>
+          <path d="M14,14.5c-.997,0-1.958,.149-2.873,.409-.078,.35-.126,.71-.127,1.083,.944-.315,1.951-.493,2.999-.493,2.524,0,4.816,.996,6.519,2.608,.152-.326,.276-.666,.356-1.026-1.844-1.604-4.245-2.583-6.875-2.583Z" fill="#fff"></path>
+          <path d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z" fill="#fff" opacity=".2"></path>
+        </symbol>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="flag-us" viewBox="0 0 32 32">
+          <rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#fff"></rect>
+          <path d="M1.638,5.846H30.362c-.711-1.108-1.947-1.846-3.362-1.846H5c-1.414,0-2.65,.738-3.362,1.846Z" fill="#a62842"></path>
+          <path d="M2.03,7.692c-.008,.103-.03,.202-.03,.308v1.539H31v-1.539c0-.105-.022-.204-.03-.308H2.03Z" fill="#a62842"></path>
+          <path fill="#a62842" d="M2 11.385H31V13.231H2z"></path>
+          <path fill="#a62842" d="M2 15.077H31V16.923000000000002H2z"></path>
+          <path fill="#a62842" d="M1 18.769H31V20.615H1z"></path>
+          <path d="M1,24c0,.105,.023,.204,.031,.308H30.969c.008-.103,.031-.202,.031-.308v-1.539H1v1.539Z" fill="#a62842"></path>
+          <path d="M30.362,26.154H1.638c.711,1.108,1.947,1.846,3.362,1.846H27c1.414,0,2.65-.738,3.362-1.846Z" fill="#a62842"></path>
+          <path d="M5,4h11v12.923H1V8c0-2.208,1.792-4,4-4Z" fill="#102d5e"></path>
+          <path d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z" opacity=".15"></path>
+          <path d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z" fill="#fff" opacity=".2"></path>
+          <path fill="#fff" d="M4.601 7.463L5.193 7.033 4.462 7.033 4.236 6.338 4.01 7.033 3.279 7.033 3.87 7.463 3.644 8.158 4.236 7.729 4.827 8.158 4.601 7.463z"></path>
+          <path fill="#fff" d="M7.58 7.463L8.172 7.033 7.441 7.033 7.215 6.338 6.989 7.033 6.258 7.033 6.849 7.463 6.623 8.158 7.215 7.729 7.806 8.158 7.58 7.463z"></path>
+          <path fill="#fff" d="M10.56 7.463L11.151 7.033 10.42 7.033 10.194 6.338 9.968 7.033 9.237 7.033 9.828 7.463 9.603 8.158 10.194 7.729 10.785 8.158 10.56 7.463z"></path>
+          <path fill="#fff" d="M6.066 9.283L6.658 8.854 5.927 8.854 5.701 8.158 5.475 8.854 4.744 8.854 5.335 9.283 5.109 9.979 5.701 9.549 6.292 9.979 6.066 9.283z"></path>
+          <path fill="#fff" d="M9.046 9.283L9.637 8.854 8.906 8.854 8.68 8.158 8.454 8.854 7.723 8.854 8.314 9.283 8.089 9.979 8.68 9.549 9.271 9.979 9.046 9.283z"></path>
+          <path fill="#fff" d="M12.025 9.283L12.616 8.854 11.885 8.854 11.659 8.158 11.433 8.854 10.702 8.854 11.294 9.283 11.068 9.979 11.659 9.549 12.251 9.979 12.025 9.283z"></path>
+          <path fill="#fff" d="M6.066 12.924L6.658 12.494 5.927 12.494 5.701 11.799 5.475 12.494 4.744 12.494 5.335 12.924 5.109 13.619 5.701 13.19 6.292 13.619 6.066 12.924z"></path>
+          <path fill="#fff" d="M9.046 12.924L9.637 12.494 8.906 12.494 8.68 11.799 8.454 12.494 7.723 12.494 8.314 12.924 8.089 13.619 8.68 13.19 9.271 13.619 9.046 12.924z"></path>
+          <path fill="#fff" d="M12.025 12.924L12.616 12.494 11.885 12.494 11.659 11.799 11.433 12.494 10.702 12.494 11.294 12.924 11.068 13.619 11.659 13.19 12.251 13.619 12.025 12.924z"></path>
+          <path fill="#fff" d="M13.539 7.463L14.13 7.033 13.399 7.033 13.173 6.338 12.947 7.033 12.216 7.033 12.808 7.463 12.582 8.158 13.173 7.729 13.765 8.158 13.539 7.463z"></path>
+          <path fill="#fff" d="M4.601 11.104L5.193 10.674 4.462 10.674 4.236 9.979 4.01 10.674 3.279 10.674 3.87 11.104 3.644 11.799 4.236 11.369 4.827 11.799 4.601 11.104z"></path>
+          <path fill="#fff" d="M7.58 11.104L8.172 10.674 7.441 10.674 7.215 9.979 6.989 10.674 6.258 10.674 6.849 11.104 6.623 11.799 7.215 11.369 7.806 11.799 7.58 11.104z"></path>
+          <path fill="#fff" d="M10.56 11.104L11.151 10.674 10.42 10.674 10.194 9.979 9.968 10.674 9.237 10.674 9.828 11.104 9.603 11.799 10.194 11.369 10.785 11.799 10.56 11.104z"></path>
+          <path fill="#fff" d="M13.539 11.104L14.13 10.674 13.399 10.674 13.173 9.979 12.947 10.674 12.216 10.674 12.808 11.104 12.582 11.799 13.173 11.369 13.765 11.799 13.539 11.104z"></path>
+          <path fill="#fff" d="M4.601 14.744L5.193 14.315 4.462 14.315 4.236 13.619 4.01 14.315 3.279 14.315 3.87 14.744 3.644 15.44 4.236 15.01 4.827 15.44 4.601 14.744z"></path>
+          <path fill="#fff" d="M7.58 14.744L8.172 14.315 7.441 14.315 7.215 13.619 6.989 14.315 6.258 14.315 6.849 14.744 6.623 15.44 7.215 15.01 7.806 15.44 7.58 14.744z"></path>
+          <path fill="#fff" d="M10.56 14.744L11.151 14.315 10.42 14.315 10.194 13.619 9.968 14.315 9.237 14.315 9.828 14.744 9.603 15.44 10.194 15.01 10.785 15.44 10.56 14.744z"></path>
+          <path fill="#fff" d="M13.539 14.744L14.13 14.315 13.399 14.315 13.173 13.619 12.947 14.315 12.216 14.315 12.808 14.744 12.582 15.44 13.173 15.01 13.765 15.44 13.539 14.744z"></path>
+        </symbol>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-linkedin-in" viewBox="0 0 640 640">
+          <path d="M196.3 512L103.4 512L103.4 212.9L196.3 212.9L196.3 512zM149.8 172.1C120.1 172.1 96 147.5 96 117.8C96 103.5 101.7 89.9 111.8 79.8C121.9 69.7 135.6 64 149.8 64C164 64 177.7 69.7 187.8 79.8C197.9 89.9 203.6 103.6 203.6 117.8C203.6 147.5 179.5 172.1 149.8 172.1zM543.9 512L451.2 512L451.2 366.4C451.2 331.7 450.5 287.2 402.9 287.2C354.6 287.2 347.2 324.9 347.2 363.9L347.2 512L254.4 512L254.4 212.9L343.5 212.9L343.5 253.7L344.8 253.7C357.2 230.2 387.5 205.4 432.7 205.4C526.7 205.4 544 267.3 544 347.7L544 512L543.9 512z" />
+        </symbol>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-facebook-f" viewBox="0 0 640 640">
+          <path d="M240 363.3L240 576L356 576L356 363.3L442.5 363.3L460.5 265.5L356 265.5L356 230.9C356 179.2 376.3 159.4 428.7 159.4C445 159.4 458.1 159.8 465.7 160.6L465.7 71.9C451.4 68 416.4 64 396.2 64C289.3 64 240 114.5 240 223.4L240 265.5L174 265.5L174 363.3L240 363.3z" />
+        </symbol>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-instagram" viewBox="0 0 640 640">
+          <path d="M320.3 205C256.8 204.8 205.2 256.2 205 319.7C204.8 383.2 256.2 434.8 319.7 435C383.2 435.2 434.8 383.8 435 320.3C435.2 256.8 383.8 205.2 320.3 205zM319.7 245.4C360.9 245.2 394.4 278.5 394.6 319.7C394.8 360.9 361.5 394.4 320.3 394.6C279.1 394.8 245.6 361.5 245.4 320.3C245.2 279.1 278.5 245.6 319.7 245.4zM413.1 200.3C413.1 185.5 425.1 173.5 439.9 173.5C454.7 173.5 466.7 185.5 466.7 200.3C466.7 215.1 454.7 227.1 439.9 227.1C425.1 227.1 413.1 215.1 413.1 200.3zM542.8 227.5C541.1 191.6 532.9 159.8 506.6 133.6C480.4 107.4 448.6 99.2 412.7 97.4C375.7 95.3 264.8 95.3 227.8 97.4C192 99.1 160.2 107.3 133.9 133.5C107.6 159.7 99.5 191.5 97.7 227.4C95.6 264.4 95.6 375.3 97.7 412.3C99.4 448.2 107.6 480 133.9 506.2C160.2 532.4 191.9 540.6 227.8 542.4C264.8 544.5 375.7 544.5 412.7 542.4C448.6 540.7 480.4 532.5 506.6 506.2C532.8 480 541 448.2 542.8 412.3C544.9 375.3 544.9 264.5 542.8 227.5zM495 452C487.2 471.6 472.1 486.7 452.4 494.6C422.9 506.3 352.9 503.6 320.3 503.6C287.7 503.6 217.6 506.2 188.2 494.6C168.6 486.8 153.5 471.7 145.6 452C133.9 422.5 136.6 352.5 136.6 319.9C136.6 287.3 134 217.2 145.6 187.8C153.4 168.2 168.5 153.1 188.2 145.2C217.7 133.5 287.7 136.2 320.3 136.2C352.9 136.2 423 133.6 452.4 145.2C472 153 487.1 168.1 495 187.8C506.7 217.3 504 287.3 504 319.9C504 352.5 506.7 422.6 495 452z" />
+        </symbol>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-youtube" viewBox="0 0 640 640">
+          <path d="M581.7 188.1C575.5 164.4 556.9 145.8 533.4 139.5C490.9 128 320.1 128 320.1 128C320.1 128 149.3 128 106.7 139.5C83.2 145.8 64.7 164.4 58.4 188.1C47 231 47 320.4 47 320.4C47 320.4 47 409.8 58.4 452.7C64.7 476.3 83.2 494.2 106.7 500.5C149.3 512 320.1 512 320.1 512C320.1 512 490.9 512 533.5 500.5C557 494.2 575.5 476.3 581.8 452.7C593.2 409.8 593.2 320.4 593.2 320.4C593.2 320.4 593.2 231 581.8 188.1zM264.2 401.6L264.2 239.2L406.9 320.4L264.2 401.6z" />
+        </symbol>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-location-dot" viewBox="0 0 640 640">
+          <path d="M128 252.6C128 148.4 214 64 320 64C426 64 512 148.4 512 252.6C512 371.9 391.8 514.9 341.6 569.4C329.8 582.2 310.1 582.2 298.3 569.4C248.1 514.9 127.9 371.9 127.9 252.6zM320 320C355.3 320 384 291.3 384 256C384 220.7 355.3 192 320 192C284.7 192 256 220.7 256 256C256 291.3 284.7 320 320 320z" />
+        </symbol>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-phone" viewBox="0 0 640 640">
+          <path d="M224.2 89C216.3 70.1 195.7 60.1 176.1 65.4L170.6 66.9C106 84.5 50.8 147.1 66.9 223.3C104 398.3 241.7 536 416.7 573.1C493 589.3 555.5 534 573.1 469.4L574.6 463.9C580 444.2 569.9 423.6 551.1 415.8L453.8 375.3C437.3 368.4 418.2 373.2 406.8 387.1L368.2 434.3C297.9 399.4 241.3 341 208.8 269.3L253 233.3C266.9 222 271.6 202.9 264.8 186.3L224.2 89z" />
+        </symbol>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-envelope" viewBox="0 0 640 640">
+          <path d="M112 128C85.5 128 64 149.5 64 176C64 191.1 71.1 205.3 83.2 214.4L291.2 370.4C308.3 383.2 331.7 383.2 348.8 370.4L556.8 214.4C568.9 205.3 576 191.1 576 176C576 149.5 554.5 128 528 128L112 128zM64 260L64 448C64 483.3 92.7 512 128 512L512 512C547.3 512 576 483.3 576 448L576 260L377.6 408.8C343.5 434.4 296.5 434.4 262.4 408.8L64 260z" />
+        </symbol>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-briefcase" viewBox="0 0 640 640">
+          <path d="M264 112L376 112C380.4 112 384 115.6 384 120L384 160L256 160L256 120C256 115.6 259.6 112 264 112zM208 120L208 160L128 160C92.7 160 64 188.7 64 224L64 320L576 320L576 224C576 188.7 547.3 160 512 160L432 160L432 120C432 89.1 406.9 64 376 64L264 64C233.1 64 208 89.1 208 120zM576 368L384 368L384 384C384 401.7 369.7 416 352 416L288 416C270.3 416 256 401.7 256 384L256 368L64 368L64 480C64 515.3 92.7 544 128 544L512 544C547.3 544 576 515.3 576 480L576 368z" />
+        </symbol>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-box-open" viewBox="0 0 640 640">
+          <path d="M560.3 301.2C570.7 313 588.6 315.6 602.1 306.7C616.8 296.9 620.8 277 611 262.3L563 190.3C560.2 186.1 556.4 182.6 551.9 180.1L351.4 68.7C332.1 58 308.6 58 289.2 68.7L88.8 180C83.4 183 79.1 187.4 76.2 192.8L27.7 282.7C15.1 306.1 23.9 335.2 47.3 347.8L80.3 365.5L80.3 418.8C80.3 441.8 92.7 463.1 112.7 474.5L288.7 574.2C308.3 585.3 332.2 585.3 351.8 574.2L527.8 474.5C547.9 463.1 560.2 441.9 560.2 418.8L560.2 301.3zM320.3 291.4L170.2 208L320.3 124.6L470.4 208L320.3 291.4zM278.8 341.6L257.5 387.8L91.7 299L117.1 251.8L278.8 341.6z" />
+        </symbol>
+      </svg>
+      <!-- Local Icons -->
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-play" viewBox="0 0 640 640">
+          <path d="M187.2 100.9C174.8 94.1 159.8 94.4 147.6 101.6C135.4 108.8 128 121.9 128 136L128 504C128 518.1 135.5 531.2 147.6 538.4C159.7 545.6 174.8 545.9 187.2 539.1L523.2 355.1C536 348.1 544 334.6 544 320C544 305.4 536 291.9 523.2 284.9L187.2 100.9z" />
+        </symbol>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-pause" viewBox="0 0 640 640">
+          <path d="M176 96C149.5 96 128 117.5 128 144L128 496C128 522.5 149.5 544 176 544L240 544C266.5 544 288 522.5 288 496L288 144C288 117.5 266.5 96 240 96L176 96zM400 96C373.5 96 352 117.5 352 144L352 496C352 522.5 373.5 544 400 544L464 544C490.5 544 512 522.5 512 496L512 144C512 117.5 490.5 96 464 96L400 96z" />
+        </symbol>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-ship" viewBox="0 0 640 640">
+          <path d="M272 64C245.5 64 224 85.5 224 112L224 128L208 128C163.8 128 128 163.8 128 208L128 316.8L106.4 325.4C91.6 331.3 83.9 347.8 89 362.9C99.4 394.2 115.8 422.2 136.7 446C156.8 436.8 178.4 432.1 200 432C233.1 431.8 266.3 442.2 294.4 463.4L296 464.6L296 249.6L192 291.2L192 208C192 199.2 199.2 192 208 192L432 192C440.8 192 448 199.2 448 208L448 291.2L344 249.6L344 464.6L345.6 463.4C373.1 442.7 405.5 432.2 438 432C460.3 431.9 482.6 436.5 503.3 446C524.2 422.3 540.6 394.2 551 362.9C556 347.7 548.4 331.3 533.6 325.4L512 316.8L512 208C512 163.8 476.2 128 432 128L416 128L416 112C416 85.5 394.5 64 368 64L272 64zM403.4 540.1C424.7 524 453.3 524 474.6 540.1C493.6 554.5 516.5 568.3 541.8 573.4C568.3 578.8 596.1 574.2 622.5 554.3C633.1 546.3 635.2 531.3 627.2 520.7C619.2 510.1 604.2 508 593.6 516C578.7 527.2 565 529.1 551.3 526.3C536.4 523.3 520.4 514.4 503.5 501.7C465.1 472.7 413 472.7 374.5 501.7C350.5 519.8 333.8 528 320 528C306.2 528 289.5 519.8 265.5 501.7C227.1 472.7 175 472.7 136.5 501.7C114.9 518 95.2 527.5 77.6 527.4C68 527.3 57.7 524.4 46.4 515.9C35.8 507.9 20.8 510 12.8 520.6C4.8 531.2 7 546.3 17.6 554.3C36.7 568.7 57 575.3 77.4 575.4C111.3 575.6 141.7 558 165.5 540.1C186.8 524 215.4 524 236.7 540.1C260.9 558.4 289 576 320.1 576C351.2 576 379.2 558.3 403.5 540.1z" />
+        </symbol>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-truck-ramp-box" viewBox="0 0 640 640">
+          <path d="M432 96C387.8 96 352 131.8 352 176L352 424.2L54.8 513.4C37.9 518.4 28.3 536.3 33.4 553.2C38.5 570.1 56.3 579.7 73.2 574.7L388.7 480.1L432.4 480.1C432.2 482.7 432 485.4 432 488.1C432 536.7 471.4 576.1 520 576.1C568.6 576.1 608 536.7 608 488.1L608 96.1L432 96.1zM560 488C560 510.1 542.1 528 520 528C497.9 528 480 510.1 480 488C480 465.9 497.9 448 520 448C542.1 448 559.9 465.9 560 487.9L560 488zM83.9 213.5C50.1 223.8 31.1 259.6 41.4 293.4L69.5 385.2C79.8 419 115.6 438 149.4 427.7L241.2 399.6C275 389.3 294 353.5 283.7 319.7L255.6 227.9C245.3 194.1 209.5 175.1 175.7 185.4L83.9 213.5z" />
+        </symbol>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-train" viewBox="0 0 640 640">
+          <path d="M128 160C128 107 171 64 224 64L416 64C469 64 512 107 512 160L512 416C512 456.1 487.4 490.5 452.5 504.8L506.4 568.5C515 578.6 513.7 593.8 503.6 602.3C493.5 610.8 478.3 609.6 469.8 599.5L395.8 512L244.5 512L170.5 599.5C161.9 609.6 146.8 610.9 136.7 602.3C126.6 593.7 125.3 578.6 133.9 568.5L187.8 504.8C152.6 490.5 128 456.1 128 416L128 160zM192 192L192 288C192 305.7 206.3 320 224 320L416 320C433.7 320 448 305.7 448 288L448 192C448 174.3 433.7 160 416 160L224 160C206.3 160 192 174.3 192 192zM320 448C337.7 448 352 433.7 352 416C352 398.3 337.7 384 320 384C302.3 384 288 398.3 288 416C288 433.7 302.3 448 320 448z" />
+        </symbol>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-circle-nodes" viewBox="0 0 640 640">
+          <path d="M482.4 221.9C517.7 213.6 544 181.9 544 144C544 99.8 508.2 64 464 64C420.6 64 385.3 98.5 384 141.5L200.2 215.1C185.7 200.8 165.9 192 144 192C99.8 192 64 227.8 64 272C64 316.2 99.8 352 144 352C156.2 352 167.8 349.3 178.1 344.4L323.7 471.8C321.3 479.4 320 487.6 320 496C320 540.2 355.8 576 400 576C444.2 576 480 540.2 480 496C480 468.3 466 443.9 444.6 429.6L482.4 221.9zM220.3 296.2C222.5 289.3 223.8 282 224 274.5L407.8 201C411.4 204.5 415.2 207.7 419.4 210.5L381.6 418.1C376.1 419.4 370.8 421.2 365.8 423.6L220.3 296.2z" />
+        </symbol>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-maximize" viewBox="0 0 640 640">
+          <path d="M264 96L120 96C106.7 96 96 106.7 96 120L96 264C96 273.7 101.8 282.5 110.8 286.2C119.8 289.9 130.1 287.8 137 281L177 241L256 320L177 399L137 359C130.1 352.1 119.8 350.1 110.8 353.8C101.8 357.5 96 366.3 96 376L96 520C96 533.3 106.7 544 120 544L264 544C273.7 544 282.5 538.2 286.2 529.2C289.9 520.2 287.9 509.9 281 503L241 463L320 384L399 463L359 503C352.1 509.9 350.1 520.2 353.8 529.2C357.5 538.2 366.3 544 376 544L520 544C533.3 544 544 533.3 544 520L544 376C544 366.3 538.2 357.5 529.2 353.8C520.2 350.1 509.9 352.1 503 359L463 399L384 320L463 241L503 281C509.9 287.9 520.2 289.9 529.2 286.2C538.2 282.5 544 273.7 544 264L544 120C544 106.7 533.3 96 520 96L376 96C366.3 96 357.5 101.8 353.8 110.8C350.1 119.8 352.2 130.1 359 137L399 177L320 256L241 177L281 137C287.9 130.1 289.9 119.8 286.2 110.8C282.5 101.8 273.7 96 264 96z" />
+        </symbol>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-magnifying-glass" viewBox="0 0 640 640">
+          <path d="M480 272C480 317.9 465.1 360.3 440 394.7L566.6 521.4C579.1 533.9 579.1 554.2 566.6 566.7C554.1 579.2 533.8 579.2 521.3 566.7L394.7 440C360.3 465.1 317.9 480 272 480C157.1 480 64 386.9 64 272C64 157.1 157.1 64 272 64C386.9 64 480 157.1 480 272zM272 416C351.5 416 416 351.5 416 272C416 192.5 351.5 128 272 128C192.5 128 128 192.5 128 272C128 351.5 192.5 416 272 416z" />
+        </symbol>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-book-open" viewBox="0 0 640 640">
+          <path d="M320 205.3L320 514.6L320.5 514.4C375.1 491.7 433.7 480 492.8 480L512 480L512 160L492.8 160C450.6 160 408.7 168.4 369.7 184.6C352.9 191.6 336.3 198.5 320 205.3zM294.9 125.5L320 136L345.1 125.5C391.9 106 442.1 96 492.8 96L528 96C554.5 96 576 117.5 576 144L576 496C576 522.5 554.5 544 528 544L492.8 544C442.1 544 391.9 554 345.1 573.5L332.3 578.8C324.4 582.1 315.6 582.1 307.7 578.8L294.9 573.5C248.1 554 197.9 544 147.2 544L112 544C85.5 544 64 522.5 64 496L64 144C64 117.5 85.5 96 112 96L147.2 96C197.9 96 248.1 106 294.9 125.5z" />
+        </symbol>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-table-list" viewBox="0 0 640 640">
+          <path d="M96 160C96 124.7 124.7 96 160 96L480 96C515.3 96 544 124.7 544 160L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 160zM160 160L160 224L224 224L224 160L160 160zM480 160L288 160L288 224L480 224L480 160zM160 288L160 352L224 352L224 288L160 288zM480 288L288 288L288 352L480 352L480 288zM160 416L160 480L224 480L224 416L160 416zM480 416L288 416L288 480L480 480L480 416z" />
+        </symbol>
+      </svg>
+    </div>
+
     <header class="globalheader" id="globalheader">
-      <aside class="globalheader-user">
-        <div class="globalheader-content">
-          <ul class="globalheader-user-list" aria-label="Selecione o idioma / Choose language">
-            <li class="globalheader-user-item">
-              <a class="globalheader-user-link" href="/" aria-current="true">Português</a>
-            </li>
-            <li class="globalheader-user-item">
-              <a class="globalheader-user-link" href="/en" lang="en" hreflang="en">English</a>
-            </li>
-          </ul>
-          <a class="globalheader-user-button" href="/cliente">Área do Cliente</a>
-        </div>
-      </aside>
-      <div class="globalheader-head">
-        <div class="globalheader-content">
-          <a class="globalheader-head-logo" href="/" aria-label="Multiterminais">
-            <img class="globalheader-head-logo-image" src="assets/images/logo-multiterminais.svg" alt="Logo Multiterminais" aria-hidden="true" />
-            <span class="globalheader-head-logo-label">Multiterminais</span>
-          </a>
-          <div class="globalheader-head-dropdown" id="globalheader-head-dropdown">
-            <button class="globalheader-head-dropdown-trigger" id="globalheader-head-dropdown-trigger" type="button" aria-expanded="false" aria-controls="globalheader-head-dropdown-list">
-              <span class="globalheader-head-dropdown-trigger-label">Empresas do Grupo</span>
-              <span class="globalheader-head-dropdown-trigger-icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-                  <path d="M297.4 438.6C309.9 451.1 330.2 451.1 342.7 438.6L502.7 278.6C515.2 266.1 515.2 245.8 502.7 233.3C490.2 220.8 469.9 220.8 457.4 233.3L320 370.7L182.6 233.4C170.1 220.9 149.8 220.9 137.3 233.4C124.8 245.9 124.8 266.2 137.3 278.7L297.3 438.7z" />
-                </svg>
-              </span>
-            </button>
-            <ul class="globalheader-head-dropdown-list" id="globalheader-head-dropdown-list">
-              <li class="globalheader-head-dropdown-item">
-                <a class="globalheader-head-dropdown-link" href="https://www.fink.com.br/" target="_blank" rel="noopener noreferrer">Fink</a>
-              </li>
-              <li class="globalheader-head-dropdown-item">
-                <a class="globalheader-head-dropdown-link" href="https://www.multiterminais.com.br/multicar">MultiCar</a>
-              </li>
-              <li class="globalheader-head-dropdown-item">
-                <a class="globalheader-head-dropdown-link" href="https://www.multiterminais.com.br/multirio">MultiRio</a>
-              </li>
-            </ul>
+      <nav class="globalheader-nav" aria-label="Principal">
+        <div class="viewport-content">
+          <div class="globalheader-nav-content">
+            <a class="globalheader-nav-logo" href="/">
+              <img class="globalheader-nav-logo-image" src="assets/images/logo-multiterminais.svg" alt="Multiterminais" />
+            </a>
+            <div class="globalheader-nav-menu-container">
+              <button class="globalheader-nav-menu-trigger" type="button" aria-expanded="false" aria-controls="globalheader-nav-menu-links" aria-label="Menu">
+                <span class="globalheader-nav-menu-trigger-bread globalheader-nav-menu-trigger-bread-top"></span>
+                <span class="globalheader-nav-menu-trigger-bread globalheader-nav-menu-trigger-bread-bottom"></span>
+              </button>
+              <div class="globalheader-nav-menu-links" id="globalheader-nav-menu-links">
+                <ul class="globalheader-nav-menu">
+                  <li class="globalheader-nav-menu-item" data-component="globalheader-nav-menu-dropdown" data-component-id="sobre">
+                    <button class="globalheader-nav-menu-dropdown-trigger" type="button" data-part="trigger" aria-expanded="false">
+                      <span class="globalheader-nav-menu-dropdown-trigger-label">Sobre</span>
+                      <span class="globalheader-nav-menu-dropdown-trigger-icon" aria-hidden="true">
+                        <svg><use href="#icon-chevron-down" /></svg>
+                      </span>
+                    </button>
+                    <ul class="globalheader-nav-menu-dropdown-list" data-part="list">
+                      <li class="globalheader-nav-menu-dropdown-item">
+                        <a class="globalheader-nav-menu-dropdown-link" href="/">Visão Geral</a>
+                      </li>
+                      <li class="globalheader-nav-menu-dropdown-item">
+                        <a class="globalheader-nav-menu-dropdown-link" href="/">Missão, Visão e Valores</a>
+                      </li>
+                      <li class="globalheader-nav-menu-dropdown-item">
+                        <a class="globalheader-nav-menu-dropdown-link" href="/">Atividades Integradas</a>
+                      </li>
+                      <li class="globalheader-nav-menu-dropdown-item">
+                        <a class="globalheader-nav-menu-dropdown-link" href="/">Área de Atuação</a>
+                      </li>
+                      <li class="globalheader-nav-menu-dropdown-item">
+                        <a class="globalheader-nav-menu-dropdown-link" href="/">História e Grandes Marcas</a>
+                      </li>
+                      <li class="globalheader-nav-menu-dropdown-item">
+                        <a class="globalheader-nav-menu-dropdown-link" href="/">Estudos de Caso</a>
+                      </li>
+                      <li class="globalheader-nav-menu-dropdown-item">
+                        <a class="globalheader-nav-menu-dropdown-link" href="/">Fotos e Vídeos</a>
+                      </li>
+                      <li class="globalheader-nav-menu-dropdown-item">
+                        <a class="globalheader-nav-menu-dropdown-link" href="/">Obras de Expansão</a>
+                      </li>
+                      <li class="globalheader-nav-menu-dropdown-item">
+                        <a class="globalheader-nav-menu-dropdown-link" href="/">Política SGI e Certificados</a>
+                      </li>
+                      <li class="globalheader-nav-menu-dropdown-item">
+                        <a class="globalheader-nav-menu-dropdown-link" href="/">Política de Privacidade de Dados Pessoais</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="globalheader-nav-menu-item" data-component="globalheader-nav-menu-dropdown" data-component-id="servicos">
+                    <button class="globalheader-nav-menu-dropdown-trigger" type="button" data-part="trigger" aria-expanded="false">
+                      <span class="globalheader-nav-menu-dropdown-trigger-label">Serviços</span>
+                      <span class="globalheader-nav-menu-dropdown-trigger-icon" aria-hidden="true">
+                        <svg><use href="#icon-chevron-down" /></svg>
+                      </span>
+                    </button>
+                    <ul class="globalheader-nav-menu-dropdown-list" data-part="list">
+                      <li class="globalheader-nav-menu-dropdown-item">
+                        <a class="globalheader-nav-menu-dropdown-link" href="/">Portos Marítimos</a>
+                      </li>
+                      <li class="globalheader-nav-menu-dropdown-item">
+                        <a class="globalheader-nav-menu-dropdown-link" href="/">Portos Secos / C.L.I.A.</a>
+                      </li>
+                      <li class="globalheader-nav-menu-dropdown-item">
+                        <a class="globalheader-nav-menu-dropdown-link" href="/">Logística Integrada</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="globalheader-nav-menu-item" data-component="globalheader-nav-menu-dropdown" data-component-id="operacoes">
+                    <button class="globalheader-nav-menu-dropdown-trigger" type="button" data-part="trigger" aria-expanded="false">
+                      <span class="globalheader-nav-menu-dropdown-trigger-label">Operações</span>
+                      <span class="globalheader-nav-menu-dropdown-trigger-icon" aria-hidden="true">
+                        <svg><use href="#icon-chevron-down" /></svg>
+                      </span>
+                    </button>
+                    <ul class="globalheader-nav-menu-dropdown-list" data-part="list">
+                      <li class="globalheader-nav-menu-dropdown-item">
+                        <a class="globalheader-nav-menu-dropdown-link" href="/">Armazém Geral - <span class="nowrap">Rio de Janeiro (RJ)</span></a>
+                      </li>
+                      <li class="globalheader-nav-menu-dropdown-item">
+                        <a class="globalheader-nav-menu-dropdown-link" href="/">Centro de Operações Logísticas (COL) - <span class="nowrap">Resende (RJ)</span></a>
+                      </li>
+                      <li class="globalheader-nav-menu-dropdown-item">
+                        <a class="globalheader-nav-menu-dropdown-link" href="/">Centro Logístico Industrial Aduaneiro (CLIA) - <span class="nowrap">Rio de Janeiro (RJ)</span></a>
+                      </li>
+                      <li class="globalheader-nav-menu-dropdown-item">
+                        <a class="globalheader-nav-menu-dropdown-link" href="/">Porto Seco - <span class="nowrap">Juiz de Fora (MG)</span></a>
+                      </li>
+                      <li class="globalheader-nav-menu-dropdown-item">
+                        <a class="globalheader-nav-menu-dropdown-link" href="/">Porto Seco - <span class="nowrap">Resende (RJ)</span></a>
+                      </li>
+                      <li class="globalheader-nav-menu-dropdown-item">
+                        <a class="globalheader-nav-menu-dropdown-link" href="/">Terminal de Contêineres <span class="nowrap">MultiRio (RJ)</span></a>
+                      </li>
+                      <li class="globalheader-nav-menu-dropdown-item">
+                        <a class="globalheader-nav-menu-dropdown-link" href="/">Terminal de Veículos <span class="nowrap">MultiCar (RJ)</span></a>
+                      </li>
+                      <li class="globalheader-nav-menu-dropdown-item">
+                        <a class="globalheader-nav-menu-dropdown-link" href="/">Terminal Intermodal PortoVale - <span class="nowrap">Itatiaia (RJ)</span></a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="globalheader-nav-menu-item" data-component="globalheader-nav-menu-dropdown" data-component-id="uteis">
+                    <button class="globalheader-nav-menu-dropdown-trigger" type="button" data-part="trigger" aria-expanded="false">
+                      <span class="globalheader-nav-menu-dropdown-trigger-label"><span class="globalheader-medium-hide">Informações</span> Úteis</span>
+                      <span class="globalheader-nav-menu-dropdown-trigger-icon" aria-hidden="true">
+                        <svg><use href="#icon-chevron-down" /></svg>
+                      </span>
+                    </button>
+                    <ul class="globalheader-nav-menu-dropdown-list" data-part="list">
+                      <li class="globalheader-nav-menu-dropdown-section">
+                        <span class="globalheader-nav-menu-dropdown-section-label" id="globalheader-nav-menu-dropdown-section-operacoes">Sobre nossas Operações</span>
+                        <ul class="globalheader-nav-menu-dropdown-section-list" aria-labelledby="globalheader-nav-menu-dropdown-section-operacoes">
+                          <li class="globalheader-nav-menu-dropdown-item">
+                            <a class="globalheader-nav-menu-dropdown-link" href="/">Documentos Úteis</a>
+                          </li>
+                          <li class="globalheader-nav-menu-dropdown-item">
+                            <a class="globalheader-nav-menu-dropdown-link" href="/">Dúvidas Frequentes</a>
+                          </li>
+                          <li class="globalheader-nav-menu-dropdown-item">
+                            <a class="globalheader-nav-menu-dropdown-link" href="/">Linhas Marítimas</a>
+                          </li>
+                          <li class="globalheader-nav-menu-dropdown-item">
+                            <a class="globalheader-nav-menu-dropdown-link" href="/">Rotas dos Serviços</a>
+                          </li>
+                          <li class="globalheader-nav-menu-dropdown-item">
+                            <a class="globalheader-nav-menu-dropdown-link" href="/">Horários de Operação</a>
+                          </li>
+                          <li class="globalheader-nav-menu-dropdown-item">
+                            <a class="globalheader-nav-menu-dropdown-link" href="/">Tabela de Preços</a>
+                          </li>
+                          <li class="globalheader-nav-menu-dropdown-item">
+                            <a class="globalheader-nav-menu-dropdown-link" href="/">Calculadora</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="globalheader-nav-menu-dropdown-section">
+                        <span class="globalheader-nav-menu-dropdown-section-label" id="globalheader-nav-menu-dropdown-section-carga">Sobre sua Carga</span>
+                        <ul class="globalheader-nav-menu-dropdown-section-list" aria-labelledby="globalheader-nav-menu-dropdown-section-carga">
+                          <li class="globalheader-nav-menu-dropdown-item">
+                            <a class="globalheader-nav-menu-dropdown-link" href="/">Área do Cliente</a>
+                          </li>
+                          <li class="globalheader-nav-menu-dropdown-item">
+                            <a class="globalheader-nav-menu-dropdown-link" href="/">Janelas Disponíveis</a>
+                          </li>
+                          <li class="globalheader-nav-menu-dropdown-item">
+                            <a class="globalheader-nav-menu-dropdown-link" href="/">Programação de Navios</a>
+                          </li>
+                          <li class="globalheader-nav-menu-dropdown-item">
+                            <a class="globalheader-nav-menu-dropdown-link" href="/">Documentação Necessária</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="globalheader-nav-menu-dropdown-section">
+                        <span class="globalheader-nav-menu-dropdown-section-label" id="globalheader-nav-menu-dropdown-section-mercado">Sobre o Mercado</span>
+                        <ul class="globalheader-nav-menu-dropdown-section-list" aria-labelledby="globalheader-nav-menu-dropdown-section-mercado">
+                          <li class="globalheader-nav-menu-dropdown-item">
+                            <a class="globalheader-nav-menu-dropdown-link" href="/">Dicionário da Logística</a>
+                          </li>
+                          <li class="globalheader-nav-menu-dropdown-item">
+                            <a class="globalheader-nav-menu-dropdown-link" href="/">Links Relevantes</a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="globalheader-nav-menu-item">
+                    <a class="globalheader-nav-menu-link" href="/">Sustentabilidade</a>
+                  </li>
+                  <li class="globalheader-nav-menu-item">
+                    <a class="globalheader-nav-menu-link" href="/">Notícias</a>
+                  </li>
+                </ul>
+                <a class="globalheader-nav-menu-cta" href="/">
+                  <span class="globalheader-nav-menu-cta-icon" aria-hidden="true">
+                    <svg><use href="#icon-circle-user" /></svg>
+                  </span>
+                  <span class="globalheader-medium-hide">Área do Cliente</span>
+                </a>
+              </div>
+              <a class="globalheader-nav-mapanchor" href="#globalfooter-sitemap">
+                <span class="globalheader-nav-mapanchor-icon" aria-hidden="true">
+                  <svg><use href="#icon-list-ul" /></svg>
+                </span>
+                <span class="globalheader-small-hide">Mapa do Site</span>
+              </a>
+            </div>
           </div>
-          <div class="globalheader-head-menutrigger">
-            <button class="globalheader-head-menutrigger-button" id="globalheader-head-menutrigger-button" type="button" aria-controls="globalheader-nav-list" aria-label="Abrir Menu">
-              <span class="globalheader-head-menutrigger-button-bread globalheader-head-menutrigger-button-bread-top"></span>
-              <span class="globalheader-head-menutrigger-button-bread globalheader-head-menutrigger-button-bread-bottom"></span>
-            </button>
-          </div>
-          <a class="globalheader-head-directoryanchor" href="#globalfooter-directory" role="button">
-            <span class="globalheader-head-directoryanchor-label">Ir para o diretório</span>
-            <span class="globalheader-head-directoryanchor-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-                <path d="M297.4 438.6C309.9 451.1 330.2 451.1 342.7 438.6L502.7 278.6C515.2 266.1 515.2 245.8 502.7 233.3C490.2 220.8 469.9 220.8 457.4 233.3L320 370.7L182.6 233.4C170.1 220.9 149.8 220.9 137.3 233.4C124.8 245.9 124.8 266.2 137.3 278.7L297.3 438.7z" />
-              </svg>
-            </span>
-          </a>
         </div>
-      </div>
-      <nav class="globalheader-nav" id="globalheader-nav">
-        <div class="globalheader-content">
-          <ul class="globalheader-nav-list" id="globalheader-nav-list" aria-label="Navegação principal">
-            <li class="globalheader-nav-item" data-globalheader-nav-submenu-container>
-              <a class="globalheader-nav-link" href="#" role="button" aria-expanded="false" aria-controls="globalheader-nav-submenu-list-sobre" aria-label="Menu Sobre" data-globalheader-nav-submenu-trigger>
-                <span class="globalheader-nav-link-label">Sobre</span>
-                <span class="globalheader-nav-link-icon" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-                    <path d="M297.4 438.6C309.9 451.1 330.2 451.1 342.7 438.6L502.7 278.6C515.2 266.1 515.2 245.8 502.7 233.3C490.2 220.8 469.9 220.8 457.4 233.3L320 370.7L182.6 233.4C170.1 220.9 149.8 220.9 137.3 233.4C124.8 245.9 124.8 266.2 137.3 278.7L297.3 438.7z" />
-                  </svg>
+      </nav>
+      <nav class="globalheader-ribbon theme-dark" aria-label="Links institucionais">
+        <div class="viewport-content">
+          <ul class="globalheader-ribbon-items">
+            <li class="globalheader-ribbon-item" data-component="globalheader-ribbon-dropdown" data-component-id="empresas">
+              <button class="globalheader-ribbon-dropdown-trigger" type="button" data-part="trigger" aria-expanded="false" aria-label="Empresas do Grupo">
+                <span class="globalheader-ribbon-dropdown-trigger-label-full">Empresas do Grupo</span>
+                <span class="globalheader-ribbon-dropdown-trigger-label-short">Empresas</span>
+                <span class="globalheader-ribbon-dropdown-trigger-icon">
+                  <svg><use href="#icon-chevron-down" /></svg>
                 </span>
-              </a>
-              <div class="globalheader-nav-submenu-container">
-                <div class="globalheader-nav-submenu">
-                  <ul class="globalheader-nav-submenu-list" id="globalheader-nav-submenu-list-sobre">
-                    <li class="globalheader-nav-submenu-item">
-                      <a class="globalheader-nav-submenu-link" href="/">Visão Geral</a>
-                    </li>
-                    <li class="globalheader-nav-submenu-item">
-                      <a class="globalheader-nav-submenu-link" href="/">Missão, Visão e Valores</a>
-                    </li>
-                    <li class="globalheader-nav-submenu-item">
-                      <a class="globalheader-nav-submenu-link" href="/">Atividades Integradas</a>
-                    </li>
-                    <li class="globalheader-nav-submenu-item">
-                      <a class="globalheader-nav-submenu-link" href="/">Área de Atuação</a>
-                    </li>
-                    <li class="globalheader-nav-submenu-item">
-                      <a class="globalheader-nav-submenu-link" href="/">História e Grandes Marcas</a>
-                    </li>
-                    <li class="globalheader-nav-submenu-item">
-                      <a class="globalheader-nav-submenu-link" href="/">Estudos de Caso</a>
-                    </li>
-                    <li class="globalheader-nav-submenu-item">
-                      <a class="globalheader-nav-submenu-link" href="/">Fotos e Vídeos</a>
-                    </li>
-                    <li class="globalheader-nav-submenu-item">
-                      <a class="globalheader-nav-submenu-link" href="/">Obras de Expansão</a>
-                    </li>
-                    <li class="globalheader-nav-submenu-item">
-                      <a class="globalheader-nav-submenu-link" href="/">Política SGI e Certificados</a>
-                    </li>
-                    <li class="globalheader-nav-submenu-item">
-                      <a class="globalheader-nav-submenu-link" href="/">Política de Privacidade de Dados Pessoais</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+              </button>
+              <ul class="globalheader-ribbon-dropdown-list" data-part="list">
+                <li class="globalheader-ribbon-dropdown-item">
+                  <a class="globalheader-ribbon-dropdown-link" href="https://www.fink.com.br/" target="_blank" rel="noopener noreferrer" aria-label="Fink (abre em uma nova aba)">Fink</a>
+                </li>
+                <li class="globalheader-ribbon-dropdown-item">
+                  <a class="globalheader-ribbon-dropdown-link" href="https://www.multiterminais.com.br/multicar">MultiCar</a>
+                </li>
+                <li class="globalheader-ribbon-dropdown-item">
+                  <a class="globalheader-ribbon-dropdown-link" href="https://www.multiterminais.com.br/multirio">MultiRio</a>
+                </li>
+              </ul>
             </li>
-            <li class="globalheader-nav-item" data-globalheader-nav-submenu-container>
-              <a class="globalheader-nav-link" href="#" role="button" aria-expanded="false" aria-controls="globalheader-nav-submenu-list-servicos" aria-label="Menu Serviços" data-globalheader-nav-submenu-trigger>
-                <span class="globalheader-nav-link-label">Serviços</span>
-                <span class="globalheader-nav-link-icon" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-                    <path d="M297.4 438.6C309.9 451.1 330.2 451.1 342.7 438.6L502.7 278.6C515.2 266.1 515.2 245.8 502.7 233.3C490.2 220.8 469.9 220.8 457.4 233.3L320 370.7L182.6 233.4C170.1 220.9 149.8 220.9 137.3 233.4C124.8 245.9 124.8 266.2 137.3 278.7L297.3 438.7z" />
-                  </svg>
+            <li class="globalheader-ribbon-item">
+              <a class="globalheader-ribbon-link nowrap" href="/">Fale Conosco</a>
+            </li>
+            <li class="globalheader-ribbon-item" data-component="globalheader-ribbon-dropdown" data-component-id="idioma">
+              <button class="globalheader-ribbon-dropdown-trigger" type="button" data-part="trigger" aria-expanded="false" aria-label="Português (PT)" aria-describedby="globalheader-ribbon-language-hint">
+                <span class="globalheader-ribbon-dropdown-trigger-flag" aria-hidden="true">
+                  <svg><use href="#flag-br" /></svg>
                 </span>
-              </a>
-              <div class="globalheader-nav-submenu-container">
-                <div class="globalheader-nav-submenu">
-                  <ul class="globalheader-nav-submenu-list" id="globalheader-nav-submenu-list-servicos">
-                    <li class="globalheader-nav-submenu-item">
-                      <a class="globalheader-nav-submenu-link" href="/">Portos Marítimos</a>
-                    </li>
-                    <li class="globalheader-nav-submenu-item">
-                      <a class="globalheader-nav-submenu-link" href="/">Portos Secos / C.L.I.A.</a>
-                    </li>
-                    <li class="globalheader-nav-submenu-item">
-                      <a class="globalheader-nav-submenu-link" href="/">Logística Integrada</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </li>
-            <li class="globalheader-nav-item" data-globalheader-nav-submenu-container>
-              <a class="globalheader-nav-link" href="#" role="button" aria-expanded="false" aria-controls="globalheader-nav-submenu-list-operacoes" aria-label="Menu Operações" data-globalheader-nav-submenu-trigger>
-                <span class="globalheader-nav-link-label">Operações</span>
-                <span class="globalheader-nav-link-icon" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-                    <path d="M297.4 438.6C309.9 451.1 330.2 451.1 342.7 438.6L502.7 278.6C515.2 266.1 515.2 245.8 502.7 233.3C490.2 220.8 469.9 220.8 457.4 233.3L320 370.7L182.6 233.4C170.1 220.9 149.8 220.9 137.3 233.4C124.8 245.9 124.8 266.2 137.3 278.7L297.3 438.7z" />
-                  </svg>
+                <span class="globalheader-ribbon-dropdown-trigger-label-full" aria-hidden="true">Português</span>
+                <span class="globalheader-ribbon-dropdown-trigger-label-short" aria-hidden="true">PT</span>
+                <span class="globalheader-ribbon-dropdown-trigger-icon">
+                  <svg><use href="#icon-chevron-down" /></svg>
                 </span>
-              </a>
-              <div class="globalheader-nav-submenu-container">
-                <div class="globalheader-nav-submenu">
-                  <ul class="globalheader-nav-submenu-list" id="globalheader-nav-submenu-list-operacoes">
-                    <li class="globalheader-nav-submenu-item">
-                      <a class="globalheader-nav-submenu-link" href="/">Armazém Geral - Rio de Janeiro (RJ)</a>
-                    </li>
-                    <li class="globalheader-nav-submenu-item">
-                      <a class="globalheader-nav-submenu-link" href="/">Centro de Operações Logísticas (COL) - Resende (RJ)</a>
-                    </li>
-                    <li class="globalheader-nav-submenu-item">
-                      <a class="globalheader-nav-submenu-link" href="/">Centro Logístico Industrial Aduaneiro (CLIA) - Rio de Janeiro (RJ)</a>
-                    </li>
-                    <li class="globalheader-nav-submenu-item">
-                      <a class="globalheader-nav-submenu-link" href="/">Porto Seco - Juiz de Fora (MG)</a>
-                    </li>
-                    <li class="globalheader-nav-submenu-item">
-                      <a class="globalheader-nav-submenu-link" href="/">Porto Seco - Resende (RJ)</a>
-                    </li>
-                    <li class="globalheader-nav-submenu-item">
-                      <a class="globalheader-nav-submenu-link" href="/">Terminal de Contêineres MultiRio (RJ)</a>
-                    </li>
-                    <li class="globalheader-nav-submenu-item">
-                      <a class="globalheader-nav-submenu-link" href="/">Terminal de Veículos MultiCar (RJ)</a>
-                    </li>
-                    <li class="globalheader-nav-submenu-item">
-                      <a class="globalheader-nav-submenu-link" href="/">Terminal Intermodal PortoVale - Itatiaia (RJ)</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+              </button>
+              <span class="visually-hidden" id="globalheader-ribbon-language-hint">Selecionar idioma / <span lang="en">Choose language</span></span>
+              <ul class="globalheader-ribbon-dropdown-list" data-part="list">
+                <li class="globalheader-ribbon-dropdown-item">
+                  <a class="globalheader-ribbon-dropdown-link" href="/" hreflang="pt-BR" lang="pt-BR" aria-current="true">
+                    <span class="globalheader-ribbon-dropdown-link-label">Português</span>
+                    <span class="globalheader-ribbon-dropdown-link-flag" aria-hidden="true">
+                      <svg><use href="#flag-br" /></svg>
+                    </span>
+                  </a>
+                </li>
+                <li class="globalheader-ribbon-dropdown-item">
+                  <a class="globalheader-ribbon-dropdown-link" href="/en" hreflang="en" lang="en">
+                    <span class="globalheader-ribbon-dropdown-link-label">English</span>
+                    <span class="globalheader-ribbon-dropdown-link-flag" aria-hidden="true">
+                      <svg><use href="#flag-us" /></svg>
+                    </span>
+                  </a>
+                </li>
+              </ul>
             </li>
-            <li class="globalheader-nav-item" data-globalheader-nav-submenu-container>
-              <a class="globalheader-nav-link" href="#" role="button" aria-expanded="false" aria-controls="globalheader-nav-submenu-list-info" aria-label="Menu Informações Úteis" data-globalheader-nav-submenu-trigger>
-                <span class="globalheader-nav-link-label"><span class="globalheader-nav-link-label-hide">Informações</span> Úteis</span>
-                <span class="globalheader-nav-link-icon" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-                    <path d="M297.4 438.6C309.9 451.1 330.2 451.1 342.7 438.6L502.7 278.6C515.2 266.1 515.2 245.8 502.7 233.3C490.2 220.8 469.9 220.8 457.4 233.3L320 370.7L182.6 233.4C170.1 220.9 149.8 220.9 137.3 233.4C124.8 245.9 124.8 266.2 137.3 278.7L297.3 438.7z" />
-                  </svg>
-                </span>
-              </a>
-              <div class="globalheader-nav-submenu-container">
-                <div class="globalheader-nav-submenu">
-                  <ul class="globalheader-nav-submenu-list globalheader-nav-submenu-list-with-sublist" id="globalheader-nav-submenu-list-info">
-                    <li class="globalheader-nav-submenu-item">
-                      <span class="globalheader-nav-submenu-label">Sobre nossas Operações</span>
-                      <ul class="globalheader-nav-submenu-sublist">
-                        <li class="globalheader-nav-submenu-item">
-                          <a class="globalheader-nav-submenu-link" href="/">Documentos Úteis</a>
-                        </li>
-                        <li class="globalheader-nav-submenu-item">
-                          <a class="globalheader-nav-submenu-link" href="/">Dúvidas Frequentes</a>
-                        </li>
-                        <li class="globalheader-nav-submenu-item">
-                          <a class="globalheader-nav-submenu-link" href="/">Linhas Marítimas</a>
-                        </li>
-                        <li class="globalheader-nav-submenu-item">
-                          <a class="globalheader-nav-submenu-link" href="/">Rotas dos Serviços</a>
-                        </li>
-                        <li class="globalheader-nav-submenu-item">
-                          <a class="globalheader-nav-submenu-link" href="/">Horários de Operação</a>
-                        </li>
-                        <li class="globalheader-nav-submenu-item">
-                          <a class="globalheader-nav-submenu-link" href="/">Tabela de Preços</a>
-                        </li>
-                        <li class="globalheader-nav-submenu-item">
-                          <a class="globalheader-nav-submenu-link" href="/">Calculadora</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="globalheader-nav-submenu-item">
-                      <span class="globalheader-nav-submenu-label">Sobre sua Carga</span>
-                      <ul class="globalheader-nav-submenu-sublist">
-                        <li class="globalheader-nav-submenu-item">
-                          <a class="globalheader-nav-submenu-link" href="/">Área do Cliente</a>
-                        </li>
-                        <li class="globalheader-nav-submenu-item">
-                          <a class="globalheader-nav-submenu-link" href="/">Janelas Disponíveis</a>
-                        </li>
-                        <li class="globalheader-nav-submenu-item">
-                          <a class="globalheader-nav-submenu-link" href="/">Programação de Navios</a>
-                        </li>
-                        <li class="globalheader-nav-submenu-item">
-                          <a class="globalheader-nav-submenu-link" href="/">Documentação Necessária</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="globalheader-nav-submenu-item">
-                      <span class="globalheader-nav-submenu-label">Sobre o Mercado</span>
-                      <ul class="globalheader-nav-submenu-sublist">
-                        <li class="globalheader-nav-submenu-item">
-                          <a class="globalheader-nav-submenu-link" href="/">Dicionário da Logística</a>
-                        </li>
-                        <li class="globalheader-nav-submenu-item">
-                          <a class="globalheader-nav-submenu-link" href="/">Links Relevantes</a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </li>
-            <li class="globalheader-nav-item">
-              <a class="globalheader-nav-link" href="/">Sustentabilidade</a>
-            </li>
-            <li class="globalheader-nav-item">
-              <a class="globalheader-nav-link" href="/">Notícias</a>
-            </li>
-            <li class="globalheader-nav-item">
-              <a class="globalheader-nav-link" href="/">Contato</a>
+            <li class="globalheader-ribbon-item globalheader-ribbon-item-nojslang">
+              <span class="visually-hidden" id="globalheader-ribbon-nojslang-hint">Selecionar idioma / <span lang="en">Choose language</span></span>
+              <ul class="globalheader-ribbon-nojslang" aria-labelledby="globalheader-ribbon-nojslang-hint">
+                <li class="globalheader-ribbon-nojslang-item">
+                  <a class="globalheader-ribbon-nojslang-link" href="/" hreflang="pt-BR" lang="pt-BR" aria-current="true">
+                    <span class="globalheader-ribbon-nojslang-link-flag" aria-hidden="true">
+                      <svg><use href="#flag-br" /></svg>
+                    </span>
+                    <span class="globalheader-ribbon-nojslang-link-label">Português</span>
+                  </a>
+                </li>
+                <li class="globalheader-ribbon-nojslang-item">
+                  <a class="globalheader-ribbon-nojslang-link" href="/en" hreflang="en" lang="en">
+                    <span class="globalheader-ribbon-nojslang-link-flag" aria-hidden="true">
+                      <svg><use href="#flag-us" /></svg>
+                    </span>
+                    <span class="globalheader-ribbon-nojslang-link-label">English</span>
+                  </a>
+                </li>
+              </ul>
             </li>
           </ul>
         </div>
@@ -266,570 +451,743 @@
     <div class="globalheader-placeholder"></div>
 
     <main class="main">
-      <section class="section section-hero">
-        <div class="hero-carousel" id="hero-carousel">
-          <div class="hero-carousel-tabs-container">
-            <div class="hero-carousel-tabs-content">
-              <div class="hero-carousel-tabs" id="hero-carousel-tabs">
-                <button class="hero-carousel-tab">
-                  <span class="hero-carousel-tab-eyebrow">Portos</span>
-                  <span class="hero-carousel-tab-highlight">Marítimos</span>
-                </button>
-                <button class="hero-carousel-tab">
-                  <span class="hero-carousel-tab-eyebrow">Portos</span>
-                  <span class="hero-carousel-tab-highlight">Secos</span>
-                </button>
-                <button class="hero-carousel-tab">
-                  <span class="hero-carousel-tab-eyebrow">Term. Intermodal</span>
-                  <span class="hero-carousel-tab-highlight">PortoVale</span>
-                </button>
-                <button class="hero-carousel-tab">
-                  <span class="hero-carousel-tab-eyebrow">Logística</span>
-                  <span class="hero-carousel-tab-highlight">Integrada</span>
-                </button>
-                <button class="hero-carousel-tab">
-                  <span class="hero-carousel-tab-eyebrow">Expansão dos</span>
-                  <span class="hero-carousel-tab-highlight">Terminais</span>
-                </button>
-              </div>
-              <button class="hero-carousel-autoplay" id="hero-carousel-autoplay" aria-label="Iniciar apresentação automática">
-                <span class="hero-carousel-autoplay-icon hero-carousel-autoplay-icon-play" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M187.2 100.9C174.8 94.1 159.8 94.4 147.6 101.6C135.4 108.8 128 121.9 128 136L128 504C128 518.1 135.5 531.2 147.6 538.4C159.7 545.6 174.8 545.9 187.2 539.1L523.2 355.1C536 348.1 544 334.6 544 320C544 305.4 536 291.9 523.2 284.9L187.2 100.9z" /></svg>
+      <section class="section section-hero" aria-label="Destaques">
+        <div class="hero-gallery" data-component="tabnav" data-component-id="hero-gallery" data-panel-mode="class">
+          <div class="viewport-content hero-gallery-controls">
+            <button class="hero-gallery-autoplay" id="hero-gallery-autoplay" type="button" aria-label="Iniciar apresentação automática">
+              <span class="hero-gallery-autoplay-icon hero-gallery-autoplay-icon-play" aria-hidden="true">
+                <svg><use href="#icon-play" /></svg>
+              </span>
+              <span class="hero-gallery-autoplay-icon hero-gallery-autoplay-icon-pause" aria-hidden="true">
+                <svg><use href="#icon-pause" /></svg>
+              </span>
+            </button>
+            <div class="tabnav-tabs" data-part="tabs" aria-label="Áreas de atuação">
+              <button class="tabnav-tab" type="button" data-part="tab">
+                <span class="tabnav-tab-icon">
+                  <svg><use href="#icon-ship" /></svg>
                 </span>
-                <span class="hero-carousel-autoplay-icon hero-carousel-autoplay-icon-pause" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M176 96C149.5 96 128 117.5 128 144L128 496C128 522.5 149.5 544 176 544L240 544C266.5 544 288 522.5 288 496L288 144C288 117.5 266.5 96 240 96L176 96zM400 96C373.5 96 352 117.5 352 144L352 496C352 522.5 373.5 544 400 544L464 544C490.5 544 512 522.5 512 496L512 144C512 117.5 490.5 96 464 96L400 96z" /></svg>
+                <span class="tabnav-tab-label">
+                  <span class="tabnav-tab-eyebrow">Portos</span>
+                  <span class="tabnav-tab-highlight">Marítimos</span>
+                </span>
+              </button>
+              <button class="tabnav-tab" type="button" data-part="tab">
+                <span class="tabnav-tab-icon">
+                  <svg><use href="#icon-truck-ramp-box" /></svg>
+                </span>
+                <span class="tabnav-tab-label">
+                  <span class="tabnav-tab-eyebrow">Portos</span>
+                  <span class="tabnav-tab-highlight">Secos</span>
+                </span>
+              </button>
+              <button class="tabnav-tab" type="button" data-part="tab">
+                <span class="tabnav-tab-icon">
+                  <svg><use href="#icon-train" /></svg>
+                </span>
+                <span class="tabnav-tab-label">
+                  <span class="tabnav-tab-eyebrow">Term. Intermodal</span>
+                  <span class="tabnav-tab-highlight">PortoVale</span>
+                </span>
+              </button>
+              <button class="tabnav-tab" type="button" data-part="tab">
+                <span class="tabnav-tab-icon">
+                  <svg><use href="#icon-circle-nodes" /></svg>
+                </span>
+                <span class="tabnav-tab-label">
+                  <span class="tabnav-tab-eyebrow">Logística</span>
+                  <span class="tabnav-tab-highlight">Integrada</span>
+                </span>
+              </button>
+              <button class="tabnav-tab" type="button" data-part="tab">
+                <span class="tabnav-tab-icon">
+                  <svg><use href="#icon-maximize" /></svg>
+                </span>
+                <span class="tabnav-tab-label">
+                  <span class="tabnav-tab-eyebrow">Expansão dos</span>
+                  <span class="tabnav-tab-highlight">Terminais</span>
                 </span>
               </button>
             </div>
           </div>
-          <div class="hero-carousel-slides" id="hero-carousel-slides">
-            <div class="hero-carousel-slide">
-              <div class="hero-carousel-slide-background" aria-hidden="true" style="background-image: url('/assets/images/home/hero-portos-maritimos.jpg')"></div>
-              <div class="hero-carousel-slide-content">
-                <div class="hero-carousel-slide-text">
-                  <h2 class="hero-carousel-slide-title">Portos <span class="highlight">Marítimos</span></h2>
+          <div class="tabnav-panels" data-part="panels">
+            <div class="tabnav-panel theme-dark" data-part="panel">
+              <div class="tabnav-panel-background" aria-hidden="true" style="background-image: url('assets/images/home/hero-portos-maritimos.jpg')"></div>
+              <div class="viewport-content tabnav-panel-content">
+                <div class="tabnav-panel-text">
+                  <h2 class="tabnav-panel-title">Portos <span class="highlight">Marítimos</span></h2>
                   <p class="balance">Conheça o Terminal de Contêineres MultiRio e o Terminal de Veículos MultiCar no Porto do Rio de Janeiro.</p>
-                  <a class="button" href="#" aria-label="Saiba mais sobre Portos Marítimos">Saiba mais</a>
-                </div>
-                <div class="hero-carousel-slide-image" aria-hidden="true">
-                  <img src="/assets/images/home/hero-portos-maritimos.jpg" alt="" />
+                  <a class="button button-dark" href="#" aria-label="Saiba mais sobre Portos Marítimos">Saiba mais</a>
                 </div>
               </div>
             </div>
-            <div class="hero-carousel-slide">
-              <div class="hero-carousel-slide-background" aria-hidden="true" style="background-image: url('/assets/images/home/hero-portos-secos.jpg')"></div>
-              <div class="hero-carousel-slide-content">
-                <div class="hero-carousel-slide-text">
-                  <h2 class="hero-carousel-slide-title">Portos <span class="highlight">Secos</span></h2>
+            <div class="tabnav-panel theme-dark" data-part="panel">
+              <div class="tabnav-panel-background" aria-hidden="true" style="background-image: url('assets/images/home/hero-portos-secos.jpg')"></div>
+              <div class="viewport-content tabnav-panel-content">
+                <div class="tabnav-panel-text">
+                  <h2 class="tabnav-panel-title">Portos <span class="highlight">Secos</span></h2>
                   <p class="balance">Conheça nosso Centro Logístico Industrial Aduaneiro (C.L.I.A.) no Rio de Janeiro (RJ) e Portos Secos em Resende (RJ) e Juiz de Fora (MG).</p>
-                  <a class="button" href="#" aria-label="Saiba mais sobre Portos Secos">Saiba mais</a>
-                </div>
-                <div class="hero-carousel-slide-image" aria-hidden="true">
-                  <img src="/assets/images/home/hero-portos-secos.jpg" alt="" />
+                  <a class="button button-dark" href="#" aria-label="Saiba mais sobre Portos Secos">Saiba mais</a>
                 </div>
               </div>
             </div>
-            <div class="hero-carousel-slide">
-              <div class="hero-carousel-slide-background" aria-hidden="true" style="background-image: url('/assets/images/home/hero-portovale.jpg')"></div>
-              <div class="hero-carousel-slide-content">
-                <div class="hero-carousel-slide-text">
-                  <h2 class="hero-carousel-slide-title">Terminal Intermodal <span class="highlight">PortoVale</span></h2>
+            <div class="tabnav-panel theme-dark" data-part="panel">
+              <div class="tabnav-panel-background" aria-hidden="true" style="background-image: url('assets/images/home/hero-portovale.jpg')"></div>
+              <div class="viewport-content tabnav-panel-content">
+                <div class="tabnav-panel-text">
+                  <h2 class="tabnav-panel-title">Terminal Intermodal <span class="highlight">PortoVale</span></h2>
                   <p class="balance">Conheça o Terminal Intermodal PortoVale em Itatiaia (RJ).</p>
-                  <a class="button" href="#" aria-label="Saiba mais sobre Terminal Intermodal PortoVale">Saiba mais</a>
-                </div>
-                <div class="hero-carousel-slide-image" aria-hidden="true">
-                  <img src="/assets/images/home/hero-portovale.jpg" alt="" />
+                  <a class="button button-dark" href="#" aria-label="Saiba mais sobre Terminal Intermodal PortoVale">Saiba mais</a>
                 </div>
               </div>
             </div>
-            <div class="hero-carousel-slide">
-              <div class="hero-carousel-slide-background" aria-hidden="true" style="background-image: url('/assets/images/home/hero-logistica-integrada.jpg')"></div>
-              <div class="hero-carousel-slide-content">
-                <div class="hero-carousel-slide-text">
-                  <h2 class="hero-carousel-slide-title">Logística <span class="highlight">Integrada</span></h2>
-                  <p class="balance">Conheça alguns projetos de Logística Integrada como: door-to-door, just-in-time, PDI e Logística 360 Graus, entre outros.</p>
-                  <a class="button" href="#" aria-label="Saiba mais sobre Logística Integrada">Saiba mais</a>
-                </div>
-                <div class="hero-carousel-slide-image" aria-hidden="true">
-                  <img src="/assets/images/home/hero-logistica-integrada.jpg" alt="" />
+            <div class="tabnav-panel theme-dark" data-part="panel">
+              <div class="tabnav-panel-background" aria-hidden="true" style="background-image: url('assets/images/home/hero-logistica-integrada.jpg')"></div>
+              <div class="viewport-content tabnav-panel-content">
+                <div class="tabnav-panel-text">
+                  <h2 class="tabnav-panel-title">Logística <span class="highlight">Integrada</span></h2>
+                  <p class="balance">Conheça alguns projetos de Logística Integrada como: <span class="nowrap">door-to-door,</span> <span class="nowrap">just-in-time,</span> PDI e Logística 360 Graus, entre outros.</p>
+                  <a class="button button-dark" href="#" aria-label="Saiba mais sobre Logística Integrada">Saiba mais</a>
                 </div>
               </div>
             </div>
-            <div class="hero-carousel-slide">
-              <div class="hero-carousel-slide-background" aria-hidden="true" style="background-image: url('/assets/images/home/hero-expansao-terminais.jpg')"></div>
-              <div class="hero-carousel-slide-content">
-                <div class="hero-carousel-slide-text">
-                  <h2 class="hero-carousel-slide-title">Expansão dos <span class="highlight">Terminais</span></h2>
+            <div class="tabnav-panel theme-dark" data-part="panel">
+              <div class="tabnav-panel-background" aria-hidden="true" style="background-image: url('assets/images/home/hero-expansao-terminais.jpg')"></div>
+              <div class="viewport-content tabnav-panel-content">
+                <div class="tabnav-panel-text">
+                  <h2 class="tabnav-panel-title">Expansão dos <span class="highlight">Terminais</span></h2>
                   <p class="balance">Veja como ficaram os Terminais MultiRio e MultiCar após as obras de expansão.</p>
-                  <a class="button" href="#" aria-label="Saiba mais sobre Expansão dos Terminais">Saiba mais</a>
-                </div>
-                <div class="hero-carousel-slide-image" aria-hidden="true">
-                  <img src="/assets/images/home/hero-expansao-terminais.jpg" alt="" />
+                  <a class="button button-dark" href="#" aria-label="Saiba mais sobre Expansão dos Terminais">Saiba mais</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section class="section section-latest-news">
-        <div class="section-content">
-          <div class="section-head">
-            <h2 class="section-title">Últimas Notícias</h2>
-            <a class="button button-secondary" href="/" aria-label="Ver todas as notícias">Ver todas</a>
+      <section class="section section-brand-headline">
+        <div class="viewport-content">
+          <h2 class="brand-headline balance">Um dos maiores grupos de portos marítimos, portos secos e logística integrada do Brasil.</h2>
+        </div>
+      </section>
+      <div class="section section-padding section-nss">
+        <div class="viewport-content section-content">
+          <section class="section-latest-news" aria-labelledby="section-latest-news-label">
+            <div class="section-header">
+              <h2 class="section-title" id="section-latest-news-label">Últimas Notícias</h2>
+              <a class="arrow-link" href="/" aria-label="Ver todas as notícias">Ver todas</a>
+            </div>
+            <ul class="news-list" role="list">
+              <li class="card">
+                <div class="card-body">
+                  <h3 class="card-title">
+                    <a class="card-link" href="/">MultiRio investe em expansão e fortalece competitividade com novos portêineres</a>
+                  </h3>
+                  <p class="card-excerpt">Ampliação do parque de equipamentos eleva capacidade operacional e prepara o terminal para atender à crescente demanda por navios de grande porte.</p>
+                </div>
+                <time class="card-date-container" datetime="2026-06-10">
+                  <span class="card-date" aria-hidden="true">
+                    <span class="card-day">10</span>
+                    <span class="card-month">06/2026</span>
+                  </span>
+                  <span class="visually-hidden">10 de junho de 2026</span>
+                </time>
+                <div class="card-image">
+                  <img src="https://multiterminais.com.br/img/noticia/miniatura/138.jpg" alt="" loading="lazy" />
+                </div>
+              </li>
+              <li class="card">
+                <div class="card-body">
+                  <h3 class="card-title">
+                    <a class="card-link" href="/">Anna Beatriz Ferreira Costa e Maria Luiza da Silva Siquara são as grandes vencedoras do Concurso de Desenho de Natal da Mutlterminais!</a>
+                  </h3>
+                  <p class="card-excerpt">Anna Beatriz Ferreira Costa e Maria Luiza da Silva Siquara são as grandes vencedoras do Concurso de Desenho de Natal da Mutlterminais!</p>
+                </div>
+                <time class="card-date-container" datetime="2025-12-22">
+                  <span class="card-date" aria-hidden="true">
+                    <span class="card-day">22</span>
+                    <span class="card-month">12/2025</span>
+                  </span>
+                  <span class="visually-hidden">22 de dezembro de 2025</span>
+                </time>
+                <div class="card-image">
+                  <img src="https://multiterminais.com.br/img/noticia/miniatura/137.jpg" alt="" loading="lazy" />
+                </div>
+              </li>
+              <li class="card">
+                <div class="card-body">
+                  <h3 class="card-title">
+                    <a class="card-link" href="/">Novo Scanner da Multiterminais entra em operação.</a>
+                  </h3>
+                  <p class="card-excerpt">Novo Scanner da Multiterminais entra em operação.</p>
+                </div>
+                <time class="card-date-container" datetime="2025-07-15">
+                  <span class="card-date" aria-hidden="true">
+                    <span class="card-day">15</span>
+                    <span class="card-month">07/2025</span>
+                  </span>
+                  <span class="visually-hidden">15 de julho de 2025</span>
+                </time>
+                <div class="card-image">
+                  <img src="https://multiterminais.com.br/img/noticia/miniatura/136.jpg" alt="" loading="lazy" />
+                </div>
+              </li>
+              <li class="card">
+                <div class="card-body">
+                  <h3 class="card-title">
+                    <a class="card-link" href="/">Logística Integrada: Um Diferencial para o Transporte de Contêineres e Carga Geral</a>
+                  </h3>
+                  <p class="card-excerpt">A logística integrada otimiza a cadeia de suprimentos, reduz custos, melhora o atendimento e a eficiência, com apoio de tecnologia e portos secos para maior agilidade.</p>
+                </div>
+                <time class="card-date-container" datetime="2024-11-07">
+                  <span class="card-date" aria-hidden="true">
+                    <span class="card-day">07</span>
+                    <span class="card-month">11/2024</span>
+                  </span>
+                  <span class="visually-hidden">07 de novembro de 2024</span>
+                </time>
+                <div class="card-image">
+                  <img src="https://multiterminais.com.br/img/noticia/miniatura/135.jpg" alt="" loading="lazy" />
+                </div>
+              </li>
+            </ul>
+          </section>
+          <div class="nss-aside">
+            <section class="section-ship-schedule theme-dark" aria-labelledby="section-ship-schedule-label">
+              <div class="ship-panel" data-component="tabnav" data-component-id="ship-schedule">
+                <div class="section-header">
+                  <div class="section-heading">
+                    <span class="section-icon" aria-hidden="true">
+                      <svg><use href="#icon-ship" /></svg>
+                    </span>
+                    <h2 class="section-title" id="section-ship-schedule-label">Programação de <span class="highlight">Navios</span></h2>
+                  </div>
+                  <a class="arrow-link" href="/" aria-label="Ver todos os navios">Ver todos</a>
+                </div>
+                <div class="tabnav-tabs" data-part="tabs" aria-label="Programação de navios">
+                  <button class="tabnav-tab" type="button" data-part="tab">Próximos <span class="visually-hidden">navios</span></button>
+                  <button class="tabnav-tab" type="button" data-part="tab"><span class="visually-hidden">Navios</span> atracados</button>
+                </div>
+                <div class="tabnav-panels" data-part="panels" role="region" aria-label="Lista de navios" tabindex="0">
+                  <div class="tabnav-panel" data-part="panel">
+                    <h3 class="tabnav-panel-label">Próximos navios</h3>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th scope="col"><span class="visually-hidden">Navio</span></th>
+                          <th scope="col"><span class="visually-hidden">Data</span></th>
+                          <th scope="col"><span class="visually-hidden">Hora</span></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">Nome</th>
+                          <td><time datetime="0000-00-00">00/00/0000</time></td>
+                          <td><time datetime="00:00">00:00</time></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Nome</th>
+                          <td><time datetime="0000-00-00">00/00/0000</time></td>
+                          <td><time datetime="00:00">00:00</time></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Nome</th>
+                          <td><time datetime="0000-00-00">00/00/0000</time></td>
+                          <td><time datetime="00:00">00:00</time></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Nome</th>
+                          <td><time datetime="0000-00-00">00/00/0000</time></td>
+                          <td><time datetime="00:00">00:00</time></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Nome</th>
+                          <td><time datetime="0000-00-00">00/00/0000</time></td>
+                          <td><time datetime="00:00">00:00</time></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="tabnav-panel" data-part="panel">
+                    <h3 class="tabnav-panel-label">Navios atracados</h3>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th scope="col"><span class="visually-hidden">Navio</span></th>
+                          <th scope="col"><span class="visually-hidden">Data</span></th>
+                          <th scope="col"><span class="visually-hidden">Hora</span></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">Nome</th>
+                          <td><time datetime="0000-00-00">00/00/0000</time></td>
+                          <td><time datetime="00:00">00:00</time></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Nome</th>
+                          <td><time datetime="0000-00-00">00/00/0000</time></td>
+                          <td><time datetime="00:00">00:00</time></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Nome</th>
+                          <td><time datetime="0000-00-00">00/00/0000</time></td>
+                          <td><time datetime="00:00">00:00</time></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Nome</th>
+                          <td><time datetime="0000-00-00">00/00/0000</time></td>
+                          <td><time datetime="00:00">00:00</time></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Nome</th>
+                          <td><time datetime="0000-00-00">00/00/0000</time></td>
+                          <td><time datetime="00:00">00:00</time></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section class="section-status theme-dark" aria-labelledby="section-status-label">
+              <div class="section-header">
+                <div class="section-heading">
+                  <span class="section-icon" aria-hidden="true">
+                    <svg><use href="#icon-box-open" /></svg>
+                  </span>
+                  <h2 class="section-title" id="section-status-label"><span class="highlight">Status</span> da Carga</h2>
+                </div>
+              </div>
+              <form class="status-form">
+                <label class="visually-hidden" for="status-form-number">Número do conhecimento</label>
+                <input class="status-form-input" id="status-form-number" name="status-form-number" type="text" placeholder="Nº do conhecimento" autocomplete="off" required />
+                <button class="status-form-submit" type="submit" aria-label="Consultar status da carga">
+                  <span aria-hidden="true">
+                    <svg><use href="#icon-magnifying-glass" /></svg>
+                  </span>
+                </button>
+              </form>
+              <a class="arrow-link" href="/">Rastrear outra carga</a>
+            </section>
           </div>
-          <ul class="latest-news-gallery">
-            <li class="gallery-item">
-              <a class="gallery-item-link" href="/" aria-label="MultiRio investe em expansão e fortalece competitividade com novos portêineres - Publicado em 10 de junho de 2026">
-                <div class="gallery-item-image-container" aria-hidden="true">
-                  <picture class="gallery-item-image">
-                    <img src="https://multiterminais.com.br/img/noticia/miniatura/138.jpg" alt="" />
-                  </picture>
-                </div>
-                <div class="gallery-item-text" aria-hidden="true">
-                  <h3 class="gallery-item-title">MultiRio investe em expansão e fortalece competitividade com novos portêineres</h3>
-                  <div class="gallery-item-date">10 de junho de 2026</div>
-                </div>
-              </a>
+        </div>
+      </div>
+      <section class="section section-shortcuts">
+        <div class="viewport-content">
+          <h2 class="visually-hidden" id="section-shortcuts-label">Links Rápidos</h2>
+          <ul class="cards-gallery" role="list">
+            <li class="card">
+              <div class="card-heading">
+                <span class="card-icon" aria-hidden="true">
+                  <svg><use href="#icon-book-open" /></svg>
+                </span>
+                <h3 class="card-title">Dicionário <br />da Logística</h3>
+              </div>
+              <p class="balance">Aprenda os termos de logística e comércio exterior mais usados.</p>
+              <a class="arrow-link" href="/" aria-label="Acessar dicionário da logística">Acessar dicionário</a>
             </li>
-            <li class="gallery-item">
-              <a class="gallery-item-link" href="/" aria-label="Anna Beatriz Ferreira Costa e Maria Luiza da Silva Siquara são as grandes vencedoras do Concurso de Desenho de Natal da Mutlterminais - Publicado em 22 de dezembro de 2025">
-                <div class="gallery-item-image-container" aria-hidden="true">
-                  <picture class="gallery-item-image">
-                    <img src="https://multiterminais.com.br/img/noticia/miniatura/137.jpg" alt="" />
-                  </picture>
-                </div>
-                <div class="gallery-item-text" aria-hidden="true">
-                  <h3 class="gallery-item-title">Anna Beatriz Ferreira Costa e Maria Luiza da Silva Siquara são as grandes vencedoras do Concurso de Desenho de Natal da Mutlterminais</h3>
-                  <div class="gallery-item-date">22 de dezembro de 2025</div>
-                </div>
-              </a>
+            <li class="card">
+              <div class="card-heading">
+                <span class="card-icon" aria-hidden="true">
+                  <svg><use href="#icon-table-list" /></svg>
+                </span>
+                <h3 class="card-title">Tabela <br />de Preços</h3>
+              </div>
+              <p class="balance">Veja a tabela de preços do Terminal de Contêineres MultiRio.</p>
+              <a class="arrow-link" href="/" aria-label="Acessar tabela de preços">Acessar tabela</a>
             </li>
-            <li class="gallery-item">
-              <a class="gallery-item-link" href="/" aria-label="Novo Scanner da Multiterminais entra em operação - Publicado em 15 de jukho de 2025">
-                <div class="gallery-item-image-container" aria-hidden="true">
-                  <picture class="gallery-item-image">
-                    <img src="https://multiterminais.com.br/img/noticia/miniatura/136.jpg" alt="" />
-                  </picture>
-                </div>
-                <div class="gallery-item-text" aria-hidden="true">
-                  <h3 class="gallery-item-title">Novo Scanner da Multiterminais entra em operação</h3>
-                  <div class="gallery-item-date">15 de julho de 2025</div>
-                </div>
-              </a>
+            <li class="card">
+              <div class="card-heading">
+                <span class="card-icon" aria-hidden="true">
+                  <svg><use href="#icon-ship" /></svg>
+                </span>
+                <h3 class="card-title">Linhas <br />Marítimas</h3>
+              </div>
+              <p class="balance">Veja as linhas marítimas pelos armadores que atracam em nossos terminais.</p>
+              <a class="arrow-link" href="/" aria-label="Acessar linhas marítimas">Acessar linhas</a>
             </li>
           </ul>
-          <div class="button-container">
-            <a class="button button-secondary" href="/" aria-label="Ver todas as notícias">Ver todas</a>
-          </div>
         </div>
       </section>
-      <section class="section section-ship-schedule">
-        <div class="section-content">
-          <div class="section-head">
-            <h2 class="section-title">Programação de&nbsp;Navios</h2>
-            <a class="button button-secondary" href="/" aria-label="Ver toda a programação de navios">Ver Tudo</a>
-          </div>
-          <div class="ship-schedule-board">
-            <div class="board-item">
-              <div class="board-card">
-                <div class="board-card-head">
-                  <div class="board-card-head-icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M272 64C245.5 64 224 85.5 224 112L224 128L208 128C163.8 128 128 163.8 128 208L128 316.8L106.4 325.4C91.6 331.3 83.9 347.8 89 362.9C99.4 394.2 115.8 422.2 136.7 446C156.8 436.8 178.4 432.1 200 432C233.1 431.8 266.3 442.2 294.4 463.4L296 464.6L296 249.6L192 291.2L192 208C192 199.2 199.2 192 208 192L432 192C440.8 192 448 199.2 448 208L448 291.2L344 249.6L344 464.6L345.6 463.4C373.1 442.7 405.5 432.2 438 432C460.3 431.9 482.6 436.5 503.3 446C524.2 422.3 540.6 394.2 551 362.9C556 347.7 548.4 331.3 533.6 325.4L512 316.8L512 208C512 163.8 476.2 128 432 128L416 128L416 112C416 85.5 394.5 64 368 64L272 64zM403.4 540.1C424.7 524 453.3 524 474.6 540.1C493.6 554.5 516.5 568.3 541.8 573.4C568.3 578.8 596.1 574.2 622.5 554.3C633.1 546.3 635.2 531.3 627.2 520.7C619.2 510.1 604.2 508 593.6 516C578.7 527.2 565 529.1 551.3 526.3C536.4 523.3 520.4 514.4 503.5 501.7C465.1 472.7 413 472.7 374.5 501.7C350.5 519.8 333.8 528 320 528C306.2 528 289.5 519.8 265.5 501.7C227.1 472.7 175 472.7 136.5 501.7C114.9 518 95.2 527.5 77.6 527.4C68 527.3 57.7 524.4 46.4 515.9C35.8 507.9 20.8 510 12.8 520.6C4.8 531.2 7 546.3 17.6 554.3C36.7 568.7 57 575.3 77.4 575.4C111.3 575.6 141.7 558 165.5 540.1C186.8 524 215.4 524 236.7 540.1C260.9 558.4 289 576 320.1 576C351.2 576 379.2 558.3 403.5 540.1z" /></svg>
-                  </div>
-                  <h3 class="board-card-head-title">Navios atracados</h3>
-                </div>
-                <ul class="board-card-list">
-                  <li class="board-card-item">
-                    <span class="board-card-item-name">INDUSTRIAL SONG</span>
-                    <span class="board-card-item-timestamp">25/08/2026 | <span class="board-card-item-timestamp-highlight">05:30</span></span>
-                  </li>
-                  <li class="board-card-item">
-                    <span class="board-card-item-name">MSC MAGNUM VII</span>
-                    <span class="board-card-item-timestamp">25/08/2026 | <span class="board-card-item-timestamp-highlight">00:30</span></span>
-                  </li>
-                  <li class="board-card-item">
-                    <span class="board-card-item-name">LOG-IN DISCOVERY</span>
-                    <span class="board-card-item-timestamp">24/08/2026 | <span class="board-card-item-timestamp-highlight">11:30</span></span>
-                  </li>
-                </ul>
-                <div class="board-card-link-container">
-                  <a class="board-card-link" href="/" aria-label="Ver todos os navios atracados">
-                    <span class="board-card-link-text">Ver todos</span>
-                    <span class="board-card-link-icon" aria-hidden="true">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z" /></svg>
-                    </span>
-                  </a>
-                </div>
+      <section class="section section-promos" aria-labelledby="section-promos-label">
+        <div class="viewport-content">
+          <h2 class="visually-hidden" id="section-promos-label">Campanhas e Iniciativas</h2>
+          <ul class="promos-gallery" role="list">
+            <li class="promo promo-auction">
+              <img class="promo-image" src="assets/images/home/promo-leilao.jpg" alt="" loading="lazy" decoding="async" />
+              <div class="promo-content">
+                <hgroup class="promo-copy">
+                  <p class="balance">Nossos equipamentos estão em constante renovação. Talvez eles possam lhe ser úteis.</p>
+                  <h3 class="promo-title">Leilão Online</h3>
+                  <p class="balance">Até <time datetime="2026-12-05">05 de dezembro</time>.</p>
+                </hgroup>
+                <a class="button" href="/" aria-label="Saiba mais sobre o leilão online">Saiba mais</a>
               </div>
-            </div>
-            <div class="board-item">
-              <div class="board-card">
-                <div class="board-card-head">
-                  <div class="board-card-head-icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M272 64C245.5 64 224 85.5 224 112L224 128L208 128C163.8 128 128 163.8 128 208L128 316.8L106.4 325.4C91.6 331.3 83.9 347.8 89 362.9C99.4 394.2 115.8 422.2 136.7 446C156.8 436.8 178.4 432.1 200 432C233.1 431.8 266.3 442.2 294.4 463.4L296 464.6L296 249.6L192 291.2L192 208C192 199.2 199.2 192 208 192L432 192C440.8 192 448 199.2 448 208L448 291.2L344 249.6L344 464.6L345.6 463.4C373.1 442.7 405.5 432.2 438 432C460.3 431.9 482.6 436.5 503.3 446C524.2 422.3 540.6 394.2 551 362.9C556 347.7 548.4 331.3 533.6 325.4L512 316.8L512 208C512 163.8 476.2 128 432 128L416 128L416 112C416 85.5 394.5 64 368 64L272 64zM403.4 540.1C424.7 524 453.3 524 474.6 540.1C493.6 554.5 516.5 568.3 541.8 573.4C568.3 578.8 596.1 574.2 622.5 554.3C633.1 546.3 635.2 531.3 627.2 520.7C619.2 510.1 604.2 508 593.6 516C578.7 527.2 565 529.1 551.3 526.3C536.4 523.3 520.4 514.4 503.5 501.7C465.1 472.7 413 472.7 374.5 501.7C350.5 519.8 333.8 528 320 528C306.2 528 289.5 519.8 265.5 501.7C227.1 472.7 175 472.7 136.5 501.7C114.9 518 95.2 527.5 77.6 527.4C68 527.3 57.7 524.4 46.4 515.9C35.8 507.9 20.8 510 12.8 520.6C4.8 531.2 7 546.3 17.6 554.3C36.7 568.7 57 575.3 77.4 575.4C111.3 575.6 141.7 558 165.5 540.1C186.8 524 215.4 524 236.7 540.1C260.9 558.4 289 576 320.1 576C351.2 576 379.2 558.3 403.5 540.1z" /></svg>
-                  </div>
-                  <h3 class="board-card-head-title">Próximas atracações</h3>
+            </li>
+            <li class="promo promo-sustainability">
+              <img class="promo-image" src="assets/images/home/promo-sustentabilidade.jpg" alt="" loading="lazy" decoding="async" />
+              <div class="promo-content">
+                <div class="promo-copy">
+                  <h3 class="promo-title">A Multiterminais é uma empresa parceira do meio ambiente e da sociedade.</h3>
+                  <p class="balance">O Grupo Multiterminais compreende, aprova e incentiva a prática de ações sustentáveis em prol de um mundo melhor.</p>
                 </div>
-                <ul class="board-card-list">
-                  <li class="board-card-item">
-                    <span class="board-card-item-name">MSC SABRINA</span>
-                    <span class="board-card-item-timestamp">26/08/2026 | <span class="board-card-item-timestamp-highlight">13:00</span></span>
-                  </li>
-                  <li class="board-card-item">
-                    <span class="board-card-item-name">YM CREDIBILITY</span>
-                    <span class="board-card-item-timestamp">26/08/2026 | <span class="board-card-item-timestamp-highlight">08:30</span></span>
-                  </li>
-                  <li class="board-card-item">
-                    <span class="board-card-item-name">MSC RUTH F</span>
-                    <span class="board-card-item-timestamp">25/08/2026 | <span class="board-card-item-timestamp-highlight">20:30</span></span>
-                  </li>
-                </ul>
-                <div class="board-card-link-container">
-                  <a class="board-card-link" href="/" aria-label="Ver todas as próximas atracações">
-                    <span class="board-card-link-text">Ver todas</span>
-                    <span class="board-card-link-icon" aria-hidden="true">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z" /></svg>
-                    </span>
-                  </a>
-                </div>
+                <a class="button button-dark" href="/" aria-label="Saiba mais sobre nossas ações sustentáveis">Saiba mais</a>
               </div>
-            </div>
-            <aside class="board-item">
-              <div class="board-card">
-                <div class="board-card-head">
-                  <div class="board-card-head-icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M480 272C480 317.9 465.1 360.3 440 394.7L566.6 521.4C579.1 533.9 579.1 554.2 566.6 566.7C554.1 579.2 533.8 579.2 521.3 566.7L394.7 440C360.3 465.1 317.9 480 272 480C157.1 480 64 386.9 64 272C64 157.1 157.1 64 272 64C386.9 64 480 157.1 480 272zM272 416C351.5 416 416 351.5 416 272C416 192.5 351.5 128 272 128C192.5 128 128 192.5 128 272C128 351.5 192.5 416 272 416z" /></svg>
-                  </div>
-                  <h3 class="board-card-head-title">Encontre um navio</h3>
-                </div>
-                <form class="board-card-form">
-                  <div class="board-card-form-item">
-                    <div class="board-card-form-input-container">
-                      <label class="board-card-form-label" for="find-ship-form-name">Nome</label>
-                      <input class="board-card-form-input" id="find-ship-form-name" type="text" />
-                    </div>
-                  </div>
-                  <div class="board-card-form-item">
-                    <div class="board-card-form-input-container">
-                      <label class="board-card-form-label" for="find-ship-form-agency">Agência</label>
-                      <input class="board-card-form-input" id="find-ship-form-agency" type="text" />
-                    </div>
-                  </div>
-                  <div class="board-card-form-item">
-                    <div class="board-card-form-input-container">
-                      <label class="board-card-form-label" for="find-ship-form-date">Previsão de atracação (DD/MM/AAAA)</label>
-                      <input class="board-card-form-input" id="find-ship-form-date" type="text" />
-                    </div>
-                  </div>
-                  <div class="board-card-form-item">
-                    <a class="board-card-form-button" href="/" role="button">Consultar</a>
-                  </div>
-                </form>
-              </div>
-              <div class="board-card">
-                <div class="board-card-head">
-                  <div class="board-card-head-icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M288.3 61.5C308.1 50.1 332.5 50.1 352.3 61.5L528.2 163C548 174.4 560.2 195.6 560.2 218.4L560.2 421.4C560.2 444.3 548 465.4 528.2 476.8L352.3 578.5C332.5 589.9 308.1 589.9 288.3 578.5L112.5 477C92.7 465.6 80.5 444.4 80.5 421.6L80.5 218.6C80.5 195.7 92.7 174.6 112.5 163.2L288.3 61.5zM496.1 421.5L496.1 255.4L352.3 338.4L352.3 504.5L496.1 421.5z" /></svg>
-                  </div>
-                  <h3 class="board-card-head-title">Status da carga</h3>
-                </div>
-                <p class="board-card-status-copy">Verifique na <a href="/">Área do Cliente</a>.</p>
-              </div>
-            </aside>
-          </div>
-          <div class="button-container">
-            <a class="button button-secondary" href="/" aria-label="Ver toda a programação de navios">Ver Tudo</a>
-          </div>
-        </div>
-      </section>
-      <section class="section section-environment">
-        <div class="section-content">
-          <div class="environment-card">
-            <div class="environment-card-icon" aria-hidden="true">
-              <div class="environment-card-icon-container">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M216.3 124C262.5 44 378 44 424.2 124L461.5 188.6L489.2 172.6C497.6 167.7 508.1 168.4 515.8 174.3C523.5 180.2 526.9 190.2 524.4 199.6L500.9 287C497.5 299.8 484.3 307.4 471.5 304L384.1 280.6C374.7 278.1 367.8 270.2 366.5 260.6C365.2 251 369.9 241.5 378.3 236.7L406 220.7L368.7 156.1C347.1 118.8 293.3 118.8 271.7 156.1L266.4 165.2C257.6 180.5 238 185.7 222.7 176.9C207.4 168.1 202.2 148.5 211 133.1L216.3 124zM513.7 343.1C529 334.3 548.6 339.5 557.4 354.8L562.7 363.9C608.9 443.9 551.2 543.9 458.8 543.9L384.2 543.9L384.2 575.9C384.2 585.6 378.4 594.4 369.4 598.1C360.4 601.8 350.1 599.8 343.2 592.9L279.2 528.9C269.8 519.5 269.8 504.3 279.2 495L343.2 431C350.1 424.1 360.4 422.1 369.4 425.8C378.4 429.5 384.2 438.3 384.2 448L384.2 480L458.8 480C501.9 480 528.9 433.3 507.3 396L502 386.9C493.2 371.6 498.4 352 513.7 343.2zM115 299.4L87.3 283.4C78.9 278.5 74.2 269.1 75.5 259.5C76.8 249.9 83.7 242 93.1 239.5L180.5 216C193.3 212.6 206.5 220.2 209.9 233L233.3 320.4C235.8 329.8 232.4 339.7 224.7 345.7C217 351.7 206.5 352.3 198.1 347.4L170.4 331.4L133.1 396C111.5 433.3 138.5 480 181.6 480L192.2 480C209.9 480 224.2 494.3 224.2 512C224.2 529.7 209.9 544 192.2 544L181.6 544C89.3 544 31.6 444 77.8 364L115 299.4z" /></svg>
-              </div>
-            </div>
-            <div class="environment-card-text">
-              <h2 class="environment-card-title">A Multiterminais é uma empresa parceira do Meio&nbsp;Ambiente e da sociedade.</h2>
-              <p>O Grupo Multiterminais compreende, aprova e incentiva a prática de ações sustentáveis em prol de um mundo melhor.</p>
-              <a class="button environment-card-button" href="/" aria-label="Saiba mais sobre as nossas ações sustentáveis">Saiba mais</a>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
       </section>
     </main>
 
-    <footer class="globalfooter" aria-labelledby="globalfooter-label">
-      <h2 class="globalfooter-label" id="globalfooter-label">Rodapé Multiterminais</h2>
-      <nav class="globalfooter-directory" id="globalfooter-directory" aria-label="Diretório Multiterminais">
-        <div class="globalfooter-content">
-          <div class="globalfooter-directory-column">
-            <div class="globalfooter-directory-section">
-              <h3 class="globalfooter-directory-section-title">
-                <span class="globalfooter-directory-section-title-label">Empresas do Grupo</span>
-                <button class="globalfooter-directory-section-title-button" disabled>
-                  <span class="globalfooter-directory-section-title-button-label">Empresas do Grupo</span>
-                  <span class="globalfooter-directory-section-title-button-icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-                      <path d="M297.4 438.6C309.9 451.1 330.2 451.1 342.7 438.6L502.7 278.6C515.2 266.1 515.2 245.8 502.7 233.3C490.2 220.8 469.9 220.8 457.4 233.3L320 370.7L182.6 233.4C170.1 220.9 149.8 220.9 137.3 233.4C124.8 245.9 124.8 266.2 137.3 278.7L297.3 438.7z" />
-                    </svg>
-                  </span>
-                </button>
-              </h3>
-              <ul class="globalfooter-directory-section-list" id="globalfooter-directory-section-list-empresas">
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="https://www.fink.com.br/" target="_blank" rel="noopener noreferrer">Fink</a>
+    <footer class="globalfooter theme-dark">
+      <section class="globalfooter-institutional" aria-label="Contato">
+        <div class="viewport-content">
+          <div class="globalfooter-institutional-content">
+            <div class="globalfooter-institutional-column">
+              <img class="globalfooter-logo" src="assets/images/logo-multiterminais.svg" alt="Multiterminais" />
+              <ul class="globalfooter-social" aria-label="Redes Sociais">
+                <li class="globalfooter-social-item">
+                  <a class="globalfooter-social-link" href="https://br.linkedin.com/company/multiterminais" target="_blank" rel="noopener noreferrer">
+                    <span class="globalfooter-social-link-icon" aria-hidden="true">
+                      <svg><use href="#icon-linkedin-in" /></svg>
+                    </span>
+                    <span class="visually-hidden">LinkedIn (abre em uma nova aba)</span>
+                  </a>
                 </li>
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/">MultiCar</a>
+                <li class="globalfooter-social-item">
+                  <a class="globalfooter-social-link" href="https://www.facebook.com/Multiterminais" target="_blank" rel="noopener noreferrer">
+                    <span class="globalfooter-social-link-icon" aria-hidden="true">
+                      <svg><use href="#icon-facebook-f" /></svg>
+                    </span>
+                    <span class="visually-hidden">Facebook (abre em uma nova aba)</span>
+                  </a>
                 </li>
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/">MultiRio</a>
+                <li class="globalfooter-social-item">
+                  <a class="globalfooter-social-link" href="https://www.instagram.com/multiterminais/" target="_blank" rel="noopener noreferrer">
+                    <span class="globalfooter-social-link-icon" aria-hidden="true">
+                      <svg><use href="#icon-instagram" /></svg>
+                    </span>
+                    <span class="visually-hidden">Instagram (abre em uma nova aba)</span>
+                  </a>
                 </li>
-              </ul>
-            </div>
-            <div class="globalfooter-directory-section">
-              <h3 class="globalfooter-directory-section-title">
-                <span class="globalfooter-directory-section-title-label">Links Rápidos</span>
-                <button class="globalfooter-directory-section-title-button" disabled>
-                  <span class="globalfooter-directory-section-title-button-label">Links Rápidos</span>
-                  <span class="globalfooter-directory-section-title-button-icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-                      <path d="M297.4 438.6C309.9 451.1 330.2 451.1 342.7 438.6L502.7 278.6C515.2 266.1 515.2 245.8 502.7 233.3C490.2 220.8 469.9 220.8 457.4 233.3L320 370.7L182.6 233.4C170.1 220.9 149.8 220.9 137.3 233.4C124.8 245.9 124.8 266.2 137.3 278.7L297.3 438.7z" />
-                    </svg>
-                  </span>
-                </button>
-              </h3>
-              <ul class="globalfooter-directory-section-list" id="globalfooter-directory-section-list-linksrapidos">
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/">Sustentabilidade</a>
-                </li>
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/">Notícias</a>
-                </li>
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/">Contato</a>
-                </li>
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/">Trabalhe Conosco</a>
-                </li>
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/">Seja um Fornecedor</a>
-                </li>
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/">Área do Cliente</a>
+                <li class="globalfooter-social-item">
+                  <a class="globalfooter-social-link" href="https://www.youtube.com/channel/UCNgbRKylPLALur_licxVdCw" target="_blank" rel="noopener noreferrer">
+                    <span class="globalfooter-social-link-icon" aria-hidden="true">
+                      <svg><use href="#icon-youtube" /></svg>
+                    </span>
+                    <span class="visually-hidden">YouTube (abre em uma nova aba)</span>
+                  </a>
                 </li>
               </ul>
             </div>
-          </div>
-          <div class="globalfooter-directory-column">
-            <div class="globalfooter-directory-section">
-              <h3 class="globalfooter-directory-section-title">
-                <span class="globalfooter-directory-section-title-label">Sobre o Grupo</span>
-                <button class="globalfooter-directory-section-title-button" disabled>
-                  <span class="globalfooter-directory-section-title-button-label">Sobre o Grupo</span>
-                  <span class="globalfooter-directory-section-title-button-icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-                      <path d="M297.4 438.6C309.9 451.1 330.2 451.1 342.7 438.6L502.7 278.6C515.2 266.1 515.2 245.8 502.7 233.3C490.2 220.8 469.9 220.8 457.4 233.3L320 370.7L182.6 233.4C170.1 220.9 149.8 220.9 137.3 233.4C124.8 245.9 124.8 266.2 137.3 278.7L297.3 438.7z" />
-                    </svg>
-                  </span>
-                </button>
-              </h3>
-              <ul class="globalfooter-directory-section-list" id="globalfooter-directory-section-list-sobre">
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/">Visão Geral</a>
-                </li>
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/"> Missão, Visão e Valores </a>
-                </li>
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/">Atividades Integradas</a>
-                </li>
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/">Área de Atuação</a>
-                </li>
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/"> História e Grandes Marcos </a>
-                </li>
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/">Estudos de Caso</a>
-                </li>
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/">Fotos e Vídeos</a>
-                </li>
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/">Obras de Expansão</a>
-                </li>
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/"> Política SGI e Certificados </a>
-                </li>
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/"> Política de Privacidade de Dados Pessoais </a>
-                </li>
-              </ul>
+            <div class="globalfooter-institutional-column">
+              <h2 class="globalfooter-institutional-title">Fale conosco</h2>
+              <p class="balance">Envie suas dúvidas, críticas, reclamações, sugestões ou elogios para a nossa equipe de atendimento.</p>
+              <a class="button button-secondary-dark" href="/">Enviar mensagem</a>
             </div>
-            <div class="globalfooter-directory-section">
-              <h3 class="globalfooter-directory-section-title">
-                <span class="globalfooter-directory-section-title-label">Serviços</span>
-                <button class="globalfooter-directory-section-title-button" disabled>
-                  <span class="globalfooter-directory-section-title-button-label">Serviços</span>
-                  <span class="globalfooter-directory-section-title-button-icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-                      <path d="M297.4 438.6C309.9 451.1 330.2 451.1 342.7 438.6L502.7 278.6C515.2 266.1 515.2 245.8 502.7 233.3C490.2 220.8 469.9 220.8 457.4 233.3L320 370.7L182.6 233.4C170.1 220.9 149.8 220.9 137.3 233.4C124.8 245.9 124.8 266.2 137.3 278.7L297.3 438.7z" />
-                    </svg>
+            <div class="globalfooter-institutional-column">
+              <h2 class="globalfooter-institutional-title">Onde nos encontrar</h2>
+              <address class="globalfooter-address">
+                <ul class="globalfooter-institutional-list">
+                  <li class="globalfooter-institutional-list-item">
+                    <span class="globalfooter-institutional-list-icon" aria-hidden="true">
+                      <svg><use href="#icon-location-dot"></use></svg>
+                    </span>
+                    <p>
+                      <span class="visually-hidden">Endereço: </span>
+                      Av. Rio de Janeiro, s/n<br />
+                      Caju - RJ - Brasil<br />
+                      CEP 20931-670
+                    </p>
+                  </li>
+                  <li class="globalfooter-institutional-list-item">
+                    <span class="globalfooter-institutional-list-icon" aria-hidden="true">
+                      <svg><use href="#icon-phone"></use></svg>
+                    </span>
+                    <p>
+                      <span class="visually-hidden">Telefone: </span>
+                      <a href="tel:+552130956600">+55 (21) 3095-6600</a>
+                    </p>
+                  </li>
+                </ul>
+              </address>
+            </div>
+            <div class="globalfooter-institutional-column">
+              <h2 class="globalfooter-institutional-title">Acesse também</h2>
+              <ul class="globalfooter-institutional-list">
+                <li class="globalfooter-institutional-list-item">
+                  <span class="globalfooter-institutional-list-icon" aria-hidden="true">
+                    <svg><use href="#icon-circle-user" /></svg>
                   </span>
-                </button>
-              </h3>
-              <ul class="globalfooter-directory-section-list" id="globalfooter-directory-section-list-servicos">
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/">Portos Marítimos</a>
+                  <p class="balance">Você é nosso cliente? <a class="globalfooter-institutional-list-link" href="/">Acesse sua área exclusiva.</a></p>
                 </li>
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/">Portos Secos / C.L.I.A.</a>
+                <li class="globalfooter-institutional-list-item">
+                  <span class="globalfooter-institutional-list-icon" aria-hidden="true">
+                    <svg><use href="#icon-briefcase" /></svg>
+                  </span>
+                  <p class="balance">
+                    Quer trabalhar na Multiterminais? <a class="globalfooter-institutional-list-link" href="/">Clique aqui e saiba mais<span class="visually-hidden"> sobre como trabalhar na Multiterminais</span>.</a>
+                  </p>
                 </li>
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/">Logística Integrada</a>
+                <li class="globalfooter-institutional-list-item">
+                  <span class="globalfooter-institutional-list-icon" aria-hidden="true">
+                    <svg><use href="#icon-box-open" /></svg>
+                  </span>
+                  <p class="balance">
+                    Quer ser um fornecedor? <a class="globalfooter-institutional-list-link" href="/">Clique aqui e saiba mais<span class="visually-hidden"> sobre como ser um fornecedor</span>.</a>
+                  </p>
                 </li>
               </ul>
             </div>
           </div>
-          <div class="globalfooter-directory-column">
-            <div class="globalfooter-directory-section">
-              <h3 class="globalfooter-directory-section-title">
-                <span class="globalfooter-directory-section-title-label">Operações</span>
-                <button class="globalfooter-directory-section-title-button" disabled>
-                  <span class="globalfooter-directory-section-title-button-label">Operações</span>
-                  <span class="globalfooter-directory-section-title-button-icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-                      <path d="M297.4 438.6C309.9 451.1 330.2 451.1 342.7 438.6L502.7 278.6C515.2 266.1 515.2 245.8 502.7 233.3C490.2 220.8 469.9 220.8 457.4 233.3L320 370.7L182.6 233.4C170.1 220.9 149.8 220.9 137.3 233.4C124.8 245.9 124.8 266.2 137.3 278.7L297.3 438.7z" />
-                    </svg>
-                  </span>
-                </button>
-              </h3>
-              <ul class="globalfooter-directory-section-list" id="globalfooter-directory-section-list-operacoes">
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/">Armazém Geral - <span class="nowrap">Rio de Janeiro (RJ)</span></a>
-                </li>
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/">Centro de Operações Logísticas (COL) - <span class="nowrap">Resende (RJ)</span></a>
-                </li>
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/">Centro Logístico Industrial Aduaneiro (CLIA) - <span class="nowrap">Rio de Janeiro (RJ)</span></a>
-                </li>
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/">Porto Seco - <span class="nowrap">Juiz de Fora (MG)</span></a>
-                </li>
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/">Porto Seco - <span class="nowrap">Resende (RJ)</span></a>
-                </li>
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/">Terminal de Contêineres <span class="nowrap">MultiRio (RJ)</span></a>
-                </li>
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/">Terminal de Veículos <span class="nowrap">MultiCar (RJ)</span></a>
-                </li>
-                <li class="globalfooter-directory-section-item">
-                  <a class="globalfooter-directory-section-link" href="/">Terminal Intermodal PortoVale - <span class="nowrap">Itatiaia (RJ)</span></a>
-                </li>
-              </ul>
+        </div>
+      </section>
+      <nav class="globalfooter-sitemap" id="globalfooter-sitemap" aria-labelledby="globalfooter-sitemap-title">
+        <div class="viewport-content">
+          <h2 class="visually-hidden" id="globalfooter-sitemap-title">Mapa do site</h2>
+          <div class="globalfooter-sitemap-content">
+            <div class="globalfooter-sitemap-column">
+              <div class="globalfooter-sitemap-section" data-component="globalfooter-sitemap-section" data-id="empresas">
+                <h3 class="globalfooter-sitemap-section-title">
+                  <span class="globalfooter-sitemap-section-title-label">Empresas do Grupo</span>
+                  <button class="globalfooter-sitemap-section-toggler" type="button" data-part="toggler" aria-expanded="false">
+                    <span class="globalfooter-sitemap-section-title-label">Empresas do Grupo</span>
+                    <span class="globalfooter-sitemap-section-toggler-icon" data-part="toggler-icon" aria-hidden="true">
+                      <svg><use href="#icon-chevron-down" /></svg>
+                    </span>
+                  </button>
+                </h3>
+                <ul class="globalfooter-sitemap-list" data-part="list">
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="https://www.fink.com.br/" target="_blank" rel="noopener noreferrer">Fink <span class="visually-hidden">(abre em uma nova aba)</span></a>
+                  </li>
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/">MultiCar</a>
+                  </li>
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/">MultiRio</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="globalfooter-sitemap-section" data-component="globalfooter-sitemap-section" data-id="links">
+                <h3 class="globalfooter-sitemap-section-title">
+                  <span class="globalfooter-sitemap-section-title-label">Links Rápidos</span>
+                  <button class="globalfooter-sitemap-section-toggler" type="button" data-part="toggler" aria-expanded="false">
+                    <span class="globalfooter-sitemap-section-title-label">Links Rápidos</span>
+                    <span class="globalfooter-sitemap-section-toggler-icon" data-part="toggler-icon" aria-hidden="true">
+                      <svg><use href="#icon-chevron-down" /></svg>
+                    </span>
+                  </button>
+                </h3>
+                <ul class="globalfooter-sitemap-list" data-part="list">
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/">Sustentabilidade</a>
+                  </li>
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/">Notícias</a>
+                  </li>
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/">Fale Conosco</a>
+                  </li>
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/">Área do Cliente</a>
+                  </li>
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/">Trabalhe Conosco</a>
+                  </li>
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/">Seja um Fornecedor</a>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-          <div class="globalfooter-directory-column">
-            <div class="globalfooter-directory-section">
-              <h3 class="globalfooter-directory-section-title">
-                <span class="globalfooter-directory-section-title-label">Informações Úteis</span>
-                <button class="globalfooter-directory-section-title-button" disabled>
-                  <span class="globalfooter-directory-section-title-button-label">Informações Úteis</span>
-                  <span class="globalfooter-directory-section-title-button-icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-                      <path d="M297.4 438.6C309.9 451.1 330.2 451.1 342.7 438.6L502.7 278.6C515.2 266.1 515.2 245.8 502.7 233.3C490.2 220.8 469.9 220.8 457.4 233.3L320 370.7L182.6 233.4C170.1 220.9 149.8 220.9 137.3 233.4C124.8 245.9 124.8 266.2 137.3 278.7L297.3 438.7z" />
-                    </svg>
-                  </span>
-                </button>
-              </h3>
-              <ul class="globalfooter-directory-section-list globalfooter-directory-section-list-with-sublist" id="globalfooter-directory-section-list-info">
-                <li class="globalfooter-directory-section-item">
-                  <span class="globalfooter-directory-section-label">Sobre nossas Operações</span>
-                  <ul class="globalfooter-directory-section-list">
-                    <li class="globalfooter-directory-section-item">
-                      <a class="globalfooter-directory-section-link" href="/">Documentos Úteis</a>
-                    </li>
-                    <li class="globalfooter-directory-section-item">
-                      <a class="globalfooter-directory-section-link" href="/">Dúvidas Frequentes</a>
-                    </li>
-                    <li class="globalfooter-directory-section-item">
-                      <a class="globalfooter-directory-section-link" href="/">Linhas Marítimas</a>
-                    </li>
-                    <li class="globalfooter-directory-section-item">
-                      <a class="globalfooter-directory-section-link" href="/">Rotas dos Serviços</a>
-                    </li>
-                    <li class="globalfooter-directory-section-item">
-                      <a class="globalfooter-directory-section-link" href="/">Horários de Operação</a>
-                    </li>
-                    <li class="globalfooter-directory-section-item">
-                      <a class="globalfooter-directory-section-link" href="/">Tabela de Preços</a>
-                    </li>
-                    <li class="globalfooter-directory-section-item">
-                      <a class="globalfooter-directory-section-link" href="/">Calculadora</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="globalfooter-directory-section-item">
-                  <span class="globalfooter-directory-section-label">Sobre sua Carga</span>
-                  <ul class="globalfooter-directory-section-list">
-                    <li class="globalfooter-directory-section-item">
-                      <a class="globalfooter-directory-section-link" href="/">Área do Cliente</a>
-                    </li>
-                    <li class="globalfooter-directory-section-item">
-                      <a class="globalfooter-directory-section-link" href="/">Janelas Disponíveis</a>
-                    </li>
-                    <li class="globalfooter-directory-section-item">
-                      <a class="globalfooter-directory-section-link" href="/">Programação de Navios</a>
-                    </li>
-                    <li class="globalfooter-directory-section-item">
-                      <a class="globalfooter-directory-section-link" href="/">Documentação Necessária</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="globalfooter-directory-section-item">
-                  <span class="globalfooter-directory-section-label">Sobre o Mercado</span>
-                  <ul class="globalfooter-directory-section-list">
-                    <li class="globalfooter-directory-section-item">
-                      <a class="globalfooter-directory-section-link" href="/">Dicionário da Logística</a>
-                    </li>
-                    <li class="globalfooter-directory-section-item">
-                      <a class="globalfooter-directory-section-link" href="/">Links Relevantes</a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
+            <div class="globalfooter-sitemap-column">
+              <div class="globalfooter-sitemap-section" data-component="globalfooter-sitemap-section" data-id="sobre">
+                <h3 class="globalfooter-sitemap-section-title">
+                  <span class="globalfooter-sitemap-section-title-label">Sobre o Grupo</span>
+                  <button class="globalfooter-sitemap-section-toggler" type="button" data-part="toggler" aria-expanded="false">
+                    <span class="globalfooter-sitemap-section-title-label">Sobre o Grupo</span>
+                    <span class="globalfooter-sitemap-section-toggler-icon" data-part="toggler-icon" aria-hidden="true">
+                      <svg><use href="#icon-chevron-down" /></svg>
+                    </span>
+                  </button>
+                </h3>
+                <ul class="globalfooter-sitemap-list" data-part="list">
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/">Visão Geral</a>
+                  </li>
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/"> Missão, Visão e Valores</a>
+                  </li>
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/">Atividades Integradas</a>
+                  </li>
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/">Área de Atuação</a>
+                  </li>
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/"> História e Grandes Marcos</a>
+                  </li>
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/">Estudos de Caso</a>
+                  </li>
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/">Fotos e Vídeos</a>
+                  </li>
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/">Obras de Expansão</a>
+                  </li>
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/"> Política SGI e Certificados</a>
+                  </li>
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/"> Política de Privacidade de Dados Pessoais</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="globalfooter-sitemap-section" data-component="globalfooter-sitemap-section" data-id="servicos">
+                <h3 class="globalfooter-sitemap-section-title">
+                  <span class="globalfooter-sitemap-section-title-label">Serviços</span>
+                  <button class="globalfooter-sitemap-section-toggler" type="button" data-part="toggler" aria-expanded="false">
+                    <span class="globalfooter-sitemap-section-title-label">Serviços</span>
+                    <span class="globalfooter-sitemap-section-toggler-icon" data-part="toggler-icon" aria-hidden="true">
+                      <svg><use href="#icon-chevron-down" /></svg>
+                    </span>
+                  </button>
+                </h3>
+                <ul class="globalfooter-sitemap-list" data-part="list">
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/">Portos Marítimos</a>
+                  </li>
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/">Portos Secos / C.L.I.A.</a>
+                  </li>
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/">Logística Integrada</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="globalfooter-sitemap-column">
+              <div class="globalfooter-sitemap-section" data-component="globalfooter-sitemap-section" data-id="operacoes">
+                <h3 class="globalfooter-sitemap-section-title">
+                  <span class="globalfooter-sitemap-section-title-label">Operações</span>
+                  <button class="globalfooter-sitemap-section-toggler" type="button" data-part="toggler" aria-expanded="false">
+                    <span class="globalfooter-sitemap-section-title-label">Operações</span>
+                    <span class="globalfooter-sitemap-section-toggler-icon" data-part="toggler-icon" aria-hidden="true">
+                      <svg><use href="#icon-chevron-down" /></svg>
+                    </span>
+                  </button>
+                </h3>
+                <ul class="globalfooter-sitemap-list" data-part="list">
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/">Armazém Geral - <span class="nowrap">Rio de Janeiro (RJ)</span></a>
+                  </li>
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/">Centro de Operações Logísticas (COL) - <span class="nowrap">Resende (RJ)</span></a>
+                  </li>
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/">Centro Logístico Industrial Aduaneiro (CLIA) - <span class="nowrap">Rio de Janeiro (RJ)</span></a>
+                  </li>
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/">Porto Seco - <span class="nowrap">Juiz de Fora (MG)</span></a>
+                  </li>
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/">Porto Seco - <span class="nowrap">Resende (RJ)</span></a>
+                  </li>
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/">Terminal de Contêineres <span class="nowrap">MultiRio (RJ)</span></a>
+                  </li>
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/">Terminal de Veículos <span class="nowrap">MultiCar (RJ)</span></a>
+                  </li>
+                  <li class="globalfooter-sitemap-list-item">
+                    <a class="globalfooter-sitemap-list-link" href="/">Terminal Intermodal PortoVale - <span class="nowrap">Itatiaia (RJ)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="globalfooter-sitemap-column">
+              <div class="globalfooter-sitemap-section" data-component="globalfooter-sitemap-section" data-id="uteis">
+                <h3 class="globalfooter-sitemap-section-title">
+                  <span class="globalfooter-sitemap-section-title-label">Informações Úteis</span>
+                  <button class="globalfooter-sitemap-section-toggler" type="button" data-part="toggler" aria-expanded="false">
+                    <span class="globalfooter-sitemap-section-title-label">Informações Úteis</span>
+                    <span class="globalfooter-sitemap-section-toggler-icon" data-part="toggler-icon" aria-hidden="true">
+                      <svg><use href="#icon-chevron-down" /></svg>
+                    </span>
+                  </button>
+                </h3>
+                <ul class="globalfooter-sitemap-list has-sublist" data-part="list">
+                  <li class="globalfooter-sitemap-list-item">
+                    <h4 class="globalfooter-sitemap-section-label">Sobre nossas operações</h4>
+                    <ul class="globalfooter-sitemap-list">
+                      <li class="globalfooter-sitemap-list-item">
+                        <a class="globalfooter-sitemap-list-link" href="/">Documentos Úteis</a>
+                      </li>
+                      <li class="globalfooter-sitemap-list-item">
+                        <a class="globalfooter-sitemap-list-link" href="/">Dúvidas Frequentes</a>
+                      </li>
+                      <li class="globalfooter-sitemap-list-item">
+                        <a class="globalfooter-sitemap-list-link" href="/">Linhas Marítimas</a>
+                      </li>
+                      <li class="globalfooter-sitemap-list-item">
+                        <a class="globalfooter-sitemap-list-link" href="/">Rotas dos Serviços</a>
+                      </li>
+                      <li class="globalfooter-sitemap-list-item">
+                        <a class="globalfooter-sitemap-list-link" href="/">Horários de Operação</a>
+                      </li>
+                      <li class="globalfooter-sitemap-list-item">
+                        <a class="globalfooter-sitemap-list-link" href="/">Tabela de Preços</a>
+                      </li>
+                      <li class="globalfooter-sitemap-list-item">
+                        <a class="globalfooter-sitemap-list-link" href="/">Calculadora</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="globalfooter-sitemap-list-item">
+                    <h4 class="globalfooter-sitemap-section-label">Sobre sua carga</h4>
+                    <ul class="globalfooter-sitemap-list">
+                      <li class="globalfooter-sitemap-list-item">
+                        <a class="globalfooter-sitemap-list-link" href="/">Área do Cliente</a>
+                      </li>
+                      <li class="globalfooter-sitemap-list-item">
+                        <a class="globalfooter-sitemap-list-link" href="/">Janelas Disponíveis</a>
+                      </li>
+                      <li class="globalfooter-sitemap-list-item">
+                        <a class="globalfooter-sitemap-list-link" href="/">Programação de Navios</a>
+                      </li>
+                      <li class="globalfooter-sitemap-list-item">
+                        <a class="globalfooter-sitemap-list-link" href="/">Documentação Necessária</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="globalfooter-sitemap-list-item">
+                    <h4 class="globalfooter-sitemap-section-label">Sobre o mercado</h4>
+                    <ul class="globalfooter-sitemap-list">
+                      <li class="globalfooter-sitemap-list-item">
+                        <a class="globalfooter-sitemap-list-link" href="/">Dicionário da Logística</a>
+                      </li>
+                      <li class="globalfooter-sitemap-list-item">
+                        <a class="globalfooter-sitemap-list-link" href="/">Links Relevantes</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </nav>
-      <section class="globalfooter-footer">
-        <div class="globalfooter-content">
-          <span class="globalfooter-footer-legal">© 2026 Multiterminais. <br class="globalfooter-footer-legal-break" />Todos os direitos reservados.</span>
-          <div class="globalfooter-footer-links">
-            <a class="globalfooter-footer-link" href="https://www.facebook.com/Multiterminais" target="_blank">
-              <span class="globalfooter-footer-link-icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 440 146.7 540.8 258.2 568.5L258.2 398.2L205.4 398.2L205.4 320L258.2 320L258.2 286.3C258.2 199.2 297.6 158.8 383.2 158.8C399.4 158.8 427.4 162 438.9 165.2L438.9 236C432.9 235.4 422.4 235 409.3 235C367.3 235 351.1 250.9 351.1 292.2L351.1 320L434.7 320L420.3 398.2L351 398.2L351 574.1C477.8 558.8 576 450.9 576 320z" /></svg>
-              </span>
-              <span class="globalfooter-footer-link-label">Facebook</span>
-            </a>
-            <a class="globalfooter-footer-link" href="https://www.youtube.com/channel/UCNgbRKylPLALur_licxVdCw" target="_blank">
-              <span class="globalfooter-footer-link-icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M581.7 188.1C575.5 164.4 556.9 145.8 533.4 139.5C490.9 128 320.1 128 320.1 128C320.1 128 149.3 128 106.7 139.5C83.2 145.8 64.7 164.4 58.4 188.1C47 231 47 320.4 47 320.4C47 320.4 47 409.8 58.4 452.7C64.7 476.3 83.2 494.2 106.7 500.5C149.3 512 320.1 512 320.1 512C320.1 512 490.9 512 533.5 500.5C557 494.2 575.5 476.3 581.8 452.7C593.2 409.8 593.2 320.4 593.2 320.4C593.2 320.4 593.2 231 581.8 188.1zM264.2 401.6L264.2 239.2L406.9 320.4L264.2 401.6z" /></svg>
-              </span>
-              <span class="globalfooter-footer-link-label">YouTube</span>
-            </a>
-          </div>
+      <div class="globalfooter-legal">
+        <div class="viewport-content">
+          <p class="globalfooter-copyright">© 2026 Multiterminais. <span class="nowrap">Todos os direitos reservados.</span></p>
         </div>
-      </section>
+      </div>
     </footer>
 
     <script src="assets/scripts/global.js"></script>
+    <script src="assets/scripts/tabnav.js"></script>
     <script src="assets/scripts/home.js"></script>
   </body>
 </html>
