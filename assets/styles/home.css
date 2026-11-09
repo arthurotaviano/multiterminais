@@ -446,7 +446,8 @@ html.no-js .section-hero .tabnav-panel-text {
 
 @media (max-width: 767px) {
   .section-nss .section-content {
-    grid-template-columns: minmax(0, 1fr);
+    display: flex;
+    flex-direction: column-reverse;
     gap: 48px;
   }
 }
